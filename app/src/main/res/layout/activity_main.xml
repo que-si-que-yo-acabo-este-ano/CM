@@ -73,6 +73,26 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView" app:layout_constraintVertical_bias="0.89"/>
+    <TextView
+            android:text="Save +5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@id/guideline3" app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@id/view1" app:layout_constraintVertical_bias="0.05"
+            android:layout_marginStart="8dp"/>
+    <TextView
+            android:text="Athletics +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView31"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/view1"
+            app:layout_constraintVertical_bias="0.35"/>
+
+
 
 
 
@@ -115,16 +135,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView2" app:layout_constraintVertical_bias="0.07"/>
     <TextView
-            android:text="16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.89"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"/>
-    <TextView
             android:text="+3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,6 +145,56 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.35"/>
+    <TextView
+            android:text="16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView10"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.89"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"/>
+    <TextView
+            android:text="Save +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView26"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintBottom_toTopOf="@id/view2"
+            app:layout_constraintVertical_bias="0.05"/>
+    <TextView
+            android:text="Acrobatics +5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView32"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintBottom_toTopOf="@id/view2"
+            app:layout_constraintVertical_bias="0.35"/>
+    <TextView
+            android:text="Sleight of Hand +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView33"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintBottom_toTopOf="@id/view2"
+            app:layout_constraintVertical_bias="0.55"/>
+    <TextView
+            android:text="Stealth +5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView34"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintBottom_toTopOf="@id/view2"
+            app:layout_constraintVertical_bias="0.75"/>
 
 
 
@@ -197,6 +257,14 @@
             app:layout_constraintTop_toTopOf="@+id/imageView3" android:layout_marginBottom="8dp"
             app:layout_constraintVertical_bias="0.9"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"/>
+    <TextView
+            android:text="Save +5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView28"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toBottomOf="@id/view2"
+            android:layout_marginTop="8dp"/>
 
 
 
@@ -259,6 +327,56 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView4" app:layout_constraintStart_toStartOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView4" app:layout_constraintVertical_bias="0.9"
             android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+    <TextView
+            android:text="Save +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView27"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            app:layout_constraintBottom_toTopOf="@id/view4"
+            app:layout_constraintVertical_bias="0.05"/>
+    <TextView
+            android:text="Arcana +5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView35"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            app:layout_constraintBottom_toTopOf="@id/view4"
+            app:layout_constraintVertical_bias="0.35"/>
+    <TextView
+            android:text="History +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView36"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            app:layout_constraintBottom_toTopOf="@id/view4"
+            app:layout_constraintVertical_bias="0.55"/>
+    <TextView
+            android:text="Investigation +5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView37"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            app:layout_constraintBottom_toTopOf="@id/view4"
+            app:layout_constraintVertical_bias="0.75"/>
+    <TextView
+            android:text="Nature +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView38"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            app:layout_constraintBottom_toTopOf="@id/view4"
+            app:layout_constraintVertical_bias="0.95"/>
 
 
 
@@ -320,6 +438,66 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView5" app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" app:layout_constraintVertical_bias="0.9"
             android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+    <TextView
+            android:text="Save +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView30"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/view5"
+            app:layout_constraintVertical_bias="0.05"/>
+    <TextView
+            android:text="Animal handling +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView39"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/view5"
+            app:layout_constraintVertical_bias="0.25"/>
+    <TextView
+            android:text="Insight +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView40"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/view5"
+            app:layout_constraintVertical_bias="0.43"/>
+    <TextView
+            android:text="Medicine +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView41"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/view5"
+            app:layout_constraintVertical_bias="0.61"/>
+    <TextView
+            android:text="Perception +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView42"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/view5"
+            app:layout_constraintVertical_bias="0.79"/>
+    <TextView
+            android:text="Survival +3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView43"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/view5"
+            app:layout_constraintVertical_bias="0.97"/>
 
 
 
@@ -380,94 +558,63 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
             app:layout_constraintEnd_toEndOf="@+id/imageView6" app:layout_constraintVertical_bias="0.9"
             android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <TextView
-            android:text="Save +5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView25" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/imageView" app:layout_constraintStart_toEndOf="@+id/imageView"
-            android:layout_marginStart="8dp"/>
-    <TextView
-            android:text="Save +3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView26" app:layout_constraintStart_toEndOf="@+id/imageView2"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/imageView2"
-            android:layout_marginTop="8dp"/>
-    <TextView
-            android:text="Save +3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView27"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/imageView4"
-            android:layout_marginTop="8dp"/>
-    <TextView
-            android:text="Save +5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView28"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/imageView3"
-            android:layout_marginTop="8dp"/>
     <TextView
             android:text="Save +3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView29"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/imageView6"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view5"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintVertical_bias="0.05"/>
     <TextView
-            android:text="Save +3"
+            android:text="Deception +5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView30"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/imageView5"
-            android:layout_marginTop="8dp"/>
+            android:id="@+id/textView44"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view5"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintVertical_bias="0.35"/>
     <TextView
-            android:text="Athletics +3"
+            android:text="Intimidation +3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView31" app:layout_constraintStart_toEndOf="@+id/imageView"
-            android:layout_marginStart="8dp" android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView25"/>
+            android:id="@+id/textView45"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view5"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintVertical_bias="0.55"/>
     <TextView
-            android:text="Acrobatics +5"
+            android:text="Performance +5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView32" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" app:layout_constraintStart_toEndOf="@+id/imageView2"
-            android:layout_marginStart="8dp"/>
+            android:id="@+id/textView46"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view5"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintVertical_bias="0.75"/>
     <TextView
-            android:text="Sleight of Hand +3"
+            android:text="Persuasion +3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView33"
-            app:layout_constraintTop_toBottomOf="@+id/textView32" app:layout_constraintStart_toEndOf="@+id/imageView2"
-            android:layout_marginStart="8dp" android:layout_marginTop="4dp"/>
-    <TextView
-            android:text="Stealth +5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView34" android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView33" app:layout_constraintStart_toEndOf="@+id/imageView2"
-            android:layout_marginStart="8dp"/>
+            android:id="@+id/textView47"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/view5"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintVertical_bias="0.95"/>
+
+
+
+
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>
