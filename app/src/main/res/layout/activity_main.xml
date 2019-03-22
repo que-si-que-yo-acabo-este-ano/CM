@@ -73,7 +73,8 @@
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" app:layout_constraintVertical_bias="0.89"/>
+            app:layout_constraintTop_toTopOf="@+id/imageView" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
     <TextView
             android:text="Save +5"
             android:layout_width="wrap_content"
@@ -146,16 +147,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.35"/>
-    <TextView
-            android:text="16"
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView10"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editText3"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.89"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
     <TextView
             android:text="Save +3"
             android:layout_width="wrap_content"
