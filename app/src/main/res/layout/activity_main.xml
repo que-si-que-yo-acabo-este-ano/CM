@@ -249,17 +249,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.35"/>
-    <TextView
-            android:text="16"
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView11"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editText4"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" android:layout_marginBottom="8dp"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
     <TextView
             android:text="Save +5"
             android:layout_width="wrap_content"
@@ -321,15 +321,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.35"/>
-    <TextView
-            android:text="16"
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView12"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editText5"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-            app:layout_constraintEnd_toEndOf="@+id/imageView4" app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/imageView4" app:layout_constraintVertical_bias="0.9"
-            android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+            app:layout_constraintTop_toTopOf="@+id/imageView4" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
     <TextView
             android:text="Save +3"
             android:layout_width="wrap_content"
@@ -432,15 +434,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.35"/>
-    <TextView
-            android:text="16"
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView13"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editText6"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5" app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" app:layout_constraintVertical_bias="0.9"
-            android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+            app:layout_constraintTop_toTopOf="@+id/imageView5" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
     <TextView
             android:text="Save +3"
             android:layout_width="wrap_content"
@@ -552,15 +556,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
             android:textSize="24sp"
             app:layout_constraintVertical_bias="0.35"/>
-    <TextView
-            android:text="16"
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView14"
-            app:layout_constraintTop_toTopOf="@+id/imageView6" app:layout_constraintStart_toStartOf="@+id/imageView6"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editText7"
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-            app:layout_constraintEnd_toEndOf="@+id/imageView6" app:layout_constraintVertical_bias="0.9"
-            android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+            app:layout_constraintTop_toTopOf="@+id/imageView6" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
     <TextView
             android:text="Save +3"
             android:layout_width="wrap_content"
@@ -613,6 +619,16 @@
             app:layout_constraintVertical_bias="0.95"/>
 
 
+
+
+
+    <Button
+            android:text="Spells"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/guideline3"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/view1"/>
 
 
 </android.support.constraint.ConstraintLayout>
