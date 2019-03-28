@@ -60,6 +60,8 @@ class Main2Activity : AppCompatActivity() {
         val textViewPrueba = TextView(this)
         val paramsPrueba : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
 
+        val descLay = LinearLayout(this)
+
         paramsPrueba.setMargins(50,20,50,0)
         textViewPrueba.layoutParams = paramsPrueba
 
@@ -69,7 +71,23 @@ class Main2Activity : AppCompatActivity() {
         textViewPrueba.setPadding(30,10,0,10)
         textViewPrueba.setBackgroundColor(Color.YELLOW)
 
-        linLay.addView(textViewPrueba, linLay.indexOfChild(tx)+1)
+        descLay.addView(textViewPrueba)
+        descLay.setBackgroundColor(Color.RED)
+
+        val to_add = layoutInflater.inflate(R.layout.activity_main2,descLay)
+        to_add.setTag("prueba" + tx.text.toString())
+        val prueba = linLay.findViewWithTag<View>("prueba" + tx.text.toString())
+        if(prueba == null){
+            linLay.addView(to_add, linLay.indexOfChild(tx)+1)
+        }else{
+            //linLay.removeViewInLayout(prueba)
+            linLay.removeViewAt(linLay.indexOfChild(prueba))
+        }
+
+
+
+
+
 
     }
 
