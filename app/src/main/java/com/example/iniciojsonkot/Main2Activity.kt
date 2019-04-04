@@ -6,9 +6,14 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main2.*
 import android.widget.*
+import com.beust.klaxon.JsonObject
+import com.example.iniciojsonkot.Global.Companion.basicitems
+import com.example.iniciojsonkot.Global.Companion.items
+import com.example.iniciojsonkot.Global.Companion.spells
 
 
 class Main2Activity : AppCompatActivity() {
+    var global = Global()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,29 +106,41 @@ class Main2Activity : AppCompatActivity() {
 
         button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                val spellsSorted = spellsToShow.toList()
+                val spellsSorted = spellsToShow.toList().sorted()
+                val spellsRequested = searchSpellsByLevels(spellsSorted)
                 linLay.removeAllViewsInLayout()
-                for (i in spellsSorted.sorted()) {
+                for (i in spellsRequested.keys) {
                     val textView = TextView(v.context)
-
                     val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    textView.tag = spellsSorted.indexOf(i)
-                    textView.text = "Spell of level " + i
+                    val spellsOfMap = spellsRequested[i]!!
+                    textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
                     textView.setBackgroundColor(Color.GREEN)
-
-                    textView.setOnClickListener(object : View.OnClickListener{
-                        override fun onClick(v: View) {
-                            prueba(textView)
-                        }
-                    })
-
                     linLay.addView(textView)
+
+                    for (spell in spellsOfMap){
+                        val spellView = TextView(v.context)
+                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                        spellParams.setMargins(50,20,50,0)
+                        spellView.layoutParams = spellParams
+                        spellView.text = spell
+                        spellView.textSize = 25f
+                        spellView.setPadding(30,10,0,10)
+                        spellView.setBackgroundColor(Color.MAGENTA)
+
+                        spellView.setOnClickListener(object : View.OnClickListener{
+                            override fun onClick(v: View) {
+                                prueba(spellView)
+                            }
+                        })
+
+                        linLay.addView(spellView)
+                    }
+
                 }
             }
         })
@@ -136,12 +153,14 @@ class Main2Activity : AppCompatActivity() {
         descLay.setBackgroundColor(Color.CYAN)
         descLay.orientation = LinearLayout.VERTICAL
 
+        val spellCode = searchSpell(tx.text.toString())
+
         val paramsPrueba : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsPrueba.setMargins(60,20,20,20)
 
         val textViewPrueba = TextView(this)
         textViewPrueba.layoutParams = paramsPrueba
-        textViewPrueba.text = "Casting time:\n 1 action"
+        textViewPrueba.text = "Casting time:\n" + searchCastingTimeFromSpell(spellCode)
         textViewPrueba.textSize = 16f
         textViewPrueba.setPadding(30,10,10,10)
         textViewPrueba.setBackgroundColor(Color.LTGRAY)
@@ -161,7 +180,7 @@ class Main2Activity : AppCompatActivity() {
 
         val textViewPrueba3 = TextView(this)
         textViewPrueba3.layoutParams = paramsPrueba3
-        textViewPrueba3.text = "Components:\n V,S,M"
+        textViewPrueba3.text = "Components:\n" + searchComponentsFromSpell(spellCode)
         textViewPrueba3.textSize = 16f
         textViewPrueba3.setPadding(30,10,10,10)
         textViewPrueba3.setBackgroundColor(Color.LTGRAY)
@@ -214,5 +233,70 @@ class Main2Activity : AppCompatActivity() {
 
 
     }
+
+
+
+    fun searchSpell(spell: String): List<JsonObject>{
+        val res = spells.array<JsonObject>("spell")!!.filter {
+            it.string("name") == spell
+        }
+        return res
+    }
+
+    fun searchComponentsFromSpell(spell: List<JsonObject>): String{
+        val res = spell.map {
+            it.obj("components")
+        }
+
+        return res[0]!!.toString()
+    }
+
+    fun searchMaterialFromComponents(spell:List<JsonObject>): String{
+        val res = spell.map {
+            it.obj("components")!!.string("m")
+        }
+
+        return res[0]!!.toString()
+    }
+
+    fun searchLevelFromSpell(spell: List<JsonObject>):String{
+        val res = spell.map{
+            it.int("level")
+        }
+
+        return res[0]!!.toString()
+    }
+
+    fun searchSpellsByLevel(level: Int): List<String?>{
+        val res = spells.array<JsonObject>("spell")!!.filter {
+            it.int("level") == level
+        }.map {
+            it.string("name")
+        }
+
+        return res
+    }
+
+    fun searchSpellsByLevels(levels: List<Int>): Map<Int,List<String?>>{
+        val mutableRes :MutableMap<Int,List<String?>>  = mutableMapOf()
+        for(level in levels){
+            mutableRes[level] = searchSpellsByLevel(level)
+        }
+        val res : Map<Int,List<String?>> = mutableRes
+        return res
+    }
+
+    fun searchCastingTimeFromSpell(spell: List<JsonObject>):String{
+        val time = spell.map {
+            it.array<JsonObject>("time")
+        }.get(0)
+        val res = time!!.map{
+            it!!.int("number").toString() + " " + it.string("unit")
+        }
+
+        return res[0]!!.toString()
+    }
+
+
 
 }
