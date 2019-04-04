@@ -6,13 +6,11 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 import java.nio.charset.Charset
 import android.view.ViewGroup
-import android.widget.ScrollView
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 
@@ -20,20 +18,98 @@ class Main2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)/*
-        val scrollable = ScrollView(this)
-        val scrollParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-        scrollable.layoutParams = scrollParams
-        scrollable.addView(linLay)*/
+        setContentView(R.layout.activity_main2)
+        val spellsToShow : MutableSet<Int> = mutableSetOf()
+
+        val cantrips = findViewById<ToggleButton>(R.id.cantrips)
+        cantrips?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(0)
+            }else{
+                spellsToShow.remove(0)
+            }
+        }
+        val spellsLvl1 = findViewById<ToggleButton>(R.id.spellsLvl1)
+        spellsLvl1?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(1)
+            }else{
+                spellsToShow.remove(1)
+            }
+        }
+        val spellsLvl2 = findViewById<ToggleButton>(R.id.spellsLvl2)
+        spellsLvl2?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(2)
+            }else{
+                spellsToShow.remove(2)
+            }
+        }
+        val spellsLvl3 = findViewById<ToggleButton>(R.id.spellsLvl3)
+        spellsLvl3?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(3)
+            }else{
+                spellsToShow.remove(3)
+            }
+        }
+        val spellsLvl4 = findViewById<ToggleButton>(R.id.spellsLvl4)
+        spellsLvl4?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(4)
+            }else{
+                spellsToShow.remove(4)
+            }
+        }
+        val spellsLvl5 = findViewById<ToggleButton>(R.id.spellsLvl5)
+        spellsLvl5?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(5)
+            }else{
+                spellsToShow.remove(5)
+            }
+        }
+        val spellsLvl6 = findViewById<ToggleButton>(R.id.spellsLvl6)
+        spellsLvl6?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(6)
+            }else{
+                spellsToShow.remove(6)
+            }
+        }
+        val spellsLvl7 = findViewById<ToggleButton>(R.id.spellsLvl7)
+        spellsLvl7?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(7)
+            }else{
+                spellsToShow.remove(7)
+            }
+        }
+        val spellsLvl8 = findViewById<ToggleButton>(R.id.spellsLvl8)
+        spellsLvl8?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(8)
+            }else{
+                spellsToShow.remove(8)
+            }
+        }
+        val spellsLvl9 = findViewById<ToggleButton>(R.id.spellsLvl9)
+        spellsLvl9?.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked){
+                spellsToShow.add(9)
+            }else{
+                spellsToShow.remove(9)
+            }
+        }
 
 
-        val textArray = arrayOf("One", "Two", "Three", "Four")
 
 
         button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+                val spellsSorted = spellsToShow.toList()
                 linLay.removeAllViewsInLayout()
-                for (i in textArray.indices) {
+                for (i in spellsSorted.sorted()) {
                     val textView = TextView(v.context)
 
                     val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -41,8 +117,8 @@ class Main2Activity : AppCompatActivity() {
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    textView.tag = textArray[i]
-                    textView.text = textArray[i]
+                    textView.tag = spellsSorted.indexOf(i)
+                    textView.text = "Spell of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
                     textView.setBackgroundColor(Color.GREEN)
@@ -127,13 +203,10 @@ class Main2Activity : AppCompatActivity() {
 
 
 
-//        val addToVertical = layoutInflater.inflate(R.layout.empty, horizLay)
         descLay.addView(horizLay)
         descLay.addView(textViewDescription)
 
 
-/*        val to_add = layoutInflater.inflate(R.layout.empty,descLay)
-        to_add.setTag("prueba" + tx.text.toString()) */
         descLay.setTag("prueba" + tx.text.toString())
         val prueba = linLay.findViewWithTag<View>("prueba" + tx.text.toString())
 
