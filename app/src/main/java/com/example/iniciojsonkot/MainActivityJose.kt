@@ -38,11 +38,12 @@ class MainActivityJose : AppCompatActivity() {
             }
 
             //test
-            println(searchLevelFromSpell(spell))
-            println(searchSpellsByLevel(0))
-            println(searchCastingTimeFromSpell(spell))
+            //println(searchLevelFromSpell(spell))
+            //println(searchSpellsByLevel(0))
+            //println(searchCastingTimeFromSpell(spell))
+            println(searchDescriptionFromSpell(spell))
             val levels : List<Int>  = listOf(0,1,2)
-            println(searchSpellsByLevels(levels))
+            //println(searchSpellsByLevels(levels))
 
             intent.putExtra("components",components)
             startActivity(intent)
@@ -150,6 +151,19 @@ class MainActivityJose : AppCompatActivity() {
         }
 
         return res[0]!!.toString()
+    }
+
+    fun searchDescriptionFromSpell(spell: List<JsonObject>):String{
+        val description = spell.map{
+            it.array<String>("entries")
+        }
+        var entries: String = ""
+
+        for(entry in description.get(0)!!.listIterator()){
+            //entries += entry
+            entries += "\n" + entry
+        }
+        return entries
     }
 
 

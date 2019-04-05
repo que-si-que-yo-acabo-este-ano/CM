@@ -209,7 +209,7 @@ class Main2Activity : AppCompatActivity() {
 
         val textViewDescription = TextView(this)
         textViewDescription.layoutParams = paramsDesc
-        textViewDescription.text = "You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.This spell's damage increases by 1d6 when you reach 5th Level (2d6), 11th level (3d6) and 17th level (4d6)."
+        textViewDescription.text = searchDescriptionFromSpell(spellCode)
         textViewDescription.textSize = 16f
         textViewDescription.setPadding(30,10,10,10)
         textViewDescription.setBackgroundColor(Color.WHITE)
@@ -295,6 +295,19 @@ class Main2Activity : AppCompatActivity() {
         }
 
         return res[0]!!.toString()
+    }
+
+    fun searchDescriptionFromSpell(spell: List<JsonObject>):String{
+        val description = spell.map{
+            it.array<String>("entries")
+        }
+        var entries: String = ""
+
+        for(entry in description.get(0)!!.listIterator()){
+            //entries += entry
+            entries += "\n" + entry
+        }
+        return entries
     }
 
 
