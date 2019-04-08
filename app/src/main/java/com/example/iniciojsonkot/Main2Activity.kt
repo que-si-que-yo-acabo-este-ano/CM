@@ -211,7 +211,7 @@ class Main2Activity : AppCompatActivity() {
         descriptionTV.setPadding(30,10,10,10)
         descriptionTV.setBackgroundColor(Color.WHITE)
 
-        
+
         descLay.addView(horizLay)
         descLay.addView(horizLay2)
         descLay.addView(descriptionTV)
