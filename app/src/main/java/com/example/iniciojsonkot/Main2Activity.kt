@@ -158,66 +158,66 @@ class Main2Activity : AppCompatActivity() {
         val paramsPrueba : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsPrueba.setMargins(60,20,20,20)
 
-        val textViewPrueba = TextView(this)
-        textViewPrueba.layoutParams = paramsPrueba
-        textViewPrueba.text = "Casting time:\n" + searchCastingTimeFromSpell(spellCode)
-        textViewPrueba.textSize = 16f
-        textViewPrueba.setPadding(30,10,10,10)
-        textViewPrueba.setBackgroundColor(Color.LTGRAY)
+        val castingTimeTV = TextView(this)
+        castingTimeTV.layoutParams = paramsPrueba
+        castingTimeTV.text = "Casting time:\n" + searchCastingTimeFromSpell(spellCode)
+        castingTimeTV.textSize = 16f
+        castingTimeTV.setPadding(30,10,10,10)
+        castingTimeTV.setBackgroundColor(Color.LTGRAY)
 
-        val paramsPrueba2 : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        paramsPrueba2.setMargins(20,20,20,20)
+//        val paramsPrueba2 : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+//        paramsPrueba2.setMargins(20,20,20,20)
 
-        val textViewPrueba2 = TextView(this)
-        textViewPrueba2.layoutParams = paramsPrueba2
-        textViewPrueba2.text = "Range:\n60 feet"
-        textViewPrueba2.textSize = 16f
-        textViewPrueba2.setPadding(30,10,10,10)
-        textViewPrueba2.setBackgroundColor(Color.LTGRAY)
+        val rangeTextView = TextView(this)
+        rangeTextView.layoutParams = paramsPrueba
+        rangeTextView.text = "Range:\n60 feet"
+        rangeTextView.textSize = 16f
+        rangeTextView.setPadding(30,10,10,10)
+        rangeTextView.setBackgroundColor(Color.LTGRAY)
 
-        val paramsPrueba3 : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        paramsPrueba3.setMargins(20,20,20,20)
+//        val paramsPrueba3 : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+//        paramsPrueba3.setMargins(20,20,20,20)
 
-        val textViewPrueba3 = TextView(this)
-        textViewPrueba3.layoutParams = paramsPrueba3
-        textViewPrueba3.text = "Components:\n" + searchComponentsFromSpell(spellCode)
-        textViewPrueba3.textSize = 16f
-        textViewPrueba3.setPadding(30,10,10,10)
-        textViewPrueba3.setBackgroundColor(Color.LTGRAY)
+        val componentsTV = TextView(this)
+        componentsTV.layoutParams = paramsPrueba
+        componentsTV.text = "Components:\n" + searchComponentsFromSpell(spellCode)
+        componentsTV.textSize = 16f
+        componentsTV.setPadding(30,10,10,10)
+        componentsTV.setBackgroundColor(Color.LTGRAY)
 
-        val paramsPrueba4 : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        paramsPrueba4.setMargins(20,20,20,20)
+//        val paramsPrueba4 : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+//        paramsPrueba4.setMargins(20,20,20,20)
 
-        val textViewPrueba4 = TextView(this)
-        textViewPrueba4.layoutParams = paramsPrueba4
-        textViewPrueba4.text = "Duration:\ninstantaneous"
-        textViewPrueba4.textSize = 16f
-        textViewPrueba4.setPadding(30,10,10,10)
-        textViewPrueba4.setBackgroundColor(Color.LTGRAY)
+        val durationTV = TextView(this)
+        durationTV.layoutParams = paramsPrueba
+        durationTV.text = "Duration:\ninstantaneous"
+        durationTV.textSize = 16f
+        durationTV.setPadding(30,10,10,10)
+        durationTV.setBackgroundColor(Color.LTGRAY)
 
 
         val horizLay = LinearLayout(this)
         horizLay.orientation = LinearLayout.HORIZONTAL
-        horizLay.addView(textViewPrueba)
-        horizLay.addView(textViewPrueba2)
-        horizLay.addView(textViewPrueba3)
-        horizLay.addView(textViewPrueba4)
+        horizLay.addView(castingTimeTV)
+        horizLay.addView(rangeTextView)
+        horizLay.addView(componentsTV)
+        horizLay.addView(durationTV)
 
 
         val paramsDesc : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsDesc.setMargins(50,15,50,30)
 
-        val textViewDescription = TextView(this)
-        textViewDescription.layoutParams = paramsDesc
-        textViewDescription.text = searchDescriptionFromSpell(spellCode)
-        textViewDescription.textSize = 16f
-        textViewDescription.setPadding(30,10,10,10)
-        textViewDescription.setBackgroundColor(Color.WHITE)
+        val descriptionTV = TextView(this)
+        descriptionTV.layoutParams = paramsDesc
+        descriptionTV.text = searchDescriptionFromSpell(spellCode)
+        descriptionTV.textSize = 16f
+        descriptionTV.setPadding(30,10,10,10)
+        descriptionTV.setBackgroundColor(Color.WHITE)
 
 
 
         descLay.addView(horizLay)
-        descLay.addView(textViewDescription)
+        descLay.addView(descriptionTV)
 
 
         descLay.setTag("prueba" + tx.text.toString())
@@ -228,8 +228,6 @@ class Main2Activity : AppCompatActivity() {
         }else{
             linLay.removeViewAt(linLay.indexOfChild(prueba))
         }
-
-
 
 
     }
