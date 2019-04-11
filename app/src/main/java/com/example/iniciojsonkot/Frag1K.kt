@@ -10,7 +10,7 @@ import com.example.iniciojsonkot.R
 class Frag1K : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.frag1_layout, container, false)
+        return inflater.inflate(R.layout.stats_and_saves, container, false)
     }
 
 
