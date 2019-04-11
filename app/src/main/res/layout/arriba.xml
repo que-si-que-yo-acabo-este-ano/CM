@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--android.support.constraint.ConstraintLayout-->
+
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_material_light"
+        tools:context=".MainFragmentsActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent">
+
+            <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="107dp"
+                    android:layout_height="111dp"
+                    tools:srcCompat="@tools:sample/avatars"/>
+
+            <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toEndOf="@+id/imageView3"
+                    android:text="Nombre"/>
+
+            <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="41dp"
+                    android:layout_toEndOf="@+id/imageView3"
+                    android:text="TextView"
+                    tools:text="Clase"/>
+
+            <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toEndOf="@+id/imageView3"
+                    android:text="HP"/>
+
+            <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="243dp"
+                    android:layout_marginTop="38dp"
+                    android:layout_toEndOf="@+id/imageView3"
+                    android:text="40/40"
+                    android:textAlignment="center"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

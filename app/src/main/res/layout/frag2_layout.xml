@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/holo_blue_light">
+
+
+
+
+
+    <Button
+            android:text="Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"/>
+    <ToggleButton
+            android:text="0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantrips" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="1dp" app:layout_constraintTop_toTopOf="parent"
+            android:textOn="0" android:textOff="0"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"/>
+    <ToggleButton
+            android:text="5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl5"
+            app:layout_constraintTop_toBottomOf="@+id/cantrips" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="1dp" android:textOff="5" android:textOn="5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+    />
+    <ToggleButton
+            android:text="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl1" android:layout_marginTop="1dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5" android:textOff="1" android:textOn="1"/>
+    <ToggleButton
+            android:text="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl2"
+            android:layout_marginTop="1dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline6" app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            android:textOff="2" android:textOn="2"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline4"
+            app:layout_constraintGuide_percent="0.7"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline5"
+            app:layout_constraintGuide_percent="0.14"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline6"
+            app:layout_constraintGuide_percent="0.28"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline7"
+            app:layout_constraintGuide_percent="0.42"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline8"
+            app:layout_constraintGuide_percent="0.56"/>
+    <ToggleButton
+            android:text="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl3" app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            android:layout_marginTop="1dp" app:layout_constraintTop_toTopOf="parent" android:textOff="3"
+            android:textOn="3"/>
+    <ToggleButton
+            android:text="4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl4" android:layout_marginTop="1dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            android:textOff="4" android:textOn="4"/>
+    <ToggleButton
+            android:text="6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl6" app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/spellsLvl1" android:textOff="6" android:textOn="6"
+    />
+    <ToggleButton
+            android:text="7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl7"
+            app:layout_constraintTop_toBottomOf="@+id/spellsLvl2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/guideline6" android:textOff="7" android:textOn="7"
+    />
+    <ToggleButton
+            android:text="8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl8"
+            app:layout_constraintTop_toBottomOf="@+id/spellsLvl3"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8" android:textOff="8" android:textOn="8"
+    />
+    <ToggleButton
+            android:text="9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spellsLvl9" app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/spellsLvl4" android:textOff="9" android:textOn="9"
+    />
+    <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/scrollView2"
+            app:layout_constraintTop_toBottomOf="@+id/spellsLvl5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
+        <LinearLayout
+                android:id="@+id/linLay"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="parent" android:scrollbars="vertical"
+                app:layout_constraintBottom_toBottomOf="parent">
+        </LinearLayout>
+    </ScrollView>
+
+
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline10" app:layout_constraintGuide_percent="0.13"/>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

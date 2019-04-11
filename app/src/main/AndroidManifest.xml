@@ -12,14 +12,24 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main2Activity">
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity android:name=".MainActivityJose">
+        </activity>
+        <activity android:name=".SpellView"></activity>
+        <activity
+                android:name=".MainFragmentsActivity"
+                android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SpellView"></activity>
     </application>
 
 </manifest>
