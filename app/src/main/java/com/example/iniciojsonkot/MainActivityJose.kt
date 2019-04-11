@@ -87,8 +87,7 @@ class MainActivityJose : AppCompatActivity() {
     }
 
     //TODO
-    // searchDescriptionFromSpell
-    // searchCastingTimeFromSpell
+
     // searchDurationFromSpell
     // searchRitualFromSpell
 
