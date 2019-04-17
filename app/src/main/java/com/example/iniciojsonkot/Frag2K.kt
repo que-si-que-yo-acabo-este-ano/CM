@@ -1,5 +1,6 @@
 package com.example.iniciojsonkot
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -102,6 +103,13 @@ class Frag2K : Fragment() {
                 spellsToShow.remove(9)
             }
         }
+
+        viewOfLayout.buttonSelect.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                val changeSpellsIntent = Intent(context, Main2Activity::class.java)
+                startActivity(changeSpellsIntent)
+            }
+        })
 
 
         viewOfLayout.button2.setOnClickListener(object : View.OnClickListener {

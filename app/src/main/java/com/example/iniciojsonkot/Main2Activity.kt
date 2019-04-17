@@ -1,5 +1,6 @@
 package com.example.iniciojsonkot
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import com.beust.klaxon.JsonObject
 import com.example.iniciojsonkot.Global.Companion.basicitems
 import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
+import kotlinx.android.synthetic.main.frag2_layout.view.*
 
 
 class Main2Activity : AppCompatActivity() {
@@ -101,7 +103,11 @@ class Main2Activity : AppCompatActivity() {
             }
         }
 
-
+        buttonSelect.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                finish()
+            }
+        })
 
 
         button2.setOnClickListener(object : View.OnClickListener {
