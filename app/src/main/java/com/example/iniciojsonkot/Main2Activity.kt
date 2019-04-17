@@ -1,5 +1,6 @@
 package com.example.iniciojsonkot
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.example.iniciojsonkot.Global.Companion.basicitems
 import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
 import kotlinx.android.synthetic.main.frag2_layout.view.*
+import kotlinx.android.synthetic.main.spell_view.*
 
 
 class Main2Activity : AppCompatActivity() {
@@ -21,6 +23,7 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val spellsToShow : MutableSet<Int> = mutableSetOf()
+        val spellsSelected : MutableSet<String> = mutableSetOf()
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
@@ -129,8 +132,12 @@ class Main2Activity : AppCompatActivity() {
                     linLay.addView(textView)
 
                     for (spell in spellsOfMap){
+                        val horizLay = LinearLayout(this@Main2Activity)
+                        horizLay.orientation = LinearLayout.HORIZONTAL
+                        horizLay.setBackgroundColor(Color.MAGENTA)
+
                         val spellView = TextView(v.context)
-                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                         spellParams.setMargins(50,20,50,0)
                         spellView.layoutParams = spellParams
                         spellView.text = spell
@@ -140,11 +147,38 @@ class Main2Activity : AppCompatActivity() {
 
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
-                                prueba(spellView)
+                                val descLayout = prueba(spellView)
+                                //TODO Sacar el añadir la descripción y tal aquí para que no pete
+
+
+
+                                descLayout.setTag("prueba" + spellView.text.toString())
+                                val prueba = linLay.findViewWithTag<View>("prueba" + spellView.text.toString())
+
+                                if(prueba == null){
+                                    linLay.addView(descLayout, linLay.indexOfChild(horizLay)+1)
+                                }else{
+                                    linLay.removeViewAt(linLay.indexOfChild(prueba))
+                                }
                             }
                         })
 
-                        linLay.addView(spellView)
+                        val spellSelectToggle = ToggleButton(this@Main2Activity)
+                        spellSelectToggle.text = spell
+                        spellSelectToggle.textOff = "No"
+                        spellSelectToggle.textOn = "Yes"
+                        spellSelectToggle?.setOnCheckedChangeListener {_, isChecked ->
+                            if(isChecked){
+                                spellsSelected.add(spellSelectToggle.text.toString())
+                            }else{
+                                spellsSelected.remove(spellSelectToggle.text.toString())
+                            }
+                        }
+
+                        horizLay.addView(spellView)
+                        horizLay.addView(spellSelectToggle)
+
+                        linLay.addView(horizLay)
                     }
 
                 }
@@ -154,7 +188,7 @@ class Main2Activity : AppCompatActivity() {
 
     }
 
-    fun prueba(tx:TextView){
+    fun prueba(tx:TextView):LinearLayout{
         val descLay = LinearLayout(this)
         descLay.setBackgroundColor(Color.CYAN)
         descLay.orientation = LinearLayout.VERTICAL
@@ -222,17 +256,7 @@ class Main2Activity : AppCompatActivity() {
         descLay.addView(horizLay2)
         descLay.addView(descriptionTV)
 
-
-        descLay.setTag("prueba" + tx.text.toString())
-        val prueba = linLay.findViewWithTag<View>("prueba" + tx.text.toString())
-
-        if(prueba == null){
-            linLay.addView(descLay, linLay.indexOfChild(tx)+1)
-        }else{
-            linLay.removeViewAt(linLay.indexOfChild(prueba))
-        }
-
-
+        return descLay
     }
 
 
