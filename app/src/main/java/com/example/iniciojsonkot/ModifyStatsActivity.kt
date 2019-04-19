@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.modify_stats_layout.*
 import kotlin.math.floor
 import android.content.Intent
 import android.os.AsyncTask
@@ -25,7 +25,7 @@ class ModifyStatsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.modify_stats_layout)
         //Carga de datos
         loadDataFromGit()
 

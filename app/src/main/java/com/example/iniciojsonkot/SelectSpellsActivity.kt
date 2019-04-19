@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.select_spells_layout.*
 import android.widget.*
 import com.beust.klaxon.JsonObject
 import com.example.iniciojsonkot.Global.Companion.spells
@@ -15,7 +15,7 @@ class SelectSpellsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.select_spells_layout)
         val spellsToShow : MutableSet<Int> = mutableSetOf()
         val spellsSelected : MutableSet<String> = mutableSetOf()
 

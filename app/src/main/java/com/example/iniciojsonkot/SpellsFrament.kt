@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.beust.klaxon.JsonObject
-import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.frag2_layout.view.*
+import kotlinx.android.synthetic.main.select_spells_layout.*
+import kotlinx.android.synthetic.main.spells_fragment_layout.view.*
 
 //import kotlinx.android.synthetic.main.fragment_your_fragment_name.view.*
 
@@ -21,7 +21,7 @@ class SpellsFrament : Fragment() {
     var global = Global()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewOfLayout = inflater!!.inflate(R.layout.frag2_layout, container, false)
+        viewOfLayout = inflater!!.inflate(R.layout.spells_fragment_layout, container, false)
         viewOfLayout.cantrips.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(0)
@@ -151,7 +151,7 @@ class SpellsFrament : Fragment() {
             }
         })
 
-        //return inflater.inflate(R.layout.frag2_layout, container, false)
+        //return inflater.inflate(R.layout.spells_fragment_layout, container, false)
         return viewOfLayout
     }
 

@@ -12,7 +12,7 @@ import com.example.iniciojsonkot.Global.Companion.basicitems
 import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
 
-import kotlinx.android.synthetic.main.activity_main_fragments.*
+import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.StringBuilder
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_fragments)
+        setContentView(R.layout.activity_main)
         loadDataFromGit()
 
         setSupportActionBar(toolbar)
