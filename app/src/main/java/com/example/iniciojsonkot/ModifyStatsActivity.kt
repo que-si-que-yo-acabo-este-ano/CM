@@ -10,6 +10,7 @@ import kotlin.math.floor
 import android.content.Intent
 import android.os.AsyncTask
 import android.view.View
+import android.widget.TextView
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import java.io.BufferedReader
@@ -19,6 +20,8 @@ import java.net.URL
 import com.example.iniciojsonkot.Global.Companion.basicitems
 import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
+import kotlinx.android.synthetic.main.stats_saves_resistances.*
+import kotlinx.android.synthetic.main.stats_saves_resistances.view.*
 
 
 class ModifyStatsActivity : AppCompatActivity() {
@@ -26,12 +29,18 @@ class ModifyStatsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.modify_stats_layout)
-        //Carga de datos
-        loadDataFromGit()
+
+
+        editStr.setText(Character.strength.toString())
+        editDex.setText(Character.dexterity.toString())
+        editCon.setText(Character.constitution.toString())
+        editInt.setText(Character.intelligence.toString())
+        editWis.setText(Character.wisdom.toString())
+        editCha.setText(Character.charisma.toString())
 
 
 
-        editText2.addTextChangedListener(
+        editStr.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -57,7 +66,7 @@ class ModifyStatsActivity : AppCompatActivity() {
                 }
             })
 
-        editText3.addTextChangedListener(
+        editDex.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -83,7 +92,7 @@ class ModifyStatsActivity : AppCompatActivity() {
                 }
             })
 
-        editText4.addTextChangedListener(
+        editCon.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -109,7 +118,7 @@ class ModifyStatsActivity : AppCompatActivity() {
                 }
             })
 
-        editText5.addTextChangedListener(
+        editInt.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -135,7 +144,7 @@ class ModifyStatsActivity : AppCompatActivity() {
                 }
             })
 
-        editText6.addTextChangedListener(
+        editWis.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -161,7 +170,7 @@ class ModifyStatsActivity : AppCompatActivity() {
                 }
             })
 
-        editText7.addTextChangedListener(
+        editCha.addTextChangedListener(
             object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -190,7 +199,14 @@ class ModifyStatsActivity : AppCompatActivity() {
 
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                startActivity(Intent(this@ModifyStatsActivity, SelectSpellsActivity::class.java))
+                Character.strength = Integer.parseInt(editStr.text.toString())
+                Character.dexterity = Integer.parseInt(editDex.text.toString())
+                Character.constitution = Integer.parseInt(editCon.text.toString())
+                Character.intelligence = Integer.parseInt(editInt.text.toString())
+                Character.wisdom = Integer.parseInt(editWis.text.toString())
+                Character.charisma = Integer.parseInt(editCha.text.toString())
+
+                finish()
             }
         })
 
@@ -204,43 +220,6 @@ class ModifyStatsActivity : AppCompatActivity() {
 
     fun calcMod(x: Int): String{
         return floor((x.toDouble()-10)/2).toString()
-    }
-
-
-    class DownloadGit : AsyncTask<String, Void, JsonObject>(){
-        override fun doInBackground(vararg params: String?): JsonObject {
-            val gitJson = URL(params[0]).readText()
-            val stringBuilder = StringBuilder(gitJson)
-            val parser = Parser.default()
-            return parser.parse(stringBuilder) as JsonObject
-        }
-
-        override fun onPostExecute(result: JsonObject?) {
-            super.onPostExecute(result)
-        }
-    }
-
-    fun loadDataFromGit(){
-        spells = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
-        basicitems = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/basicitems.json").get()
-        items = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/items.json").get()
-
-
-        /*val file = File("prueba.json")
-        file.createNewFile()
-        File("prueba.json").writeText("{}")*/
-        val prueba = openFileOutput("dondeEsta.json", Context.MODE_PRIVATE)
-        prueba.use {
-            prueba.write("DONDE ESTÁS ==========================================================".toByteArray())
-        }
-        val fileInputStream = openFileInput("dondeEsta.json")
-        val inputStream = InputStreamReader(fileInputStream)
-        val buffered = BufferedReader(inputStream)
-        val stringBuilder = StringBuilder()
-
-        stringBuilder.append(buffered.readText())
-        println("==========")
-        println(stringBuilder.toString())
     }
 
 

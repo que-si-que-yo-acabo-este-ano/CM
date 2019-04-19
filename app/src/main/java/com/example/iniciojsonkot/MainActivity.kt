@@ -1,6 +1,7 @@
 package com.example.iniciojsonkot
 
 import android.content.Context
+import android.os.AsyncTask
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 
@@ -8,6 +9,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
+import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
 import com.example.iniciojsonkot.Global.Companion.basicitems
 import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
@@ -16,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.StringBuilder
+import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +49,13 @@ class MainActivity : AppCompatActivity() {
 
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
+
+        // Inicializar Character.spellsKnown
+        Character.spellsKnown = mutableMapOf()
+        for(i in 0..9){
+            var set:MutableSet<String> = mutableSetOf()
+            Character.spellsKnown.put(i,set)
+        }
 
 
     }
@@ -81,10 +92,10 @@ class MainActivity : AppCompatActivity() {
             var frag: Fragment? = null
 
             when (position) {
-                0 -> frag = Frag1K()
+                0 -> frag = StatsSavesResistancesFragment()
                 1 -> frag = SpellsFragment()
                 2 -> frag = Frag3K()
-                3 -> frag = Frag1K()
+                3 -> frag = StatsSavesResistancesFragment()
             }
             return frag!!
         }
@@ -97,28 +108,23 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    class DownloadGit : AsyncTask<String, Void, JsonObject>(){
+        override fun doInBackground(vararg params: String?): JsonObject {
+            val gitJson = URL(params[0]).readText()
+            val stringBuilder = StringBuilder(gitJson)
+            val parser = Parser.default()
+            return parser.parse(stringBuilder) as JsonObject
+        }
+
+        override fun onPostExecute(result: JsonObject?) {
+            super.onPostExecute(result)
+        }
+    }
 
     fun loadDataFromGit(){
-        spells = ModifyStatsActivity.DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
-        basicitems = ModifyStatsActivity.DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/basicitems.json").get()
-        items = ModifyStatsActivity.DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/items.json").get()
-
-
-        /*val file = File("prueba.json")
-        file.createNewFile()
-        File("prueba.json").writeText("{}")*/
-        val prueba = openFileOutput("dondeEsta.json", Context.MODE_PRIVATE)
-        prueba.use {
-            prueba.write("DONDE ESTÁS ==========================================================".toByteArray())
-        }
-        val fileInputStream = openFileInput("dondeEsta.json")
-        val inputStream = InputStreamReader(fileInputStream)
-        val buffered = BufferedReader(inputStream)
-        val stringBuilder = StringBuilder()
-
-        stringBuilder.append(buffered.readText())
-        println("==========")
-        println(stringBuilder.toString())
+        spells = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
+        basicitems = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/basicitems.json").get()
+        items = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/items.json").get()
     }
 
     /**

@@ -16,7 +16,8 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:id="@+id/totalStatsColumn">
 
             <TextView
                     android:text="Total"
@@ -24,55 +25,49 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    android:id="@+id/abilityTotalText0"/>
+                    android:id="@+id/abilityTotalText"/>
             <TextView
-                    android:text="20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ec2121"
-                    android:id="@+id/strTotal0"/>
+                    android:id="@+id/strTotal"/>
             <TextView
-                    android:text="20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#1f9f2e"
-                    android:id="@+id/dexTotal0"/>
+                    android:id="@+id/dexTotal"/>
             <TextView
-                    android:text="20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ff6928"
-                    android:id="@+id/conTotal0"/>
+                    android:id="@+id/conTotal"/>
             <TextView
-                    android:text="20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#055eb0"
-                    android:id="@+id/intTotal0"/>
+                    android:id="@+id/intTotal"/>
             <TextView
-                    android:text="20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#8017b0"
-                    android:id="@+id/wisTotal0"/>
+                    android:id="@+id/wisTotal"/>
             <TextView
-                    android:text="20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#fbb716"
-                    android:id="@+id/chaTotal0"/>
+                    android:id="@+id/chaTotal"/>
 
         </LinearLayout>
 
@@ -88,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    android:id="@+id/abilityText0"/>
+                    android:id="@+id/abilityText"/>
             <TextView
                     android:text="Strength"
                     android:layout_width="match_parent"
@@ -96,7 +91,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ec2121"
-                    android:id="@+id/strText0"/>
+                    android:id="@+id/strText"/>
             <TextView
                     android:text="Dexterity"
                     android:layout_width="match_parent"
@@ -104,7 +99,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#1f9f2e"
-                    android:id="@+id/dexText0"/>
+                    android:id="@+id/dexText"/>
             <TextView
                     android:text="Constitution"
                     android:layout_width="match_parent"
@@ -112,7 +107,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ff6928"
-                    android:id="@+id/conText0"/>
+                    android:id="@+id/conText"/>
             <TextView
                     android:text="Intelligence"
                     android:layout_width="match_parent"
@@ -120,7 +115,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#055eb0"
-                    android:id="@+id/intText0"/>
+                    android:id="@+id/intText"/>
             <TextView
                     android:text="Wisdom"
                     android:layout_width="match_parent"
@@ -128,7 +123,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#8017b0"
-                    android:id="@+id/wisText0"/>
+                    android:id="@+id/wisText"/>
             <TextView
                     android:text="Charisma"
                     android:layout_width="match_parent"
@@ -136,7 +131,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#fbb716"
-                    android:id="@+id/chaText0"/>
+                    android:id="@+id/chaText"/>
 
 
         </LinearLayout>
@@ -153,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    android:id="@+id/abilityModText0"/>
+                    android:id="@+id/abilityModText"/>
             <TextView
                     android:text="+5"
                     android:layout_width="match_parent"
@@ -161,7 +156,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ec2121"
-                    android:id="@+id/strMod0"/>
+                    android:id="@+id/strMod"/>
             <TextView
                     android:text="+5"
                     android:layout_width="match_parent"
@@ -169,7 +164,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#1f9f2e"
-                    android:id="@+id/dexMod0"/>
+                    android:id="@+id/dexMod"/>
             <TextView
                     android:text="+5"
                     android:layout_width="match_parent"
@@ -177,7 +172,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ff6928"
-                    android:id="@+id/conMod0"/>
+                    android:id="@+id/conMod"/>
             <TextView
                     android:text="+5"
                     android:layout_width="match_parent"
@@ -185,7 +180,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#055eb0"
-                    android:id="@+id/intMod0"/>
+                    android:id="@+id/intMod"/>
             <TextView
                     android:text="+5"
                     android:layout_width="match_parent"
@@ -193,7 +188,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#8017b0"
-                    android:id="@+id/wisMod0"/>
+                    android:id="@+id/wisMod"/>
             <TextView
                     android:text="+5"
                     android:layout_width="match_parent"
@@ -201,7 +196,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#fbb716"
-                    android:id="@+id/chaMod0"/>
+                    android:id="@+id/chaMod"/>
 
         </LinearLayout>
 
@@ -217,7 +212,7 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    android:id="@+id/abilitySaveText0"/>
+                    android:id="@+id/abilitySaveText"/>
             <TextView
                     android:text="+7"
                     android:layout_width="match_parent"
@@ -225,7 +220,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ec2121"
-                    android:id="@+id/strSave0"/>
+                    android:id="@+id/strSave"/>
             <TextView
                     android:text="+7"
                     android:layout_width="match_parent"
@@ -233,7 +228,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#1f9f2e"
-                    android:id="@+id/dexSave0"/>
+                    android:id="@+id/dexSave"/>
             <TextView
                     android:text="+7"
                     android:layout_width="match_parent"
@@ -241,7 +236,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#ff6928"
-                    android:id="@+id/conSave0"/>
+                    android:id="@+id/conSave"/>
             <TextView
                     android:text="+7"
                     android:layout_width="match_parent"
@@ -249,7 +244,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#055eb0"
-                    android:id="@+id/intSave0"/>
+                    android:id="@+id/intSave"/>
             <TextView
                     android:text="+7"
                     android:layout_width="match_parent"
@@ -257,7 +252,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#8017b0"
-                    android:id="@+id/wisSave0"/>
+                    android:id="@+id/wisSave"/>
             <TextView
                     android:text="+7"
                     android:layout_width="match_parent"
@@ -265,7 +260,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:background="#fbb716"
-                    android:id="@+id/chaSave0"/>
+                    android:id="@+id/chaSave"/>
 
         </LinearLayout>
 
@@ -460,5 +455,13 @@
         </LinearLayout>
 
     </LinearLayout>
+    <Button
+            android:text="Modify stats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/resistancesLayout" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
 
 </android.support.constraint.ConstraintLayout>

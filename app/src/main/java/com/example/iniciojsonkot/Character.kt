@@ -10,8 +10,8 @@ class Character : Application(){
         lateinit var background: String
         lateinit var skillsProficiency: MutableSet<String>
         lateinit var skillsExpertise: MutableSet<String>
-        lateinit var spellsKnown: Map<Int,String>
-        lateinit var spellsPrepared: Map<Int,String>
+        lateinit var spellsKnown: MutableMap<Int,MutableSet<String>>
+        lateinit var spellsPrepared: MutableMap<Int,MutableSet<String>>
         lateinit var weaponsProficiency: MutableSet<String>
         lateinit var armorsProficiency: MutableSet<String>
         lateinit var toolsProficiency: MutableSet<String>

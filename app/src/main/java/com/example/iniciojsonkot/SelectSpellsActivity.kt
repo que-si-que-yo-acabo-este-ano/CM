@@ -13,6 +13,7 @@ import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevels
+import java.util.stream.IntStream
 
 
 class SelectSpellsActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_spells_layout)
         val spellsToShow : MutableSet<Int> = mutableSetOf()
-        val spellsSelected : MutableSet<String> = mutableSetOf()
+        var spellsSelected : MutableMap<Int,MutableSet<String>> = Character.spellsKnown
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
@@ -107,6 +108,7 @@ class SelectSpellsActivity : AppCompatActivity() {
 
         buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+                Character.spellsKnown = spellsSelected
                 finish()
             }
         })
@@ -165,9 +167,9 @@ class SelectSpellsActivity : AppCompatActivity() {
                         spellSelectToggle.textOn = "Yes"
                         spellSelectToggle?.setOnCheckedChangeListener {_, isChecked ->
                             if(isChecked){
-                                spellsSelected.add(spellSelectToggle.text.toString())
+                                spellsSelected[i]?.add(spell.toString())
                             }else{
-                                spellsSelected.remove(spellSelectToggle.text.toString())
+                                spellsSelected[i]?.remove(spell.toString())
                             }
                         }
 

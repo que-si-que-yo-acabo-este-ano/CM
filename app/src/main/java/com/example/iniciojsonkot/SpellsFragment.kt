@@ -27,6 +27,7 @@ class SpellsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewOfLayout = inflater!!.inflate(R.layout.spells_fragment_layout, container, false)
+
         viewOfLayout.cantrips.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(0)
@@ -117,16 +118,16 @@ class SpellsFragment : Fragment() {
 
         viewOfLayout.button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+
                 val spellsSorted = spellsToShow.toList().sorted()
-                val spellsRequested = searchSpellsByLevels(spellsSorted,Character.classes.keys)
                 linLay.removeAllViewsInLayout()
-                for (i in spellsRequested.keys) {
+                for (i in spellsSorted) {
                     val textView = TextView(v.context)
                     val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    val spellsOfMap = spellsRequested[i]!!
+                    val spellsOfMap = Character.spellsKnown.get(i)!!.toList().sorted()
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
@@ -156,15 +157,11 @@ class SpellsFragment : Fragment() {
             }
         })
 
-        //return inflater.inflate(R.layout.spells_fragment_layout, container, false)
         return viewOfLayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
     }
 
     fun prueba(tx: TextView){
