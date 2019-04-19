@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
             when (position) {
                 0 -> frag = Frag1K()
-                1 -> frag = SpellsFrament()
+                1 -> frag = SpellsFragment()
                 2 -> frag = Frag3K()
                 3 -> frag = Frag1K()
             }
