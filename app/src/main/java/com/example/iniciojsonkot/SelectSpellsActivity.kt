@@ -142,9 +142,6 @@ class SelectSpellsActivity : AppCompatActivity() {
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
                                 val descLayout = prueba(spellView)
-                                //TODO Sacar el añadir la descripción y tal aquí para que no pete
-
-
 
                                 descLayout.setTag("prueba" + spellView.text.toString())
                                 val prueba = linLay.findViewWithTag<View>("prueba" + spellView.text.toString())
