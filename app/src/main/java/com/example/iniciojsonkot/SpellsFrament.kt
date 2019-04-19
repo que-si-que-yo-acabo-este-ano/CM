@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.frag2_layout.view.*
 
 //import kotlinx.android.synthetic.main.fragment_your_fragment_name.view.*
 
-class Frag2K : Fragment() {
+class SpellsFrament : Fragment() {
     private lateinit var viewOfLayout: View
     private val spellsToShow : MutableSet<Int> = mutableSetOf()
     var global = Global()
