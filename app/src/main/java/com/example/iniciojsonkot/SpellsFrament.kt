@@ -9,9 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.ToggleButton
 import com.beust.klaxon.JsonObject
-import com.example.iniciojsonkot.R
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.frag2_layout.view.*
 
@@ -106,7 +104,7 @@ class Frag2K : Fragment() {
 
         viewOfLayout.buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                val changeSpellsIntent = Intent(context, Main2Activity::class.java)
+                val changeSpellsIntent = Intent(context, SelectSpellsActivity::class.java)
                 startActivity(changeSpellsIntent)
             }
         })

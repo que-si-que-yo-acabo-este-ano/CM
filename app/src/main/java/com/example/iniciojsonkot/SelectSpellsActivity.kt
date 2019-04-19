@@ -1,7 +1,5 @@
 package com.example.iniciojsonkot
 
-import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,14 +7,10 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main2.*
 import android.widget.*
 import com.beust.klaxon.JsonObject
-import com.example.iniciojsonkot.Global.Companion.basicitems
-import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
-import kotlinx.android.synthetic.main.frag2_layout.view.*
-import kotlinx.android.synthetic.main.spell_view.*
 
 
-class Main2Activity : AppCompatActivity() {
+class SelectSpellsActivity : AppCompatActivity() {
     var global = Global()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,7 +126,7 @@ class Main2Activity : AppCompatActivity() {
                     linLay.addView(textView)
 
                     for (spell in spellsOfMap){
-                        val horizLay = LinearLayout(this@Main2Activity)
+                        val horizLay = LinearLayout(this@SelectSpellsActivity)
                         horizLay.orientation = LinearLayout.HORIZONTAL
                         horizLay.setBackgroundColor(Color.MAGENTA)
 
@@ -163,7 +157,7 @@ class Main2Activity : AppCompatActivity() {
                             }
                         })
 
-                        val spellSelectToggle = ToggleButton(this@Main2Activity)
+                        val spellSelectToggle = ToggleButton(this@SelectSpellsActivity)
                         spellSelectToggle.text = spell
                         spellSelectToggle.textOff = "No"
                         spellSelectToggle.textOn = "Yes"

@@ -26,29 +26,6 @@ class MainActivityJose : AppCompatActivity() {
         setContentView(R.layout.activity_main_jose)
         //Carga de datos
         loadDataFromGit()
-        val cargaButton = findViewById(R.id.spell) as TextView
-        cargaButton.setOnClickListener{
-            val intent = Intent(this,SpellView::class.java)
-            val spell = searchSpell("Aid")
-            val components = searchComponentsFromSpell(spell)
-
-            if(components == "v,s,m"){
-                val material = searchMaterialFromComponents(spell)
-                intent.putExtra("material",material)
-            }
-
-            //test
-            //println(searchLevelFromSpell(spell))
-            //println(searchSpellsByLevel(0))
-            //println(searchCastingTimeFromSpell(spell))
-            println(searchDescriptionFromSpell(spell))
-            val levels : List<Int>  = listOf(0,1,2)
-            //println(searchSpellsByLevels(levels))
-
-            intent.putExtra("components",components)
-            startActivity(intent)
-
-        }
 
     }
 
