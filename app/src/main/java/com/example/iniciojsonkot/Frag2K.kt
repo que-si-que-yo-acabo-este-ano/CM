@@ -309,16 +309,41 @@ class Frag2K : Fragment() {
     }
 
     fun searchDescriptionFromSpell(spell: List<JsonObject>):String{
-        val description = spell.map{
-            it.array<String>("entries")
-        }
-        var entries: String = ""
+        var text: String = ""
 
-        for(entry in description.get(0)!!.listIterator()){
-            //entries += entry
-            entries += "\n" + entry
+        val description = spell.map {
+            it.array<Any>("entries")
         }
-        return entries
+
+        for(i in 0..(description[0]!!.size-1)){
+            val positionText = description[0]!![i]
+            if(positionText !is String){
+                val descriptionObject = positionText as JsonObject
+                if(descriptionObject.string("type").equals("list")){
+                    val items = descriptionObject.array<String>("items")
+                    for(i in 0..(items!!.size-1)){
+                        text += "\n * " + items[i]
+                    }
+                }else{
+                    text += "\n * "
+                    val entries = descriptionObject.array<String>("entries")
+                    for(i in 0..(entries!!.size-1)){
+                        if(i==0){
+                            text += entries[i]
+                        }else{
+                            text += "\n" + entries[i]
+                        }
+                    }
+                }
+
+
+            }else{
+                text += "\n" + positionText
+            }
+
+        }
+
+        return text
     }
 
 
