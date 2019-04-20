@@ -22,11 +22,8 @@ class StatsSavesResistancesFragment : Fragment() {
             }
         })
 
-        viewOfLayout.speedNum.text = Character.speed.toString()
-        viewOfLayout.proficiencyNum.text = "+" + Character.proficiencyBonus.toString()
-
-
-
+        viewOfLayout.speedNum.text = CharacterTemp.speed.toString()
+        viewOfLayout.proficiencyNum.text = "+" + CharacterTemp.proficiencyBonus.toString()
 
 
         return viewOfLayout
@@ -34,19 +31,19 @@ class StatsSavesResistancesFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewOfLayout.strTotal.text = Character.strength.toString()
-        viewOfLayout.dexTotal.text = Character.dexterity.toString()
-        viewOfLayout.conTotal.text = Character.constitution.toString()
-        viewOfLayout.intTotal.text = Character.intelligence.toString()
-        viewOfLayout.wisTotal.text = Character.wisdom.toString()
-        viewOfLayout.chaTotal.text = Character.charisma.toString()
+        viewOfLayout.strTotal.text = CharacterTemp.strength.toString()
+        viewOfLayout.dexTotal.text = CharacterTemp.dexterity.toString()
+        viewOfLayout.conTotal.text = CharacterTemp.constitution.toString()
+        viewOfLayout.intTotal.text = CharacterTemp.intelligence.toString()
+        viewOfLayout.wisTotal.text = CharacterTemp.wisdom.toString()
+        viewOfLayout.chaTotal.text = CharacterTemp.charisma.toString()
 
-        var tempStr = calcMod(Character.strength)
-        var tempDex = calcMod(Character.dexterity)
-        var tempCon = calcMod(Character.constitution)
-        var tempInt = calcMod(Character.intelligence)
-        var tempWis = calcMod(Character.wisdom)
-        var tempCha = calcMod(Character.charisma)
+        var tempStr = calcMod(CharacterTemp.strength)
+        var tempDex = calcMod(CharacterTemp.dexterity)
+        var tempCon = calcMod(CharacterTemp.constitution)
+        var tempInt = calcMod(CharacterTemp.intelligence)
+        var tempWis = calcMod(CharacterTemp.wisdom)
+        var tempCha = calcMod(CharacterTemp.charisma)
 
         viewOfLayout.strMod.text = if (tempStr >= 0) "+" + tempStr.toString() else tempStr.toString()
         viewOfLayout.dexMod.text = if (tempDex >= 0) "+" + tempDex.toString() else tempDex.toString()
@@ -55,23 +52,23 @@ class StatsSavesResistancesFragment : Fragment() {
         viewOfLayout.wisMod.text = if (tempWis >= 0) "+" + tempWis.toString() else tempWis.toString()
         viewOfLayout.chaMod.text = if (tempCha >= 0) "+" + tempCha.toString() else tempCha.toString()
 
-        if (Character.savesProficiencies.contains("Strength"))
-            tempStr += Character.proficiencyBonus
+        if (CharacterTemp.savesProficiencies.contains("Strength"))
+            tempStr += CharacterTemp.proficiencyBonus
 
-        if (Character.savesProficiencies.contains("Dexterity"))
-            tempDex += Character.proficiencyBonus
+        if (CharacterTemp.savesProficiencies.contains("Dexterity"))
+            tempDex += CharacterTemp.proficiencyBonus
 
-        if (Character.savesProficiencies.contains("Constitution"))
-            tempCon += Character.proficiencyBonus
+        if (CharacterTemp.savesProficiencies.contains("Constitution"))
+            tempCon += CharacterTemp.proficiencyBonus
 
-        if (Character.savesProficiencies.contains("Intelligence"))
-            tempInt += Character.proficiencyBonus
+        if (CharacterTemp.savesProficiencies.contains("Intelligence"))
+            tempInt += CharacterTemp.proficiencyBonus
 
-        if (Character.savesProficiencies.contains("Wisdom"))
-            tempWis += Character.proficiencyBonus
+        if (CharacterTemp.savesProficiencies.contains("Wisdom"))
+            tempWis += CharacterTemp.proficiencyBonus
 
-        if (Character.savesProficiencies.contains("Charisma"))
-            tempCha += Character.proficiencyBonus
+        if (CharacterTemp.savesProficiencies.contains("Charisma"))
+            tempCha += CharacterTemp.proficiencyBonus
 
         viewOfLayout.strSave.text = if (tempStr >= 0) "+" + tempStr.toString() else tempStr.toString()
         viewOfLayout.dexSave.text = if (tempDex >= 0) "+" + tempDex.toString() else tempDex.toString()
@@ -81,16 +78,16 @@ class StatsSavesResistancesFragment : Fragment() {
         viewOfLayout.chaSave.text = if (tempCha >= 0) "+" + tempCha.toString() else tempCha.toString()
 
 
-        var tempPerception = calcMod(Character.wisdom) + 10
-        if (Character.skillsProficiencies.contains("Perception")){
-            if (Character.skillsExpertise.contains("Perception")){
-                tempPerception += Character.proficiencyBonus * 2
+        var tempPerception = calcMod(CharacterTemp.wisdom) + 10
+        if (CharacterTemp.skillsProficiencies.contains("Perception")){
+            if (CharacterTemp.skillsExpertise.contains("Perception")){
+                tempPerception += CharacterTemp.proficiencyBonus * 2
             }else{
-                tempPerception += Character.proficiencyBonus
+                tempPerception += CharacterTemp.proficiencyBonus
             }
         }
         viewOfLayout.perceptionNum.text = tempPerception.toString()
-        viewOfLayout.initiativeNum.text = "+" + calcMod(Character.dexterity)
+        viewOfLayout.initiativeNum.text = "+" + calcMod(CharacterTemp.dexterity)
 
 
     }

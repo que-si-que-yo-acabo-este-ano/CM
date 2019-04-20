@@ -9,12 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.beust.klaxon.JsonObject
 import com.example.iniciojsonkot.Searchers.Companion.searchCastingTimeFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevels
 import kotlinx.android.synthetic.main.select_spells_layout.*
 import kotlinx.android.synthetic.main.spells_fragment_layout.view.*
 
@@ -127,7 +125,7 @@ class SpellsFragment : Fragment() {
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    val spellsOfMap = Character.spellsKnown[i]!!.toList().sorted()
+                    val spellsOfMap = CharacterTemp.spellsKnown[i]!!.toList().sorted()
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)

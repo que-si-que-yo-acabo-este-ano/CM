@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.select_spells_layout.*
 import android.widget.*
-import com.beust.klaxon.JsonObject
-import com.example.iniciojsonkot.Global.Companion.spells
 import com.example.iniciojsonkot.Searchers.Companion.searchCastingTimeFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
@@ -15,7 +13,6 @@ import com.example.iniciojsonkot.Searchers.Companion.searchDurationFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchRangeFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevels
-import java.util.stream.IntStream
 
 
 class SelectSpellsActivity : AppCompatActivity() {
@@ -25,7 +22,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_spells_layout)
         val spellsToShow : MutableSet<Int> = mutableSetOf()
-        var spellsSelected : MutableList<MutableSet<String>> = Character.spellsKnown
+        var spellsSelected : MutableList<MutableSet<String>> = CharacterTemp.spellsKnown
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
@@ -110,7 +107,7 @@ class SelectSpellsActivity : AppCompatActivity() {
 
         buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                Character.spellsKnown = spellsSelected
+                CharacterTemp.spellsKnown = spellsSelected
                 finish()
             }
         })
@@ -119,7 +116,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val spellsSorted = spellsToShow.toList().sorted()
-                val spellsRequested = searchSpellsByLevels(spellsSorted,Character.classes.keys)
+                val spellsRequested = searchSpellsByLevels(spellsSorted,CharacterTemp.classes.keys)
                 linLay.removeAllViewsInLayout()
                 for (i in spellsRequested.keys) {
                     val textView = TextView(v.context)
