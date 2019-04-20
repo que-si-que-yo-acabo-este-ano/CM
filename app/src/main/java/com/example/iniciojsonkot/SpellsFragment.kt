@@ -1,99 +1,106 @@
 package com.example.iniciojsonkot
 
+import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main2.*
-import android.widget.*
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.beust.klaxon.JsonObject
-import com.example.iniciojsonkot.Global.Companion.basicitems
-import com.example.iniciojsonkot.Global.Companion.items
-import com.example.iniciojsonkot.Global.Companion.spells
+import com.example.iniciojsonkot.Searchers.Companion.searchCastingTimeFromSpell
+import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
+import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
+import com.example.iniciojsonkot.Searchers.Companion.searchSpell
+import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevels
+import kotlinx.android.synthetic.main.select_spells_layout.*
+import kotlinx.android.synthetic.main.spells_fragment_layout.view.*
 
+//import kotlinx.android.synthetic.main.fragment_your_fragment_name.view.*
 
-class Main2Activity : AppCompatActivity() {
+class SpellsFragment : Fragment() {
+    private lateinit var viewOfLayout: View
+    private val spellsToShow : MutableSet<Int> = mutableSetOf()
     var global = Global()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
-        val spellsToShow : MutableSet<Int> = mutableSetOf()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewOfLayout = inflater!!.inflate(R.layout.spells_fragment_layout, container, false)
 
-        val cantrips = findViewById<ToggleButton>(R.id.cantrips)
-        cantrips?.setOnCheckedChangeListener {_, isChecked ->
+        viewOfLayout.cantrips.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(0)
             }else{
                 spellsToShow.remove(0)
             }
         }
-        val spellsLvl1 = findViewById<ToggleButton>(R.id.spellsLvl1)
-        spellsLvl1?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl1.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(1)
             }else{
                 spellsToShow.remove(1)
             }
         }
-        val spellsLvl2 = findViewById<ToggleButton>(R.id.spellsLvl2)
-        spellsLvl2?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl2.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(2)
             }else{
                 spellsToShow.remove(2)
             }
         }
-        val spellsLvl3 = findViewById<ToggleButton>(R.id.spellsLvl3)
-        spellsLvl3?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl3.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(3)
             }else{
                 spellsToShow.remove(3)
             }
         }
-        val spellsLvl4 = findViewById<ToggleButton>(R.id.spellsLvl4)
-        spellsLvl4?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl4.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(4)
             }else{
                 spellsToShow.remove(4)
             }
         }
-        val spellsLvl5 = findViewById<ToggleButton>(R.id.spellsLvl5)
-        spellsLvl5?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl5.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(5)
             }else{
                 spellsToShow.remove(5)
             }
         }
-        val spellsLvl6 = findViewById<ToggleButton>(R.id.spellsLvl6)
-        spellsLvl6?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl6.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(6)
             }else{
                 spellsToShow.remove(6)
             }
         }
-        val spellsLvl7 = findViewById<ToggleButton>(R.id.spellsLvl7)
-        spellsLvl7?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl7.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(7)
             }else{
                 spellsToShow.remove(7)
             }
         }
-        val spellsLvl8 = findViewById<ToggleButton>(R.id.spellsLvl8)
-        spellsLvl8?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl8.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(8)
             }else{
                 spellsToShow.remove(8)
             }
         }
-        val spellsLvl9 = findViewById<ToggleButton>(R.id.spellsLvl9)
-        spellsLvl9?.setOnCheckedChangeListener {_, isChecked ->
+
+        viewOfLayout.spellsLvl9.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(9)
             }else{
@@ -101,21 +108,26 @@ class Main2Activity : AppCompatActivity() {
             }
         }
 
-
-
-
-        button2.setOnClickListener(object : View.OnClickListener {
+        viewOfLayout.buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+                val changeSpellsIntent = Intent(context, SelectSpellsActivity::class.java)
+                startActivity(changeSpellsIntent)
+            }
+        })
+
+
+        viewOfLayout.button2.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+
                 val spellsSorted = spellsToShow.toList().sorted()
-                val spellsRequested = searchSpellsByLevels(spellsSorted)
                 linLay.removeAllViewsInLayout()
-                for (i in spellsRequested.keys) {
+                for (i in spellsSorted) {
                     val textView = TextView(v.context)
                     val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    val spellsOfMap = spellsRequested[i]!!
+                    val spellsOfMap = Character.spellsKnown.get(i)!!.toList().sorted()
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
@@ -145,11 +157,15 @@ class Main2Activity : AppCompatActivity() {
             }
         })
 
-
+        return viewOfLayout
     }
 
-    fun prueba(tx:TextView){
-        val descLay = LinearLayout(this)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    fun prueba(tx: TextView){
+        val descLay = LinearLayout(context)
         descLay.setBackgroundColor(Color.CYAN)
         descLay.orientation = LinearLayout.VERTICAL
 
@@ -158,7 +174,7 @@ class Main2Activity : AppCompatActivity() {
         val paramsPrueba : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsPrueba.setMargins(50,20,20,0)
 
-        val castingTimeTV = TextView(this)
+        val castingTimeTV = TextView(context)
         castingTimeTV.layoutParams = paramsPrueba
         castingTimeTV.text = "Casting time: " + searchCastingTimeFromSpell(spellCode)
         castingTimeTV.textSize = 16f
@@ -166,7 +182,7 @@ class Main2Activity : AppCompatActivity() {
         castingTimeTV.setBackgroundColor(Color.LTGRAY)
 
 
-        val rangeTextView = TextView(this)
+        val rangeTextView = TextView(context)
         rangeTextView.layoutParams = paramsPrueba
         rangeTextView.text = "Range: 60 feet" //TODO
         rangeTextView.textSize = 16f
@@ -174,7 +190,7 @@ class Main2Activity : AppCompatActivity() {
         rangeTextView.setBackgroundColor(Color.LTGRAY)
 
 
-        val componentsTV = TextView(this)
+        val componentsTV = TextView(context)
         componentsTV.layoutParams = paramsPrueba
         componentsTV.text = "Components: " + searchComponentsFromSpell(spellCode)
         componentsTV.textSize = 16f
@@ -182,7 +198,7 @@ class Main2Activity : AppCompatActivity() {
         componentsTV.setBackgroundColor(Color.LTGRAY)
 
 
-        val durationTV = TextView(this)
+        val durationTV = TextView(context)
         durationTV.layoutParams = paramsPrueba
         durationTV.text = "Duration: instantaneous"//TODO
         durationTV.textSize = 16f
@@ -190,12 +206,12 @@ class Main2Activity : AppCompatActivity() {
         durationTV.setBackgroundColor(Color.LTGRAY)
 
 
-        val horizLay = LinearLayout(this)
+        val horizLay = LinearLayout(context)
         horizLay.orientation = LinearLayout.HORIZONTAL
         horizLay.addView(castingTimeTV)
         horizLay.addView(componentsTV)
 
-        val horizLay2 = LinearLayout(this)
+        val horizLay2 = LinearLayout(context)
         horizLay2.orientation = LinearLayout.HORIZONTAL
         horizLay2.addView(rangeTextView)
         horizLay2.addView(durationTV)
@@ -204,7 +220,7 @@ class Main2Activity : AppCompatActivity() {
         val paramsDesc : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsDesc.setMargins(50,20,50,30)
 
-        val descriptionTV = TextView(this)
+        val descriptionTV = TextView(context)
         descriptionTV.layoutParams = paramsDesc
         descriptionTV.text = searchDescriptionFromSpell(spellCode).trim()
         descriptionTV.textSize = 16f
@@ -228,83 +244,5 @@ class Main2Activity : AppCompatActivity() {
 
 
     }
-
-
-
-    fun searchSpell(spell: String): List<JsonObject>{
-        val res = spells.array<JsonObject>("spell")!!.filter {
-            it.string("name") == spell
-        }
-        return res
-    }
-
-    fun searchComponentsFromSpell(spell: List<JsonObject>): String{
-        val res = spell.map {
-            it.obj("components")
-        }
-
-        return res[0]!!.toString()
-    }
-
-    fun searchMaterialFromComponents(spell:List<JsonObject>): String{
-        val res = spell.map {
-            it.obj("components")!!.string("m")
-        }
-
-        return res[0]!!.toString()
-    }
-
-    fun searchLevelFromSpell(spell: List<JsonObject>):String{
-        val res = spell.map{
-            it.int("level")
-        }
-
-        return res[0]!!.toString()
-    }
-
-    fun searchSpellsByLevel(level: Int): List<String?>{
-        val res = spells.array<JsonObject>("spell")!!.filter {
-            it.int("level") == level
-        }.map {
-            it.string("name")
-        }
-
-        return res
-    }
-
-    fun searchSpellsByLevels(levels: List<Int>): Map<Int,List<String?>>{
-        val mutableRes :MutableMap<Int,List<String?>>  = mutableMapOf()
-        for(level in levels){
-            mutableRes[level] = searchSpellsByLevel(level)
-        }
-        val res : Map<Int,List<String?>> = mutableRes
-        return res
-    }
-
-    fun searchCastingTimeFromSpell(spell: List<JsonObject>):String{
-        val time = spell.map {
-            it.array<JsonObject>("time")
-        }.get(0)
-        val res = time!!.map{
-            it!!.int("number").toString() + " " + it.string("unit")
-        }
-
-        return res[0]!!.toString()
-    }
-
-    fun searchDescriptionFromSpell(spell: List<JsonObject>):String{
-        val description = spell.map{
-            it.array<String>("entries")
-        }
-        var entries: String = ""
-
-        for(entry in description.get(0)!!.listIterator()){
-            //entries += entry
-            entries += "\n" + entry
-        }
-        return entries
-    }
-
-
 
 }
