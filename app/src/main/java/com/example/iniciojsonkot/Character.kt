@@ -6,25 +6,27 @@ class Character : Application(){
     companion object{
         lateinit var name: String
         lateinit var race: String
+        var speed: Int = 30
         var classes: Map<String,Int> = mapOf("Wizard" to 1, "Rogue" to 1)
         lateinit var background: String
-        lateinit var skillsProficiency: MutableSet<String>
-        lateinit var skillsExpertise: MutableSet<String>
-        lateinit var spellsKnown: MutableMap<Int,MutableSet<String>>
-        lateinit var spellsPrepared: MutableMap<Int,MutableSet<String>>
-        lateinit var weaponsProficiency: MutableSet<String>
-        lateinit var armorsProficiency: MutableSet<String>
-        lateinit var toolsProficiency: MutableSet<String>
+        var savesProficiencies: MutableSet<String> = mutableSetOf("Strength","Constitution")
+        var skillsProficiencies: MutableSet<String> = mutableSetOf("Perception")
+        var skillsExpertise: MutableSet<String> = mutableSetOf()
+        lateinit var spellsKnown: MutableList<MutableSet<String>>
+        lateinit var spellsPrepared: MutableList<MutableSet<String>>
+        lateinit var weaponsProficiencies: MutableSet<String>
+        lateinit var armorsProficiencies: MutableSet<String>
+        lateinit var toolsProficiencies: MutableSet<String>
         lateinit var languages: MutableSet<String>
         lateinit var equipment: Map<String,Int>
         lateinit var alignment: String
-        var proficiencyBonus: Int = 0
-        var strength: Int = 0
-        var dexterity: Int = 0
-        var constitution: Int = 0
-        var intelligence: Int = 0
-        var wisdom: Int = 0
-        var charisma: Int = 0
+        var proficiencyBonus: Int = 2
+        var strength: Int = 17
+        var dexterity: Int = 14
+        var constitution: Int = 20
+        var intelligence: Int = 11
+        var wisdom: Int = 14
+        var charisma: Int = 10
 
         // Quizás guardar aquí todo_ lo relativo a las habilidades y ventajas obtenidas por raza/clase
     }

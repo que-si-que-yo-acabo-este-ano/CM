@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity() {
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
         // Inicializar Character.spellsKnown
-        Character.spellsKnown = mutableMapOf()
+        Character.spellsKnown = mutableListOf()
         for(i in 0..9){
             var set:MutableSet<String> = mutableSetOf()
-            Character.spellsKnown.put(i,set)
+            Character.spellsKnown.add(i,set)
         }
 
 

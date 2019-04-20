@@ -127,7 +127,7 @@ class SpellsFragment : Fragment() {
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    val spellsOfMap = Character.spellsKnown.get(i)!!.toList().sorted()
+                    val spellsOfMap = Character.spellsKnown[i]!!.toList().sorted()
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
@@ -184,7 +184,7 @@ class SpellsFragment : Fragment() {
 
         val rangeTextView = TextView(context)
         rangeTextView.layoutParams = paramsPrueba
-        rangeTextView.text = "Range: 60 feet" //TODO
+        rangeTextView.text = "Range: " + Searchers.searchRangeFromSpell(spellCode)
         rangeTextView.textSize = 16f
         rangeTextView.setPadding(30,10,30,10)
         rangeTextView.setBackgroundColor(Color.LTGRAY)
@@ -200,7 +200,7 @@ class SpellsFragment : Fragment() {
 
         val durationTV = TextView(context)
         durationTV.layoutParams = paramsPrueba
-        durationTV.text = "Duration: instantaneous"//TODO
+        durationTV.text = "Duration: " + Searchers.searchDurationFromSpell(spellCode)
         durationTV.textSize = 16f
         durationTV.setPadding(30,10,30,10)
         durationTV.setBackgroundColor(Color.LTGRAY)
