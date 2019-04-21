@@ -1,13 +1,13 @@
 package com.example.iniciojsonkot
 
-class Character(_name: String, _race: String, _classChosen: String, _background: String,
+class Character(_name: String, _level: Int, _race: String, _classChosen: String, _background: String,
                 _skillsProficiencies: MutableSet<String>, _toolsProficiencies: MutableSet<String>,
                 _languages: MutableSet<String>, _equipment: MutableMap<String,Int>,
                 _alignment: String, _strength: Int, _dexterity: Int, _constitution: Int,
                 _intelligence: Int, _wisdom: Int, _charisma: Int) {
 
     var name: String = _name
-    var level: Int = 1
+    var level: Int = _level //Ponía pero es realmente _level
     var race: String = _race
     var speed: Int = 30 // TODO Sustituir por un getSpeed a la raza elegida
     var classes: MutableMap<String,Int> = mutableMapOf(_classChosen to 1)
