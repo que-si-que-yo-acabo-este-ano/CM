@@ -7,7 +7,7 @@ class Character(_name: String, _level: Int, _race: String, _classChosen: String,
                 _intelligence: Int, _wisdom: Int, _charisma: Int) {
 
     var name: String = _name
-    var level: Int = _level //Ponía pero es realmente _level
+    var level: Int = _level //Ponía 1 pero es realmente _level
     var race: String = _race
     var speed: Int = 30 // TODO Sustituir por un getSpeed a la raza elegida
     var classes: MutableMap<String,Int> = mutableMapOf(_classChosen to 1)
