@@ -222,6 +222,21 @@ class Searchers {
 
             return text
         }
+
+        //CLASES
+        fun searchClass(classCharacter: String): List<JsonObject>{
+            val url = "https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/class/class-$classCharacter.json"
+            val data = MainActivity.DownloadGit().execute(url).get()
+            return data.array<JsonObject>("class")!!.filter {
+                it.string("name").equals(classCharacter.capitalize())
+            }
+        }
+
+        fun searchSavesProfiencies(classCharacter: List<JsonObject>): MutableSet<String>{
+            return classCharacter.map {
+                it.array<String>("proficiency")
+            }[0]!!.toMutableSet()
+        }
     }
 
 }

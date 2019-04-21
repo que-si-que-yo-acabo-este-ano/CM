@@ -33,3 +33,9 @@ class Character(_name: String, _level: Int, _race: String, _classChosen: String,
 
 
 }
+
+class CharacterAux(val _name: String, val _level: Int, val _race: String, val _classChosen: String, val _background: String,
+                   val _skillsProficiencies: MutableSet<String>, val _toolsProficiencies: MutableSet<String>,
+                   val _languages: MutableSet<String>, val _equipment: MutableMap<String,Int>,
+                   val _alignment: String, val _strength: Int, val _dexterity: Int, val _constitution: Int,
+                   val _intelligence: Int, val _wisdom: Int, val _charisma: Int)
