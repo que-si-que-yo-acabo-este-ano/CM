@@ -1,27 +1,12 @@
 package com.example.iniciojsonkot
 
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import kotlinx.android.synthetic.main.modify_stats_layout.*
 import kotlin.math.floor
-import android.content.Intent
-import android.os.AsyncTask
 import android.view.View
-import android.widget.TextView
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.Parser
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.lang.StringBuilder
-import java.net.URL
-import com.example.iniciojsonkot.Global.Companion.basicitems
-import com.example.iniciojsonkot.Global.Companion.items
-import com.example.iniciojsonkot.Global.Companion.spells
-import kotlinx.android.synthetic.main.stats_saves_resistances.*
-import kotlinx.android.synthetic.main.stats_saves_resistances.view.*
 
 
 class ModifyStatsActivity : AppCompatActivity() {
@@ -31,12 +16,12 @@ class ModifyStatsActivity : AppCompatActivity() {
         setContentView(R.layout.modify_stats_layout)
 
 
-        editStr.setText(Character.strength.toString())
-        editDex.setText(Character.dexterity.toString())
-        editCon.setText(Character.constitution.toString())
-        editInt.setText(Character.intelligence.toString())
-        editWis.setText(Character.wisdom.toString())
-        editCha.setText(Character.charisma.toString())
+        editStr.setText(CharacterTemp.strength.toString())
+        editDex.setText(CharacterTemp.dexterity.toString())
+        editCon.setText(CharacterTemp.constitution.toString())
+        editInt.setText(CharacterTemp.intelligence.toString())
+        editWis.setText(CharacterTemp.wisdom.toString())
+        editCha.setText(CharacterTemp.charisma.toString())
 
 
 
@@ -199,12 +184,12 @@ class ModifyStatsActivity : AppCompatActivity() {
 
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                Character.strength = Integer.parseInt(editStr.text.toString())
-                Character.dexterity = Integer.parseInt(editDex.text.toString())
-                Character.constitution = Integer.parseInt(editCon.text.toString())
-                Character.intelligence = Integer.parseInt(editInt.text.toString())
-                Character.wisdom = Integer.parseInt(editWis.text.toString())
-                Character.charisma = Integer.parseInt(editCha.text.toString())
+                CharacterTemp.strength = Integer.parseInt(editStr.text.toString())
+                CharacterTemp.dexterity = Integer.parseInt(editDex.text.toString())
+                CharacterTemp.constitution = Integer.parseInt(editCon.text.toString())
+                CharacterTemp.intelligence = Integer.parseInt(editInt.text.toString())
+                CharacterTemp.wisdom = Integer.parseInt(editWis.text.toString())
+                CharacterTemp.charisma = Integer.parseInt(editCha.text.toString())
 
                 finish()
             }

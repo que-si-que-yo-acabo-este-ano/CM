@@ -1,6 +1,5 @@
 package com.example.iniciojsonkot
 
-import android.content.Context
 import android.os.AsyncTask
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
@@ -16,8 +15,6 @@ import com.example.iniciojsonkot.Global.Companion.items
 import com.example.iniciojsonkot.Global.Companion.spells
 
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import java.lang.StringBuilder
 import java.net.URL
 
@@ -50,11 +47,11 @@ class MainActivity : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
-        // Inicializar Character.spellsKnown
-        Character.spellsKnown = mutableMapOf()
+        // Inicializar CharacterTemp.spellsKnown
+        CharacterTemp.spellsKnown = mutableListOf()
         for(i in 0..9){
             var set:MutableSet<String> = mutableSetOf()
-            Character.spellsKnown.put(i,set)
+            CharacterTemp.spellsKnown.add(i,set)
         }
 
 

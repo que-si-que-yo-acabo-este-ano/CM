@@ -21,12 +21,24 @@ class Searchers {
             return res[0]!!.toString()
         }
 
-        fun searchMaterialFromComponents(spell:List<JsonObject>): String{
-            val res = spell.map {
-                it.obj("components")!!.string("m")
-            }
+        //To use the next function you need to use the next if statement:
+        // val components = searchComponentsFromSpell(spell)
+        //if(components.equals("v,s,m") or components.equals("v,m") or components.equals("s,m") or components.equals("m"))
 
-            return res[0]!!.toString()
+        fun searchMaterialFromComponents(spell:List<JsonObject>): String{
+            var text = ""
+            val components = spell.map {
+                it.obj("components")!!
+            }[0]
+            val material = components["m"]
+            if(material is String){
+                text = material
+            }else{
+                val materialJson = material as JsonObject
+                var materialText = materialJson.string("text")
+                text = materialText.toString()
+            }
+            return text
         }
 
         fun searchLevelFromSpell(spell: List<JsonObject>):String{
@@ -104,6 +116,108 @@ class Searchers {
                     text += "\n" + positionText
                 }
 
+            }
+
+            return text
+        }
+
+        fun searchDurationFromSpell(spell: List<JsonObject>): String{
+            var text : String = ""
+
+            val duration = spell.map {
+                it.array<JsonObject>("duration")
+            }[0]
+            val type = duration!!.string("type")[0]
+            if(type.equals("timed")){
+                val durationInfo = duration!!.obj("duration")
+                if(!durationInfo.filter { it!!.boolean("upTo") != null }.isEmpty()){
+                    text+= "Up to "
+                }
+                val amount = durationInfo.int("amount")[0]
+                val type = durationInfo.string("type")[0]
+                text+= "$amount $type"
+            }else if(type.equals("permanent")){
+                text+= "Until "
+                val ends = duration.map {
+                    it.array<String>("ends")
+                }[0]
+                for(i in 0..(ends!!.size-1)){
+                    var end : String
+                    when(ends[i].equals("trigger")){
+                        true -> end = "triggered"
+                        false -> end = "dispelled"
+                    }
+                    if(i==0){
+                        text+= end
+                    }else{
+                        text+= " or $end"
+                    }
+                }
+
+            }else{
+                text+= "Instantaneous"
+            }
+
+            return text
+        }
+
+
+        fun searchRangeFromSpell(spell: List<JsonObject>): String{
+            var text = ""
+            val range = spell.map {
+                it.obj("range")
+            }[0]
+            val type = range!!.string("type")
+            if(type.equals("point")){
+                val distance = range!!.obj("distance")
+                val typeDistance = distance!!.string("type")
+                if(typeDistance.equals("self")){
+                    text+= "Self"
+                }else if(typeDistance.equals("touch")){
+                    text+= "Touch"
+                }else if(typeDistance.equals("feet")){
+                    val amount = distance!!.int("amount")
+                    text+= "$amount feet"
+                }else if(typeDistance.equals("miles")){
+                    val amount = distance!!.int("amount")
+                    text+= "$amount miles"
+                }else if(typeDistance.equals("sight")){
+                    text+= "Sight"
+                }else if(typeDistance.equals("unlimited")){
+                    text+= "Unlimited"
+                }
+            }else if(type.equals("radius")){
+                val distance = range!!.obj("distance")
+                val typeDistance = distance!!.string("type")
+                if(typeDistance.equals("feet")){
+                    val amount = distance!!.int("amount")
+                    text+= "$amount feet"
+                }else if(typeDistance.equals("miles")){
+                    val amount = distance!!.int("amount")
+                    text+= "$amount miles"
+                }
+            }else if(type.equals("special")){
+                text+= "Special"
+            }else if(type.equals("cone")){
+                val distance = range!!.obj("distance")
+                val amount = distance!!.int("amount")
+                text+= "Self($amount-foot cone)"
+            }else if(type.equals("line")){
+                val distance = range!!.obj("distance")
+                val amount = distance!!.int("amount")
+                text+= "Self($amount-foot line)"
+            }else if(type.equals("hemisphere")) {
+                val distance = range!!.obj("distance")
+                val amount = distance!!.int("amount")
+                text += "Self($amount-foot-radius hemisphere)"
+            }else if(type.equals("sphere")) {
+                val distance = range!!.obj("distance")
+                val amount = distance!!.int("amount")
+                text += "Self($amount-foot-radius sphere)"
+            }else if(type.equals("cube")) {
+                val distance = range!!.obj("distance")
+                val amount = distance!!.int("amount")
+                text += "Self($amount-foot cube)"
             }
 
             return text
