@@ -12,7 +12,7 @@ import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchDurationFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchRangeFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevels
+import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevelsAndClasses
 
 
 class SelectSpellsActivity : AppCompatActivity() {
@@ -116,7 +116,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val spellsSorted = spellsToShow.toList().sorted()
-                val spellsRequested = searchSpellsByLevels(spellsSorted,CharacterTemp.classes.keys)
+                val spellsRequested = searchSpellsByLevelsAndClasses(spellsSorted,CharacterTemp.classes.keys)
                 linLay.removeAllViewsInLayout()
                 for (i in spellsRequested.keys) {
                     val textView = TextView(v.context)

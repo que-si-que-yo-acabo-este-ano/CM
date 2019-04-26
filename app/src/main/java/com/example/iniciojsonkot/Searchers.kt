@@ -49,7 +49,16 @@ class Searchers {
             return res[0]!!.toString()
         }
 
-        fun searchSpellsByLevel(level: Int,classes: Set<String>): List<String?>{
+        fun searchSpellsByLevel(level: Int): List<String?>{
+            val spellsList = Global.spells.array<JsonObject>("spell")!!.filter {
+                it.int("level") == level
+            }.map {
+                it.string("name")
+            }
+            return spellsList
+        }
+
+        fun searchSpellsByLevelAndClasses(level: Int,classes: Set<String>): List<String?>{
             val spellsList = Global.spells.array<JsonObject>("spell")!!.filter {
                 it.int("level") == level
             }.filter {
@@ -63,10 +72,10 @@ class Searchers {
             return spellsList
         }
 
-        fun searchSpellsByLevels(levels: List<Int>,classes: Set<String>): Map<Int,List<String?>>{
+        fun searchSpellsByLevelsAndClasses(levels: List<Int>,classes: Set<String>): Map<Int,List<String?>>{
             val mutableRes :MutableMap<Int,List<String?>>  = mutableMapOf()
             for(level in levels){
-                mutableRes[level] = searchSpellsByLevel(level,classes)
+                mutableRes[level] = searchSpellsByLevelAndClasses(level,classes)
             }
             val res : Map<Int,List<String?>> = mutableRes
             return res
