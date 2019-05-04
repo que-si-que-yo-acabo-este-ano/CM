@@ -9,14 +9,14 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
     var name: String = _name
     var level: Int = _level
     var race: String = _race
-    var speed: Int = _speed // TODO Sustituir por un getSpeed a la raza elegida
+    var speed: Int = _speed
     var classes: MutableMap<String,Int> = _classes
     var savesProficiencies: MutableSet<String> = _savesProficiencies
     var skillsProficiencies: MutableSet<String> = _skillsProficiencies
     var skillsExpertise: MutableSet<String> = _skillsExpertise
     var spellsKnown: MutableList<MutableSet<String>> = _spellsKnown
     var spellsPrepared: MutableList<MutableSet<String>> = _spellsPrepared
-    var proficiencyBonus: Int = 2 // TODO Sustituir por un getProficiency al nivel del personaje
+    var proficiencyBonus: List<Int> = listOf(2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,6)
     var strength: Int = _strength
     var dexterity: Int = _dexterity
     var constitution: Int = _constitution
