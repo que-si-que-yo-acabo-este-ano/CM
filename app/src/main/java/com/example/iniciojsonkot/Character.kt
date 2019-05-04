@@ -8,21 +8,15 @@ class Character(_name: String, _level: Int, _race: String, _classChosen: String,
 
     var name: String = _name
     var level: Int = _level //Ponía pero es realmente _level
-    var race: String = _race
     var speed: Int = 30 // TODO Sustituir por un getSpeed a la raza elegida
     var classes: MutableMap<String,Int> = mutableMapOf(_classChosen to 1)
-    var background: String = _background
     var savesProficiencies: MutableSet<String> = mutableSetOf("Strength","Constitution") // TODO Sustituir por un getSaves a la clase elegida
     var skillsProficiencies: MutableSet<String> = _skillsProficiencies
     var skillsExpertise: MutableSet<String> = mutableSetOf()
     var spellsKnown: MutableList<MutableSet<String>> = mutableListOf()
     var spellsPrepared: MutableList<MutableSet<String>> = mutableListOf()
-    var weaponsProficiencies: MutableSet<String> = mutableSetOf() // TODO Sustituir por un getWeaponsProficiencies a la clase y a la raza (y a saber si al background)
-    var armorProficiencies: MutableSet<String> = mutableSetOf() // TODO Sustituir por un getArmorProficiencies a la clase y a la raza (y a saber si al background)
-    var toolsProficiencies: MutableSet<String> = _toolsProficiencies
-    var languages: MutableSet<String> = _languages
-    var equipment: MutableMap<String, Int> = _equipment
-    var alignment: String = _alignment
+    //var weaponsProficiencies: MutableSet<String> = mutableSetOf() // TODO Sustituir por un getWeaponsProficiencies a la clase y a la raza (y a saber si al background)
+    //var armorProficiencies: MutableSet<String> = mutableSetOf() // TODO Sustituir por un getArmorProficiencies a la clase y a la raza (y a saber si al background)
     var proficiencyBonus: Int = 2 // TODO Sustituir por un getProficiency al nivel del personaje
     var strength: Int = _strength
     var dexterity: Int = _dexterity
