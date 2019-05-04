@@ -26,9 +26,13 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
 
 
     fun createJson():String{
-
         //classes
-        var stringClasses = mapToString(classes)
+        val stringClasses = mapToString(classes)
+        //spellsKnown
+        val stringSpellsKnown = listOfSetToListOfString(spellsKnown)
+        //spellsPrepared
+        val stringSpellsPrepared = listOfSetToListOfString(spellsPrepared)
+
         val json =
                 "{" +
                         "\"name\": \"$name\" ," +
@@ -39,7 +43,14 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
                         "\"saveProficiencies\": $savesProficiencies ," +
                         "\"skillsProficiencies\": $skillsProficiencies ," +
                         "\"skillsExpertise\": $skillsExpertise ," +
-
+                        "\"spellsKnown\": $stringSpellsKnown ," +
+                        "\"spellsPrepared\": $stringSpellsPrepared ," +
+                        "\"strength\": $strength ," +
+                        "\"dexterity\": $dexterity ," +
+                        "\"constitution\": $constitution ," +
+                        "\"intelligence\": $intelligence ," +
+                        "\"wisdom\": $wisdom ," +
+                        "\"charisma\": $charisma ," +
 
                 "}"
         return json
