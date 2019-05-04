@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import kotlinx.android.synthetic.main.modify_stats_layout.*
 import kotlin.math.floor
 import android.view.View
+import kotlinx.android.synthetic.main.stats_saves_resistances.*
 
 
 class ModifyStatsActivity : AppCompatActivity() {
@@ -14,8 +15,8 @@ class ModifyStatsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.modify_stats_layout)
-
-
+        Global.personaje.createJson(this.applicationContext)
+        Global.personaje = Character.createCharacterFromJson("ll",this.applicationContext)
         editStr.setText(CharacterTemp.strength.toString())
         editDex.setText(CharacterTemp.dexterity.toString())
         editCon.setText(CharacterTemp.constitution.toString())
