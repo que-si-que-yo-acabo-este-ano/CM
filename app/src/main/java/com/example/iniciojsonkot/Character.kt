@@ -25,7 +25,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
     var charisma: Int = _charisma
 
 
-    fun createJson(){
+    fun createJson():String{
 
         //classes
         var stringClasses = mapToString(classes)
@@ -38,28 +38,53 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
                         "\"classes\": $stringClasses ," +
                         "\"saveProficiencies\": $savesProficiencies ," +
                         "\"skillsProficiencies\": $skillsProficiencies ," +
+                        "\"skillsExpertise\": $skillsExpertise ," +
 
 
                 "}"
+        return json
     }
 
-    fun mapToString(jsonMap:MutableMap<out Any,out Any>):String{
-        var string = "{"
-        for(name in jsonMap.keys){
-            string += "\"$name\": ${jsonMap[name]},"
+    companion object {
+        fun mapToString(jsonMap:MutableMap<String,Int>):String{
+            var string = "{"
+            for(key in jsonMap.keys){
+                string += "\"$key\": ${jsonMap[key]},"
+            }
+            string += "}"
+            return string
         }
-        string += "}"
-        return string
+
+        fun listOfSetToListOfString(listOfSet:MutableList<MutableSet<String>>):MutableList<String>{
+            val listOfString = mutableListOf<String>()
+            for(setFromList in listOfSet){
+                var string = "\""
+                val setFromListOrdered = setFromList.toMutableList()
+                for(i in 0..(setFromListOrdered.size-1)){
+                    if(i!=setFromListOrdered.size-1){
+                        string+= "${setFromListOrdered[i]},"
+                    }else{
+                        string+= "${setFromListOrdered[i]}\""
+                    }
+                }
+                listOfString.add(string)
+            }
+            return listOfString
+        }
+
+        fun listOfStringToListOfSet(listOfString:MutableList<String>): MutableList<MutableSet<String>>{
+            val listOfSet = mutableListOf<MutableSet<String>>()
+            for(value in listOfString){
+                listOfSet.add(value.split(",").toMutableSet())
+            }
+            return listOfSet
+        }
+
     }
 
-    fun setToString(jsonSet:MutableSet<out Any>):String{
-        var string = ""
-        return string
-    }
 }
 
-class CharacterTunnel(val _name: String, val _level: Int, val _race: String, val _classChosen: String, val _background: String,
-                   val _skillsProficiencies: MutableSet<String>, val _toolsProficiencies: MutableSet<String>,
-                   val _languages: MutableSet<String>, val _equipment: MutableMap<String,Int>,
-                   val _alignment: String, val _strength: Int, val _dexterity: Int, val _constitution: Int,
-                   val _intelligence: Int, val _wisdom: Int, val _charisma: Int)
+class CharacterTunnel(val _name: String, val _level: Int, val _race: String, val _speed: Int, val _classes: MutableMap<String,Int>, val _savesProficiencies: MutableSet<String>,
+                      val _skillsProficiencies: MutableSet<String>, val _skillsExpertise: MutableSet<String>, val _spellsKnown: MutableList<String>,
+                      val _spellsPrepared: MutableList<String>, val _strength: Int, val _dexterity: Int, val _constitution: Int, val _intelligence: Int,
+                      val _wisdom: Int, val _charisma: Int)
