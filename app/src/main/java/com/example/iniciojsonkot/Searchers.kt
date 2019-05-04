@@ -126,8 +126,9 @@ class Searchers {
                 }
 
             }
+            val pattern = "[{]@(dice|condition) ([\\w]+)[}]".toRegex()
 
-            return text
+            return pattern.replace(text,"$2")
         }
 
         fun searchDurationFromSpell(spell: List<JsonObject>): String{

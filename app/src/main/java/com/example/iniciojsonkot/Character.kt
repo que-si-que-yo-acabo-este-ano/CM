@@ -32,9 +32,19 @@ class Character(_name: String, _level: Int, _race: String, _classChosen: String,
     var charisma: Int = _charisma
 
 
+    /*fun createJson(){
+        val string =
+            "{" +
+                    "\"name\": \"$name\"," +
+                    "\"level\": $level ," +
+                    "\"putaMierda\": $putaMierda ," +
+                    "\"mapa\": {\"car\": ${mapa["car"]}, \"model\": ${mapa["model"]}}," +
+                    "}"
+    }*/
+
 }
 
-class CharacterAux(val _name: String, val _level: Int, val _race: String, val _classChosen: String, val _background: String,
+class CharacterTunnel(val _name: String, val _level: Int, val _race: String, val _classChosen: String, val _background: String,
                    val _skillsProficiencies: MutableSet<String>, val _toolsProficiencies: MutableSet<String>,
                    val _languages: MutableSet<String>, val _equipment: MutableMap<String,Int>,
                    val _alignment: String, val _strength: Int, val _dexterity: Int, val _constitution: Int,
