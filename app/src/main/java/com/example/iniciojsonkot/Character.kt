@@ -9,7 +9,7 @@ class Character(_name: String, _level: Int, _race: String, _classChosen: String,
     var name: String = _name
     var level: Int = _level //Ponía 1 pero es realmente _level
     var race: String = _race
-    var speed: Int = 30 // TODO Sustituir por un getSpeed a la raza elegida
+    var speed: Int = 30
     var classes: MutableMap<String,Int> = mutableMapOf(_classChosen to 1)
     var savesProficiencies: MutableSet<String> = mutableSetOf("Strength","Constitution") // TODO Sustituir por un getSaves a la clase elegida
     var skillsProficiencies: MutableSet<String> = _skillsProficiencies
