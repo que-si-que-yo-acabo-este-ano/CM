@@ -17,14 +17,15 @@ class StatsSavesResistancesFragment : Fragment() {
 
         viewOfLayout.button3.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                val modifyStatsIntent = Intent(context, ModifyStatsActivity::class.java)
-                startActivity(modifyStatsIntent)
+                //val modifyStatsIntent = Intent(context, ModifyStatsActivity::class.java)
+                //startActivity(modifyStatsIntent)
+                val pruebaIntent = Intent(context, CreateCharacter::class.java)
+                startActivity(pruebaIntent)
             }
         })
 
         viewOfLayout.speedNum.text = CharacterTemp.speed.toString()
         viewOfLayout.proficiencyNum.text = "+" + CharacterTemp.proficiencyBonus.toString()
-
 
         return viewOfLayout
     }

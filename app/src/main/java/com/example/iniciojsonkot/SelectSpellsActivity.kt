@@ -13,6 +13,7 @@ import com.example.iniciojsonkot.Searchers.Companion.searchDurationFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchRangeFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevelsAndClasses
+import kotlin.streams.toList
 
 
 class SelectSpellsActivity : AppCompatActivity() {
@@ -22,7 +23,12 @@ class SelectSpellsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_spells_layout)
         val spellsToShow : MutableSet<Int> = mutableSetOf()
-        var spellsSelected : MutableList<MutableSet<String>> = CharacterTemp.spellsKnown
+        var spellsSelected : MutableList<MutableSet<String>> = mutableListOf()
+        //CharacterTemp.spellsKnown
+        for (i in 0..9){
+            spellsSelected.add(mutableSetOf())
+            spellsSelected[i].addAll(CharacterTemp.spellsKnown[i])
+        }
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
@@ -107,7 +113,10 @@ class SelectSpellsActivity : AppCompatActivity() {
 
         buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                CharacterTemp.spellsKnown = spellsSelected
+                for (i in 0..9){
+                    CharacterTemp.spellsKnown[i].clear()
+                    CharacterTemp.spellsKnown[i].addAll(spellsSelected[i])
+                }
                 finish()
             }
         })

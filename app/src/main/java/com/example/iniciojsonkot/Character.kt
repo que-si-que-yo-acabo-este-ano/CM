@@ -1,29 +1,22 @@
 package com.example.iniciojsonkot
 
-class Character(_name: String, _level: Int, _race: String, _classChosen: String, _background: String,
-                _skillsProficiencies: MutableSet<String>, _toolsProficiencies: MutableSet<String>,
-                _languages: MutableSet<String>, _equipment: MutableMap<String,Int>,
-                _alignment: String, _strength: Int, _dexterity: Int, _constitution: Int,
-                _intelligence: Int, _wisdom: Int, _charisma: Int) {
+
+class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes: MutableMap<String,Int>, _savesProficiencies: MutableSet<String>,
+                _skillsProficiencies: MutableSet<String>, _skillsExpertise: MutableSet<String>, _spellsKnown: MutableList<MutableSet<String>>,
+                _spellsPrepared: MutableList<MutableSet<String>>,_strength: Int, _dexterity: Int, _constitution: Int, _intelligence: Int,
+                _wisdom: Int, _charisma: Int) {
 
     var name: String = _name
-    var level: Int = _level //Ponía 1 pero es realmente _level
+    var level: Int = _level
     var race: String = _race
-    var speed: Int = 30 // TODO Sustituir por un getSpeed a la raza elegida
-    var classes: MutableMap<String,Int> = mutableMapOf(_classChosen to 1)
-    var background: String = _background
-    var savesProficiencies: MutableSet<String> = mutableSetOf("Strength","Constitution") // TODO Sustituir por un getSaves a la clase elegida
+    var speed: Int = _speed
+    var classes: MutableMap<String,Int> = _classes
+    var savesProficiencies: MutableSet<String> = _savesProficiencies
     var skillsProficiencies: MutableSet<String> = _skillsProficiencies
-    var skillsExpertise: MutableSet<String> = mutableSetOf()
-    var spellsKnown: MutableList<MutableSet<String>> = mutableListOf()
-    var spellsPrepared: MutableList<MutableSet<String>> = mutableListOf()
-    var weaponsProficiencies: MutableSet<String> = mutableSetOf() // TODO Sustituir por un getWeaponsProficiencies a la clase y a la raza (y a saber si al background)
-    var armorProficiencies: MutableSet<String> = mutableSetOf() // TODO Sustituir por un getArmorProficiencies a la clase y a la raza (y a saber si al background)
-    var toolsProficiencies: MutableSet<String> = _toolsProficiencies
-    var languages: MutableSet<String> = _languages
-    var equipment: MutableMap<String, Int> = _equipment
-    var alignment: String = _alignment
-    var proficiencyBonus: Int = 2 // TODO Sustituir por un getProficiency al nivel del personaje
+    var skillsExpertise: MutableSet<String> = _skillsExpertise
+    var spellsKnown: MutableList<MutableSet<String>> = _spellsKnown
+    var spellsPrepared: MutableList<MutableSet<String>> = _spellsPrepared
+    var proficiencyBonus: List<Int> = listOf(2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,6)
     var strength: Int = _strength
     var dexterity: Int = _dexterity
     var constitution: Int = _constitution
@@ -32,16 +25,37 @@ class Character(_name: String, _level: Int, _race: String, _classChosen: String,
     var charisma: Int = _charisma
 
 
-    /*fun createJson(){
-        val string =
-            "{" +
-                    "\"name\": \"$name\"," +
-                    "\"level\": $level ," +
-                    "\"putaMierda\": $putaMierda ," +
-                    "\"mapa\": {\"car\": ${mapa["car"]}, \"model\": ${mapa["model"]}}," +
-                    "}"
-    }*/
+    fun createJson(){
 
+        //classes
+        var stringClasses = mapToString(classes)
+        val json =
+                "{" +
+                        "\"name\": \"$name\" ," +
+                        "\"level\": $level ," +
+                        "\"race\": \"$race\" ," +
+                        "\"speed\": $speed ," +
+                        "\"classes\": $stringClasses ," +
+                        "\"saveProficiencies\": $savesProficiencies ," +
+                        "\"skillsProficiencies\": $skillsProficiencies ," +
+
+
+                "}"
+    }
+
+    fun mapToString(jsonMap:MutableMap<out Any,out Any>):String{
+        var string = "{"
+        for(name in jsonMap.keys){
+            string += "\"$name\": ${jsonMap[name]},"
+        }
+        string += "}"
+        return string
+    }
+
+    fun setToString(jsonSet:MutableSet<out Any>):String{
+        var string = ""
+        return string
+    }
 }
 
 class CharacterTunnel(val _name: String, val _level: Int, val _race: String, val _classChosen: String, val _background: String,
