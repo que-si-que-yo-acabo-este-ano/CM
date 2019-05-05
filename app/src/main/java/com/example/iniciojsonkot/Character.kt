@@ -36,7 +36,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
         val stringClasses = mapToString(classes)
 
         //savesProficiencies
-        val stringSaveProficiencies = setToString(savesProficiencies)
+        val stringSavesProficiencies = setToString(savesProficiencies)
 
         //skillsProficiencies
         val stringSkillsProficiencies = setToString(skillsProficiencies)
@@ -58,7 +58,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
                         "\"race\": \"$race\" ," +
                         "\"speed\": $speed ," +
                         "\"classes\": $stringClasses ," +
-                        "\"saveProficiencies\": $stringSaveProficiencies ," +
+                        "\"savesProficiencies\": $stringSavesProficiencies ," +
                         "\"skillsProficiencies\": $stringSkillsProficiencies ," +
                         "\"skillsExpertise\": $stringSkillsExpertise ," +
                         "\"spellsKnown\": $stringSpellsKnown ," +
@@ -69,7 +69,6 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
                         "\"intelligence\": $intelligence ," +
                         "\"wisdom\": $wisdom ," +
                         "\"charisma\": $charisma ," +
-
                 "}"
 
         //creatingFile
@@ -153,9 +152,9 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
             if(!jsonString.equals("")){
                 val result = Klaxon()
                     .parse<CharacterTunnel>("""$jsonString""")
-                character = Character(result!!._name,result!!._level,result!!._race,result!!._speed,result!!._classes,result!!._savesProficiencies,
-                    result!!._skillsProficiencies,result!!._skillsExpertise, listOfStringToListOfSet(result!!._spellsKnown),listOfStringToListOfSet(result!!._spellsPrepared),
-                    result!!._strength,result!!._dexterity,result!!._constitution,result!!._intelligence,result!!._wisdom,result!!._charisma)
+                character = Character(result!!.name,result!!.level,result!!.race,result!!.speed,result!!.classes,result!!.savesProficiencies,
+                    result!!.skillsProficiencies,result!!.skillsExpertise, listOfStringToListOfSet(result!!.spellsKnown),listOfStringToListOfSet(result!!.spellsPrepared),
+                    result!!.strength,result!!.dexterity,result!!.constitution,result!!.intelligence,result!!.wisdom,result!!.charisma)
             }
             return character
         }
@@ -163,7 +162,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
 
 }
 
-class CharacterTunnel(val _name: String, val _level: Int, val _race: String, val _speed: Int, val _classes: MutableMap<String,Int>, val _savesProficiencies: MutableSet<String>,
-                      val _skillsProficiencies: MutableSet<String>, val _skillsExpertise: MutableSet<String>, val _spellsKnown: MutableList<String>,
-                      val _spellsPrepared: MutableList<String>, val _strength: Int, val _dexterity: Int, val _constitution: Int, val _intelligence: Int,
-                      val _wisdom: Int, val _charisma: Int)
+class CharacterTunnel(val name: String, val level: Int, val race: String, val speed: Int, val classes: MutableMap<String,Int>, val savesProficiencies: MutableSet<String>,
+                      val skillsProficiencies: MutableSet<String>, val skillsExpertise: MutableSet<String>, val spellsKnown: MutableList<String>,
+                      val spellsPrepared: MutableList<String>, val strength: Int, val dexterity: Int, val constitution: Int, val intelligence: Int,
+                      val wisdom: Int, val charisma: Int)
