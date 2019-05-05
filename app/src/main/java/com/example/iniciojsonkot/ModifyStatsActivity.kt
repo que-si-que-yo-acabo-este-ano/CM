@@ -17,6 +17,8 @@ class ModifyStatsActivity : AppCompatActivity() {
         setContentView(R.layout.modify_stats_layout)
         Global.personaje.createJson(this.applicationContext)
         Global.personaje = Character.createCharacterFromJson("ll",this.applicationContext)
+        println("*****************************")
+        println(Global.personaje.skillsExpertise)
         editStr.setText(CharacterTemp.strength.toString())
         editDex.setText(CharacterTemp.dexterity.toString())
         editCon.setText(CharacterTemp.constitution.toString())
