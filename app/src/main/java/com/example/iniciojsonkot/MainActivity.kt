@@ -1,6 +1,6 @@
 package com.example.iniciojsonkot
 
-import android.content.Context
+
 import android.os.AsyncTask
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
