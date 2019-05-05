@@ -8,7 +8,7 @@ import java.io.InputStreamReader
 import java.lang.StringBuilder
 
 
-class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes: MutableMap<String,Int>, _savesProficiencies: MutableSet<String>,
+class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealth: Int, _currentHealth: Int, _armor: Int, _classes: MutableMap<String,Int>, _savesProficiencies: MutableSet<String>,
                 _skillsProficiencies: MutableSet<String>, _skillsExpertise: MutableSet<String>, _spellsKnown: MutableList<MutableSet<String>>,
                 _spellsPrepared: MutableList<MutableSet<String>>,_strength: Int, _dexterity: Int, _constitution: Int, _intelligence: Int,
                 _wisdom: Int, _charisma: Int) {
@@ -17,6 +17,9 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
     var level: Int = _level
     var race: String = _race
     var speed: Int = _speed // TODO Sustituir por un getSpeed a la raza elegida
+    var maxHealth: Int = _maxHealth
+    var currentHealth : Int = _currentHealth
+    var armor: Int = _armor
     var classes: MutableMap<String,Int> = _classes
     var savesProficiencies: MutableSet<String> = _savesProficiencies
     var skillsProficiencies: MutableSet<String> = _skillsProficiencies
@@ -58,6 +61,9 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
                         "\"level\": $level ," +
                         "\"race\": \"$race\" ," +
                         "\"speed\": $speed ," +
+                        "\"maxHealth\": $maxHealth ," +
+                        "\"currentHealth\": $currentHealth ," +
+                        "\"armor\": $armor ," +
                         "\"classes\": $stringClasses ," +
                         "\"savesProficiencies\": $stringSavesProficiencies ," +
                         "\"skillsProficiencies\": $stringSkillsProficiencies ," +
@@ -170,7 +176,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
             if(!jsonString.equals("")){
                 val result = Klaxon()
                     .parse<CharacterTunnel>("""$jsonString""")
-                character = Character(result!!.name,result!!.level,result!!.race,result!!.speed,result!!.classes,result!!.savesProficiencies,
+                character = Character(result!!.name,result!!.level,result!!.race,result!!.speed,result!!.maxHealth,result!!.currentHealth,result!!.armor,result!!.classes,result!!.savesProficiencies,
                     result!!.skillsProficiencies,result!!.skillsExpertise, listOfStringToListOfSet(result!!.spellsKnown),listOfStringToListOfSet(result!!.spellsPrepared),
                     result!!.strength,result!!.dexterity,result!!.constitution,result!!.intelligence,result!!.wisdom,result!!.charisma)
             }
@@ -180,7 +186,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
 
 }
 
-class CharacterTunnel(val name: String, val level: Int, val race: String, val speed: Int, val classes: MutableMap<String,Int>, val savesProficiencies: MutableSet<String>,
+class CharacterTunnel(val name: String, val level: Int, val race: String, val speed: Int, val maxHealth: Int, val currentHealth: Int, val armor:Int, val classes: MutableMap<String,Int>, val savesProficiencies: MutableSet<String>,
                       val skillsProficiencies: MutableSet<String>, val skillsExpertise: MutableSet<String>, val spellsKnown: MutableList<String>,
                       val spellsPrepared: MutableList<String>, val strength: Int, val dexterity: Int, val constitution: Int, val intelligence: Int,
                       val wisdom: Int, val charisma: Int)

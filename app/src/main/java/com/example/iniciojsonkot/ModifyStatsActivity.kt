@@ -16,7 +16,7 @@ class ModifyStatsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.modify_stats_layout)
         Global.personaje.createJson(this.applicationContext)
-        Global.personaje = Character.createCharacterFromJson("Reloth",this.applicationContext)
+        Global.personaje = Character.createCharacterFromJson("Orpheus",this.applicationContext)
         println("***************************** -- ${Global.characters.size}")
         println("${Global.personaje.name}.json")
         println(Global.personaje.classes)

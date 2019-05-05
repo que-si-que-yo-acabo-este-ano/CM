@@ -17,7 +17,7 @@ class StatsSavesResistancesFragment : Fragment() {
 
         viewOfLayout.button3.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                val modifyStatsIntent = Intent(context, ModifyStatsActivity::class.java)
+                val modifyStatsIntent = Intent(context, InitialActivity::class.java)
                 startActivity(modifyStatsIntent)
             }
         })
