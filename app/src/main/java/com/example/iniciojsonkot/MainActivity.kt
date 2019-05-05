@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                 0 -> frag = StatsSavesResistancesFragment()
                 1 -> frag = SpellsFragment()
                 2 -> frag = Frag3K()
-                3 -> frag = StatsSavesResistancesFragment()
+                3 -> frag = SkillsPointsFragment()
             }
             return frag!!
         }
