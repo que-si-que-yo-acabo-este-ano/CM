@@ -3,6 +3,7 @@ package com.example.iniciojsonkot
 import android.content.Context
 import com.beust.klaxon.Klaxon
 import java.io.BufferedReader
+import java.io.File
 import java.io.InputStreamReader
 import java.lang.StringBuilder
 
@@ -72,7 +73,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
                 "}"
 
         //creatingFile
-        val filename = "characterName.json" //TODO cambiar
+        val filename = "$name.json"
         val fos = context.openFileOutput(filename, Context.MODE_PRIVATE)
         fos.write(json.toByteArray())
         fos.close()
@@ -80,7 +81,26 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
         println(json)
     }
 
+    fun deleteCharacter(context:Context){
+        Global.characters.remove(this)
+        context.deleteFile("$name.json")
+        println(context.fileList().size)
+        println(Global.characters.size)
+    }
+
     companion object {
+        fun loadCharacters(context: Context){
+            println("=====FICHEROS=====")
+            println(context.fileList().size)
+            for(fileName in context.fileList()){
+                println(fileName)
+                val pattern = "([\\w]+).json".toRegex()
+                val name = pattern.replace(fileName,"$1")
+                Global.characters.add(createCharacterFromJson(name,context))
+            }
+            println(context.fileList().size)
+        }
+
         fun mapToString(jsonMap:MutableMap<String,Int>):String{
             var string = "{"
             for(key in jsonMap.keys){
@@ -133,7 +153,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
         }
 
         fun createCharacterFromJson(name: String,context: Context):Character{
-            val filename = "characterName.json"
+            val filename = "$name.json"
             val fileInputStream = context.openFileInput(filename)
             val inputStream = InputStreamReader(fileInputStream)
             val buffered = BufferedReader(inputStream)
@@ -146,8 +166,6 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _classes:
             fileInputStream.close()
 
             val jsonString = stringBuilder.toString()
-            println("============")
-            println(jsonString)
             lateinit var character:Character
             if(!jsonString.equals("")){
                 val result = Klaxon()
