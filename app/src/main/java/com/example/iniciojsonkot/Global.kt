@@ -12,7 +12,10 @@ class Global : Application(){
             mutableListOf(mutableSetOf("Firebolt"),mutableSetOf("Alarm"),mutableSetOf(),mutableSetOf("Fireball"),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
             8,14,16,18,15,11)
         //lateinit var personaje: Character
-
+        var loadedCharacter: Character = Character("Name",0,"Race",0,0,0,0,mutableMapOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),
+            mutableListOf(mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
+            mutableListOf(mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
+            0,0,0,0,0,0)
         var characters: MutableList<Character> = mutableListOf()
     }
 }

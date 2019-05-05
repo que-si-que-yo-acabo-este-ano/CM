@@ -1,13 +1,10 @@
 package com.example.iniciojsonkot
 
-import android.graphics.Color
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.initial_layout.*
-import kotlinx.android.synthetic.main.select_spells_layout.*
 
 class InitialActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,12 +12,17 @@ class InitialActivity : AppCompatActivity(){
         setContentView(R.layout.initial_layout)
 
         for(i in 0..(Global.characters.size-1)){
+            val character = Global.characters[i]
             val textView = TextView(this)
             val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,100)
             textView.layoutParams = params
-            textView.text = Global.characters[i].name
+            textView.text = character.name
             textView.setBackgroundResource(R.drawable.back)
             initialCharacters.addView(textView)
+            textView.setOnClickListener {
+                Global.loadedCharacter = character
+                println(Global.loadedCharacter)
+            }
         }
 
         /*val textView = TextView(this)
