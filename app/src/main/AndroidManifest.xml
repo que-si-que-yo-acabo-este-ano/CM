@@ -21,6 +21,7 @@
                 android:name=".ModifyStatsActivity"
                 android:windowSoftInputMode="adjustPan">
         </activity>
+        <activity android:name=".InitialActivity"></activity>
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">

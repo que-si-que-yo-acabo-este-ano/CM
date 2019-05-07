@@ -1,5 +1,6 @@
 package com.example.iniciojsonkot
 
+
 import android.os.AsyncTask
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
@@ -10,8 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
-import com.example.iniciojsonkot.Global.Companion.basicitems
-import com.example.iniciojsonkot.Global.Companion.items
+import com.example.iniciojsonkot.Global.Companion.characters
 import com.example.iniciojsonkot.Global.Companion.spells
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loadDataFromGit()
-
+        Character.loadCharacters(applicationContext)
         setSupportActionBar(toolbar)
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -120,9 +120,8 @@ class MainActivity : AppCompatActivity() {
 
     fun loadDataFromGit(){
         spells = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
-        basicitems = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/basicitems.json").get()
-        items = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/items.json").get()
     }
+
 
     /**
      * A placeholder fragment containing a simple view.
