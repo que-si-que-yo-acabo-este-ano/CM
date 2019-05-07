@@ -284,12 +284,20 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 Global.loadedCharacter.intelligence = Integer.parseInt(editInt.text.toString())
                 Global.loadedCharacter.wisdom = Integer.parseInt(editWis.text.toString())
                 Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
+                Global.loadedCharacter.maxHealth = Integer.parseInt(hpInput.text.toString())
+                Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
 
 
                 val profsIntent = Intent(this@CreateCharacter, ProficiencyActivity::class.java)
                 startActivity(profsIntent)
 
                 //finish()
+            }
+        })
+
+        cancelButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                finish()
             }
         })
 

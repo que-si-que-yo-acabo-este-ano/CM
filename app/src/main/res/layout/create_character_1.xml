@@ -407,6 +407,40 @@
               android:text="30"
               app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/speedView"
               android:layout_marginStart="4dp"/>
+    <TextView
+            android:text="Max HP:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hpView" android:layout_marginTop="32dp" android:layout_marginStart="4dp"
+            app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toStartOf="@id/guideline14"
+            android:textSize="20sp"/>
+
+    <EditText android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16dp"
+              android:id="@+id/hpInput"
+              android:inputType="number"
+              android:ems="2"
+              android:text="0"
+              app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/hpView"
+              android:layout_marginStart="4dp"/>
+    <TextView
+            android:text="AC:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/acView" android:layout_marginTop="32dp" android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toStartOf="@id/guideline15"
+            android:textSize="20sp"/>
+
+    <EditText android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16dp"
+              android:id="@+id/acInput"
+              android:inputType="number"
+              android:ems="2"
+              android:text="10"
+              app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/acView"
+              android:layout_marginStart="4dp"/>
     <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"

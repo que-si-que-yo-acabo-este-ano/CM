@@ -58,11 +58,6 @@ class ProficiencyActivity : AppCompatActivity() {
 
         backbutton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                println("------------------------------")
-                println(Global.tempProfs)
-                println("------------------------------")
-                println(Global.tempSaves)
-                println("------------------------------")
                 finish()
             }
         })

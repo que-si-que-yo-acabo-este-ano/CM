@@ -32,12 +32,12 @@ class SkillsPointsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        var tempStr = calcMod(CharacterTemp.strength)
-        var tempDex = calcMod(CharacterTemp.dexterity)
-        var tempCon = calcMod(CharacterTemp.constitution)
-        var tempInt = calcMod(CharacterTemp.intelligence)
-        var tempWis = calcMod(CharacterTemp.wisdom)
-        var tempCha = calcMod(CharacterTemp.charisma)
+        var tempStr = calcMod(Global.loadedCharacter.strength)
+        var tempDex = calcMod(Global.loadedCharacter.dexterity)
+        var tempCon = calcMod(Global.loadedCharacter.constitution)
+        var tempInt = calcMod(Global.loadedCharacter.intelligence)
+        var tempWis = calcMod(Global.loadedCharacter.wisdom)
+        var tempCha = calcMod(Global.loadedCharacter.charisma)
 
         var strSkills = listOf("Athletics")
         calSkill(strSkills, tempStr)
@@ -59,11 +59,11 @@ class SkillsPointsFragment : Fragment() {
     private fun calSkill(x: List<String>, y: Int){
         for(skill in x){
             var mod = y
-            if(CharacterTemp.skillsProficiencies.contains(skill))
-                mod += CharacterTemp.proficiencyBonus
+            if(Global.loadedCharacter.skillsProficiencies.contains(skill))
+                mod += Global.loadedCharacter.proficiencyBonus
 
-            if(CharacterTemp.skillsExpertise.contains(skill))
-                mod += CharacterTemp.proficiencyBonus
+            if(Global.loadedCharacter.skillsExpertise.contains(skill))
+                mod += Global.loadedCharacter.proficiencyBonus
 
             viewOfLayout.findViewWithTag<TextView>(skill).text = if (mod >= 0) "+" + mod.toString() else mod.toString()
         }

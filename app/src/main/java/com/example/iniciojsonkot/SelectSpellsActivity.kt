@@ -27,7 +27,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         //CharacterTemp.spellsKnown
         for (i in 0..9){
             spellsSelected.add(mutableSetOf())
-            spellsSelected[i].addAll(CharacterTemp.spellsKnown[i])
+            spellsSelected[i].addAll(Global.loadedCharacter.spellsKnown[i])
         }
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
@@ -114,8 +114,8 @@ class SelectSpellsActivity : AppCompatActivity() {
         buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 for (i in 0..9){
-                    CharacterTemp.spellsKnown[i].clear()
-                    CharacterTemp.spellsKnown[i].addAll(spellsSelected[i])
+                    Global.loadedCharacter.spellsKnown[i].clear()
+                    Global.loadedCharacter.spellsKnown[i].addAll(spellsSelected[i])
                 }
                 finish()
             }
@@ -125,7 +125,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 val spellsSorted = spellsToShow.toList().sorted()
-                val spellsRequested = searchSpellsByLevelsAndClasses(spellsSorted,CharacterTemp.classes.keys)
+                val spellsRequested = searchSpellsByLevelsAndClasses(spellsSorted,Global.loadedCharacter.classes.keys)
                 linLay.removeAllViewsInLayout()
                 for (i in spellsRequested.keys) {
                     val textView = TextView(v.context)

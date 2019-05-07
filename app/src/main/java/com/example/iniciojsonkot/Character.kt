@@ -14,19 +14,27 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
                 _wisdom: Int, _charisma: Int) {
 
     var name: String = _name
-    var level: Int = _level
     var race: String = _race
-    var speed: Int = _speed // TODO Sustituir por un getSpeed a la raza elegida
+    var speed: Int = _speed
     var maxHealth: Int = _maxHealth
     var currentHealth : Int = _currentHealth
     var armor: Int = _armor
     var classes: MutableMap<String,Int> = _classes
+    val level: Int
+        get() {
+            var total = 0
+            for (classLevel in classes.values){
+                total += classLevel
+            }
+            return total
+        }
     var savesProficiencies: MutableSet<String> = _savesProficiencies
     var skillsProficiencies: MutableSet<String> = _skillsProficiencies
     var skillsExpertise: MutableSet<String> = _skillsExpertise
     var spellsKnown: MutableList<MutableSet<String>> = _spellsKnown
     var spellsPrepared: MutableList<MutableSet<String>> = _spellsPrepared
-    var proficiencyBonus: List<Int> = listOf(2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,6)
+    val proficiencyBonus: Int
+        get() = listOf(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,6).get(level) // Si fallara mirar si es por ser val en vez de var
     var strength: Int = _strength
     var dexterity: Int = _dexterity
     var constitution: Int = _constitution

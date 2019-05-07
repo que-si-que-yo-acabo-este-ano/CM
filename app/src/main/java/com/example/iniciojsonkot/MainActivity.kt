@@ -50,11 +50,14 @@ class MainActivity : AppCompatActivity() {
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
         // Inicializar CharacterTemp.spellsKnown
-        CharacterTemp.spellsKnown = mutableListOf()
+        Global.loadedCharacter.spellsKnown = mutableListOf()
         for(i in 0..9){
             var set:MutableSet<String> = mutableSetOf()
-            CharacterTemp.spellsKnown.add(i,set)
+            Global.loadedCharacter.spellsKnown.add(i,set)
         }
+
+        // TODO Mover esto a la selección de personaje cuando toque
+        Global.loadedCharacter = Global.personaje
 
 
     }
