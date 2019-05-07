@@ -137,13 +137,13 @@ class SelectSpellsActivity : AppCompatActivity() {
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
-                    textView.setBackgroundColor(Color.GREEN)
+                    textView.setBackgroundColor(Color.parseColor("#86AC41"))
                     linLay.addView(textView)
 
                     for (spell in spellsOfMap){
                         val horizLay = LinearLayout(this@SelectSpellsActivity)
                         horizLay.orientation = LinearLayout.HORIZONTAL
-                        horizLay.setBackgroundColor(Color.MAGENTA)
+                        horizLay.setBackgroundColor(Color.parseColor("#c99174"))
 
                         val spellView = TextView(v.context)
                         val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -152,7 +152,7 @@ class SelectSpellsActivity : AppCompatActivity() {
                         spellView.text = spell
                         spellView.textSize = 25f
                         spellView.setPadding(30,10,0,10)
-                        spellView.setBackgroundColor(Color.MAGENTA)
+                        spellView.setBackgroundColor(Color.parseColor("#A2C523"))
 
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
@@ -196,7 +196,7 @@ class SelectSpellsActivity : AppCompatActivity() {
 
     fun prueba(tx:TextView):LinearLayout{
         val descLay = LinearLayout(this)
-        descLay.setBackgroundColor(Color.CYAN)
+        descLay.setBackgroundColor(Color.parseColor("#A2C540"))
         descLay.orientation = LinearLayout.VERTICAL
 
         val spellCode = searchSpell(tx.text.toString())
@@ -209,7 +209,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         castingTimeTV.text = "Casting time: " + searchCastingTimeFromSpell(spellCode)
         castingTimeTV.textSize = 16f
         castingTimeTV.setPadding(30,10,30,10)
-        castingTimeTV.setBackgroundColor(Color.LTGRAY)
+        castingTimeTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val rangeTextView = TextView(this)
@@ -217,7 +217,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         rangeTextView.text = "Range: " + searchRangeFromSpell(spellCode)
         rangeTextView.textSize = 16f
         rangeTextView.setPadding(30,10,30,10)
-        rangeTextView.setBackgroundColor(Color.LTGRAY)
+        rangeTextView.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val componentsTV = TextView(this)
@@ -225,7 +225,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         componentsTV.text = "Components: " + searchComponentsFromSpell(spellCode)
         componentsTV.textSize = 16f
         componentsTV.setPadding(30,10,30,10)
-        componentsTV.setBackgroundColor(Color.LTGRAY)
+        componentsTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val durationTV = TextView(this)
@@ -233,7 +233,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         durationTV.text = "Duration: " + searchDurationFromSpell(spellCode)
         durationTV.textSize = 16f
         durationTV.setPadding(30,10,30,10)
-        durationTV.setBackgroundColor(Color.LTGRAY)
+        durationTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val horizLay = LinearLayout(this)
@@ -255,7 +255,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         descriptionTV.text = searchDescriptionFromSpell(spellCode).trim()
         descriptionTV.textSize = 16f
         descriptionTV.setPadding(30,10,10,10)
-        descriptionTV.setBackgroundColor(Color.WHITE)
+        descriptionTV.setBackgroundColor(Color.parseColor("#c99174"))
 
 
         descLay.addView(horizLay)

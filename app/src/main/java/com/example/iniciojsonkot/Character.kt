@@ -35,6 +35,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
     var charisma: Int = _charisma
 
 
+
     fun createJson(context:Context){
         //classes
         val stringClasses = mapToString(classes)
@@ -105,6 +106,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
                 Global.characters.add(createCharacterFromJson(name,context))
             }
             println(context.fileList().size)
+
         }
 
         fun mapToString(jsonMap:MutableMap<String,Int>):String{
