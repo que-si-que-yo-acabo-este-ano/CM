@@ -26,6 +26,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
     var spinnerClass: Spinner? = null
     var spinnerRace: Spinner? = null
+    var selectedClasses : MutableMap<String,Int> = mutableMapOf()
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -55,6 +56,25 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 val classLevel = EditText(v.context)
                 classLevel.maxEms = 2
                 classLevel.inputType = InputType.TYPE_CLASS_NUMBER
+                classLevel.addTextChangedListener(
+                    object : TextWatcher {
+                        override fun afterTextChanged(s: Editable) {}
+                        override fun beforeTextChanged(
+                            s: CharSequence, start: Int,
+                            count: Int, after: Int
+                        ) {
+                        }
+                        override fun onTextChanged(
+                            s: CharSequence, start: Int,
+                            before: Int, count: Int
+                        ) {
+                            var level: Int
+                            if (s.any()){
+                                level = Integer . parseInt (s.toString())
+                                selectedClasses.put(classSpinner.selectedItem.toString(),level)
+                            }
+                        }
+                    })
 
                 classView.addView(className)
                 classView.addView(classLevel)
@@ -65,6 +85,17 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 if(alreadyExists == null){
                     classesList.addView(classView)
                 }
+
+                val removeClass = Button(v.context)
+                removeClass.text = "Remove"
+                removeClass.setOnClickListener(object : View.OnClickListener{
+                    override fun onClick(w: View) {
+                        selectedClasses.remove(className.text)
+                        classesList.removeView(classesList.findViewWithTag<View>(className.text))
+                    }
+                })
+
+                classView.addView(removeClass)
 
 
             }
@@ -225,6 +256,27 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                     }
                 }
             })
+
+        nextButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                Global.loadedCharacter.name = nameInput.text.toString()
+                Global.loadedCharacter.race = raceSpinner.selectedItem.toString()
+                Global.loadedCharacter.classes = selectedClasses
+                Global.loadedCharacter.speed = Integer.parseInt(speedInput.text.toString())
+                Global.loadedCharacter.strength = Integer.parseInt(editStr.text.toString())
+                Global.loadedCharacter.dexterity = Integer.parseInt(editDex.text.toString())
+                Global.loadedCharacter.constitution = Integer.parseInt(editCon.text.toString())
+                Global.loadedCharacter.intelligence = Integer.parseInt(editInt.text.toString())
+                Global.loadedCharacter.wisdom = Integer.parseInt(editWis.text.toString())
+                Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
+
+
+                val pruebaIntent = Intent(this@CreateCharacter, CreateCharacter::class.java)
+                startActivity(pruebaIntent)
+
+                //finish()
+            }
+        })
 
     }
 
