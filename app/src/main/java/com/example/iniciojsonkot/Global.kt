@@ -21,5 +21,8 @@ class Global : Application(){
             mutableListOf(mutableSetOf("Firebolt"),mutableSetOf("Alarm"),mutableSetOf(),mutableSetOf("Fireball"),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
             8,14,16,18,15,11)*/
         var characters: MutableList<Character> = mutableListOf()
+
+        var tempSaves = mutableSetOf<String>()
+        var tempProfs = mutableSetOf<String>()
     }
 }

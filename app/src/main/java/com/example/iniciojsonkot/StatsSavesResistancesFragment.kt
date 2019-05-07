@@ -19,6 +19,11 @@ class StatsSavesResistancesFragment : Fragment() {
             override fun onClick(v: View) {
                 //val modifyStatsIntent = Intent(context, ModifyStatsActivity::class.java)
                 //startActivity(modifyStatsIntent)
+
+                // Mover este código al lugar donde se cargue el personaje seleccionado
+                Global.tempSaves.addAll(Global.loadedCharacter.savesProficiencies)
+                Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
+                // Quitar este intent y dejar el que está comentado arriba
                 val pruebaIntent = Intent(context, CreateCharacter::class.java)
                 startActivity(pruebaIntent)
             }

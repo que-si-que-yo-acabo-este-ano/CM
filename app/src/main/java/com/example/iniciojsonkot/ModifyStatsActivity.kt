@@ -21,6 +21,9 @@ class ModifyStatsActivity : AppCompatActivity() {
         println("${Global.personaje.name}.json")
         println(Global.personaje.classes)
         //Global.characters[0].deleteCharacter(this.applicationContext)
+
+
+
         editStr.setText(CharacterTemp.strength.toString())
         editDex.setText(CharacterTemp.dexterity.toString())
         editCon.setText(CharacterTemp.constitution.toString())

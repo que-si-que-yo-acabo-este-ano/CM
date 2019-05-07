@@ -1,6 +1,9 @@
 package com.example.iniciojsonkot
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
@@ -28,9 +31,21 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
     var spinnerRace: Spinner? = null
     var selectedClasses : MutableMap<String,Int> = mutableMapOf()
 
+    val broadcast_reciever = object : BroadcastReceiver() {
+
+        override fun onReceive(arg0: Context, intent: Intent) {
+            val action = intent.action
+            if (action == "finish_activity") {
+                finish()
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_character_1)
+
+        registerReceiver(broadcast_reciever, IntentFilter("finish_activity"))
 
         spinnerClass = this.classSpinner
         spinnerClass!!.setOnItemSelectedListener(this)
@@ -271,8 +286,8 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
 
 
-                val pruebaIntent = Intent(this@CreateCharacter, CreateCharacter::class.java)
-                startActivity(pruebaIntent)
+                val profsIntent = Intent(this@CreateCharacter, ProficiencyActivity::class.java)
+                startActivity(profsIntent)
 
                 //finish()
             }

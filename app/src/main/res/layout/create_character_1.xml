@@ -404,6 +404,7 @@
               android:id="@+id/speedInput"
               android:inputType="number"
               android:ems="2"
+              android:text="30"
               app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/speedView"
               android:layout_marginStart="4dp"/>
     <Button

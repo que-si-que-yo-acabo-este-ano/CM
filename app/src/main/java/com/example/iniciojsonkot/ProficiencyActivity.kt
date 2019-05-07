@@ -1,9 +1,13 @@
 package com.example.iniciojsonkot
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Switch
+import kotlinx.android.synthetic.main.create_character_1.*
+import kotlinx.android.synthetic.main.proficiency_selector.*
 
 
 class ProficiencyActivity : AppCompatActivity() {
@@ -23,16 +27,16 @@ class ProficiencyActivity : AppCompatActivity() {
                 run {
                     if (switchChecked) {
                         switchChecked = true
-                        CharacterTemp.savesProficiencies.add(stat)
+                        Global.tempSaves.add(stat)
                     } else {
                         switchChecked = false
-                        CharacterTemp.savesProficiencies.remove(stat)
+                        Global.tempSaves.remove(stat)
                     }
                 }
             }
         }
 
-        var skills = listOf("Athletics", "Acrobatics", "Sleight", "Stealth", "Thieves", "Arcana",
+        var skills = listOf("Athletics", "Acrobatics", "Sleight", "Stealth", "Arcana",
             "History", "Investigation", "Religion", "Animal", "Insight", "Medicine", "Perception", "Survival",
             "Deception", "Intimidation", "Performance", "Persuasion")
 
@@ -42,15 +46,39 @@ class ProficiencyActivity : AppCompatActivity() {
                 run {
                     if (switchChecked) {
                         switchChecked = true
-                        CharacterTemp.skillsProficiencies.add(s)
+                        Global.tempProfs.add(s)
                     } else {
                         switchChecked = false
-                        CharacterTemp.skillsProficiencies.remove(s)
+                        Global.tempProfs.remove(s)
                     }
 
                 }
             }
         }
+
+        backbutton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                println("------------------------------")
+                println(Global.tempProfs)
+                println("------------------------------")
+                println(Global.tempSaves)
+                println("------------------------------")
+                finish()
+            }
+        })
+
+        exitButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                Global.loadedCharacter.savesProficiencies.addAll(Global.tempSaves)
+                Global.loadedCharacter.skillsProficiencies.addAll(Global.tempProfs)
+                val intent = Intent("finish_activity")
+                sendBroadcast(intent)
+                finish()
+            }
+        })
+
+
+
     }
     override fun onResume() {
         super.onResume()
@@ -60,21 +88,21 @@ class ProficiencyActivity : AppCompatActivity() {
         var stats = listOf("Strength", "Dexterity", "Intelligence", "Constitution", "Wisdom", "Charisma")
 
         var skills = listOf(
-            "Athletics", "Acrobatics", "Sleight", "Stealth", "Thieves", "Arcana",
+            "Athletics", "Acrobatics", "Sleight", "Stealth", "Arcana",
             "History", "Investigation", "Religion", "Animal", "Insight", "Medicine", "Perception", "Survival",
             "Deception", "Intimidation", "Performance", "Persuasion"
         )
 
         for(skill in skills){
 
-            if(CharacterTemp.skillsProficiencies.contains(skill))
+            if(Global.tempProfs.contains(skill))
                 viewOfLayout.findViewWithTag<Switch>(skill).isChecked = true
 
 
         }
         for(skill in stats){
 
-            if(  CharacterTemp.savesProficiencies.contains(skill))
+            if(Global.tempSaves.contains(skill))
                 viewOfLayout.findViewWithTag<Switch>(skill).isChecked = true
         }
 
