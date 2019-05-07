@@ -49,11 +49,12 @@
                         android:layout_weight="1">
 
                     <TextView
-                            android:text="Ability"
+                            android:text="Stats"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/abilityText"/>
                     <TextView
                             android:text="Strength"
@@ -61,7 +62,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/strText"/>
                     <TextView
                             android:text="Dexterity"
@@ -69,7 +70,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/left_green"
                             android:id="@+id/dexText"/>
                     <TextView
                             android:text="Constitution"
@@ -77,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/left_green"
                             android:id="@+id/conText"/>
                     <TextView
                             android:text="Intelligence"
@@ -85,7 +86,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#055eb0"
+                            android:background="@drawable/left_green"
                             android:id="@+id/intText"/>
                     <TextView
                             android:text="Wisdom"
@@ -93,7 +94,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#8017b0"
+                            android:background="@drawable/left_green"
                             android:id="@+id/wisText"/>
                     <TextView
                             android:text="Charisma"
@@ -101,7 +102,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#fbb716"
+                            android:background="@drawable/left_green"
                             android:id="@+id/chaText"/>
 
 
@@ -120,6 +121,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/abilitySaveText"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -127,6 +129,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Strength"
+                            android:background="@drawable/right_green"
                             android:id="@+id/strSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -134,6 +137,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Dexterity"
+                            android:background="@drawable/right_green"
                             android:id="@+id/dexSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -141,6 +145,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Constitution"
+                            android:background="@drawable/right_green"
                             android:id="@+id/conSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -148,6 +153,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Intelligence"
+                            android:background="@drawable/right_green"
                             android:id="@+id/intSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -155,6 +161,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Wisdom"
+                            android:background="@drawable/right_green"
                             android:id="@+id/wisSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -162,6 +169,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Charisma"
+                            android:background="@drawable/right_green"
                             android:id="@+id/chaSave"/>
 
                 </LinearLayout>
@@ -187,6 +195,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
+                            android:background="@drawable/top_green"
 
                             android:textSize="20sp"
                             android:id="@+id/skillStrText"/>
@@ -196,7 +205,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/strTextS"/>
 
 
@@ -214,6 +223,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skilsStrSaveText"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -221,6 +231,7 @@
                             android:textAlignment="textStart"
                             android:textSize="20sp"
                             android:tag="Athletics"
+                            android:background="@drawable/right_green"
                             android:id="@+id/athleticsSave"/>
 
                 </LinearLayout>
@@ -248,6 +259,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillText"/>
                     <TextView
                             android:text="Acrobatics"
@@ -255,7 +267,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/acrobaticsSkill"/>
                     <TextView
                             android:text="Sleight of Hands"
@@ -263,7 +275,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/sleightSkill"/>
                     <TextView
                             android:text="Stealth"
@@ -271,7 +283,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/left_green"
                             android:id="@+id/stealthSkill"/>
 
 
@@ -289,6 +301,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillSaveText"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -296,6 +309,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Acrobatics"
+                            android:background="@drawable/right_green"
                             android:id="@+id/acrobatics"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -303,6 +317,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Sleight"
+                            android:background="@drawable/right_green"
                             android:id="@+id/sleight"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -310,6 +325,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Stealth"
+                            android:background="@drawable/right_green"
                             android:id="@+id/stealth"/>
 
                 </LinearLayout>
@@ -336,6 +352,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillsIntText"/>
                     <TextView
                             android:text="Arcana"
@@ -343,7 +360,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/arcana"/>
                     <TextView
                             android:text="History"
@@ -351,7 +368,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/left_green"
                             android:id="@+id/history"/>
                     <TextView
                             android:text="Investigation"
@@ -359,7 +376,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/left_green"
                             android:id="@+id/investigation"/>
                     <TextView
                             android:text="Nature"
@@ -367,7 +384,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#055eb0"
+                            android:background="@drawable/left_green"
                             android:id="@+id/nature"/>
                     <TextView
                             android:text="Religion"
@@ -375,7 +392,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#8017b0"
+                            android:background="@drawable/left_green"
                             android:id="@+id/religion"/>
 
 
@@ -393,6 +410,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/intSavetext"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -400,6 +418,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Arcana"
+                            android:background="@drawable/right_green"
                             android:id="@+id/arcanaSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -407,6 +426,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="History"
+                            android:background="@drawable/right_green"
                             android:id="@+id/historySave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -414,6 +434,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Investigation"
+                            android:background="@drawable/right_green"
                             android:id="@+id/investigationSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -421,6 +442,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Nature"
+                            android:background="@drawable/right_green"
                             android:id="@+id/natureSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -428,6 +450,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Religion"
+                            android:background="@drawable/right_green"
                             android:id="@+id/religionSave"/>
 
                 </LinearLayout>
@@ -453,6 +476,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillsWisText"/>
                     <TextView
                             android:text="Animal handling"
@@ -460,7 +484,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/animal"/>
                     <TextView
                             android:text="Insight"
@@ -468,7 +492,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/insight"/>
                     <TextView
                             android:text="Medicine"
@@ -476,7 +500,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/medicine"/>
                     <TextView
                             android:text="Perception"
@@ -484,7 +508,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/perception"/>
                     <TextView
                             android:text="Survival"
@@ -492,7 +516,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/survival"/>
 
 
@@ -509,6 +533,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/wisSavetext"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -516,6 +541,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Animal"
+                            android:background="@drawable/right_green"
                             android:id="@+id/animalSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -523,6 +549,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Insight"
+                            android:background="@drawable/right_green"
                             android:id="@+id/insightSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -530,6 +557,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Medicine"
+                            android:background="@drawable/right_green"
                             android:id="@+id/medicineSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -537,6 +565,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Perception"
+                            android:background="@drawable/right_green"
                             android:id="@+id/perceptionSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -544,6 +573,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Survival"
+                            android:background="@drawable/right_green"
                             android:id="@+id/survivalSave"/>
 
                 </LinearLayout>
@@ -568,6 +598,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillsCharText"/>
                     <TextView
                             android:text="Deception"
@@ -575,7 +606,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/deception"/>
                     <TextView
                             android:text="Intimidation"
@@ -583,7 +614,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/intimidation"/>
                     <TextView
                             android:text="Performance"
@@ -591,7 +622,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/performance"/>
                     <TextView
                             android:text="Persuasion"
@@ -599,7 +630,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/persuasion"/>
 
 
@@ -611,11 +642,12 @@
                         android:layout_weight="1">
 
                     <TextView
-                            android:text="Saving Throw"
+                            android:text="Proficiency"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/chaSavetext"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -623,6 +655,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Deception"
+                            android:background="@drawable/right_green"
                             android:id="@+id/deceptionSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -630,6 +663,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Intimidation"
+                            android:background="@drawable/right_green"
                             android:id="@+id/intimidationSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -637,6 +671,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Performance"
+                            android:background="@drawable/right_green"
                             android:id="@+id/performanceSave"/>
                     <Switch
                             android:layout_width="match_parent"
@@ -644,6 +679,7 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Persuasion"
+                            android:background="@drawable/right_green"
                             android:id="@+id/persuasionSave"/>
 
                 </LinearLayout>

@@ -129,7 +129,7 @@ class SpellsFragment : Fragment() {
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
-                    textView.setBackgroundColor(Color.GREEN)
+                    textView.setBackgroundColor(Color.parseColor("#86AC41"))
                     linLay.addView(textView)
 
                     for (spell in spellsOfMap){
@@ -140,7 +140,7 @@ class SpellsFragment : Fragment() {
                         spellView.text = spell
                         spellView.textSize = 25f
                         spellView.setPadding(30,10,0,10)
-                        spellView.setBackgroundColor(Color.MAGENTA)
+                        spellView.setBackgroundColor(Color.parseColor("#A2C523"))
 
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
@@ -164,7 +164,7 @@ class SpellsFragment : Fragment() {
 
     fun prueba(tx: TextView){
         val descLay = LinearLayout(context)
-        descLay.setBackgroundColor(Color.CYAN)
+        descLay.setBackgroundColor(Color.parseColor("#A2C540")) //right_green
         descLay.orientation = LinearLayout.VERTICAL
 
         val spellCode = searchSpell(tx.text.toString())
@@ -177,7 +177,7 @@ class SpellsFragment : Fragment() {
         castingTimeTV.text = "Casting time: " + searchCastingTimeFromSpell(spellCode)
         castingTimeTV.textSize = 16f
         castingTimeTV.setPadding(30,10,30,10)
-        castingTimeTV.setBackgroundColor(Color.LTGRAY)
+        castingTimeTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val rangeTextView = TextView(context)
@@ -185,7 +185,7 @@ class SpellsFragment : Fragment() {
         rangeTextView.text = "Range: " + Searchers.searchRangeFromSpell(spellCode)
         rangeTextView.textSize = 16f
         rangeTextView.setPadding(30,10,30,10)
-        rangeTextView.setBackgroundColor(Color.LTGRAY)
+        rangeTextView.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val componentsTV = TextView(context)
@@ -193,7 +193,7 @@ class SpellsFragment : Fragment() {
         componentsTV.text = "Components: " + searchComponentsFromSpell(spellCode)
         componentsTV.textSize = 16f
         componentsTV.setPadding(30,10,30,10)
-        componentsTV.setBackgroundColor(Color.LTGRAY)
+        componentsTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val durationTV = TextView(context)
@@ -201,7 +201,7 @@ class SpellsFragment : Fragment() {
         durationTV.text = "Duration: " + Searchers.searchDurationFromSpell(spellCode)
         durationTV.textSize = 16f
         durationTV.setPadding(30,10,30,10)
-        durationTV.setBackgroundColor(Color.LTGRAY)
+        durationTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         val horizLay = LinearLayout(context)
@@ -223,7 +223,7 @@ class SpellsFragment : Fragment() {
         descriptionTV.text = searchDescriptionFromSpell(spellCode).trim()
         descriptionTV.textSize = 16f
         descriptionTV.setPadding(30,10,10,10)
-        descriptionTV.setBackgroundColor(Color.WHITE)
+        descriptionTV.setBackgroundColor(Color.parseColor("#c99174"))
 
 
         descLay.addView(horizLay)

@@ -8,7 +8,9 @@
 
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:background="@drawable/fondo"
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="16dp"
+            tools:layout_editor_absoluteX="0dp">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -18,9 +20,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" android:weightSum="4" android:id="@+id/skillsStrLayout"
-                    android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4"
+                    android:id="@+id/skillsStrLayout"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                         android:orientation="vertical"
@@ -33,6 +39,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
+                            android:background="@drawable/top_green"
 
                             android:textSize="20sp"
                             android:id="@+id/skillStrText"/>
@@ -42,7 +49,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/strTextS"/>
 
 
@@ -59,6 +66,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
+                            android:background="@drawable/top_green"
                             android:textSize="20sp"
                             android:id="@+id/skilsStrSaveText"/>
                     <TextView
@@ -66,7 +74,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/right_green"
                             android:tag="Athletics"
                             android:id="@+id/athleticsSave"/>
 
@@ -77,9 +85,13 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" android:weightSum="4" android:id="@+id/skillsDexLayout"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4"
+                    android:id="@+id/skillsDexLayout"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintTop_toBottomOf="@+id/skillsStrLayout">
 
@@ -95,6 +107,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillText"/>
                     <TextView
                             android:text="Acrobatics"
@@ -102,7 +115,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/acrobaticsSkill"/>
                     <TextView
                             android:text="Sleight of Hands"
@@ -110,7 +123,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/sleightSkill"/>
                     <TextView
                             android:text="Stealth"
@@ -118,7 +131,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/left_green"
                             android:id="@+id/stealthSkill"/>
                     <TextView
                             android:text="Thives' tool"
@@ -126,7 +139,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/left_green"
                             android:id="@+id/thievesSkill"/>
 
 
@@ -144,13 +157,14 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillSaveText"/>
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/right_green"
                             android:tag="Acrobatics"
                             android:id="@+id/acrobatics"/>
                     <TextView
@@ -158,7 +172,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/right_green"
                             android:tag="Sleight"
                             android:id="@+id/sleight"/>
                     <TextView
@@ -166,7 +180,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/right_green"
                             android:tag="Stealth"
                             android:id="@+id/stealth"/>
                     <TextView
@@ -174,7 +188,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/right_green"
                             android:tag="Thieves"
                             android:id="@+id/thieves"/>
 
@@ -185,9 +199,12 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" android:weightSum="4" android:id="@+id/skillIntLayout"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4" android:id="@+id/skillIntLayout"
                     app:layout_constraintTop_toBottomOf="@+id/skillsDexLayout">
 
                 <LinearLayout
@@ -202,6 +219,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillsIntText"/>
                     <TextView
                             android:text="Arcana"
@@ -209,7 +227,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/arcana"/>
                     <TextView
                             android:text="History"
@@ -217,7 +235,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/left_green"
                             android:id="@+id/history"/>
                     <TextView
                             android:text="Investigation"
@@ -225,7 +243,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/left_green"
                             android:id="@+id/investigation"/>
                     <TextView
                             android:text="Nature"
@@ -233,7 +251,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#055eb0"
+                            android:background="@drawable/left_green"
                             android:id="@+id/nature"/>
                     <TextView
                             android:text="Religion"
@@ -241,7 +259,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#8017b0"
+                            android:background="@drawable/left_green"
                             android:id="@+id/religion"/>
 
 
@@ -259,6 +277,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/intSavetext"/>
                     <TextView
                             android:layout_width="match_parent"
@@ -266,14 +285,14 @@
                             android:textAlignment="center"
                             android:textSize="20sp"
                             android:tag="Arcana"
-                            android:background="#ec2121"
+                            android:background="@drawable/right_green"
                             android:id="@+id/arcanaSave"/>
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/right_green"
                             android:tag="History"
                             android:id="@+id/historySave"/>
                     <TextView
@@ -281,7 +300,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/right_green"
                             android:tag="Investigation"
                             android:id="@+id/investigationSave"/>
                     <TextView
@@ -289,7 +308,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#055eb0"
+                            android:background="@drawable/right_green"
                             android:tag="Nature"
                             android:id="@+id/natureSave"/>
                     <TextView
@@ -297,7 +316,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#8017b0"
+                            android:background="@drawable/right_green"
                             android:tag="Religion"
                             android:id="@+id/religionSave"/>
 
@@ -324,6 +343,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillsWisText"/>
                     <TextView
                             android:text="Animal handling"
@@ -331,7 +351,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/animal"/>
                     <TextView
                             android:text="Insight"
@@ -339,7 +359,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/insight"/>
                     <TextView
                             android:text="Medicine"
@@ -347,7 +367,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/medicine"/>
                     <TextView
                             android:text="Perception"
@@ -355,7 +375,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/perception"/>
                     <TextView
                             android:text="Survival"
@@ -363,7 +383,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/survival"/>
 
 
@@ -380,13 +400,14 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/wisSavetext"/>
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/right_green"
                             android:tag="Animal"
                             android:id="@+id/animalSave"/>
                     <TextView
@@ -394,7 +415,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/right_green"
                             android:tag="Insight"
                             android:id="@+id/insightSave"/>
                     <TextView
@@ -402,7 +423,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/right_green"
                             android:tag="Medicine"
                             android:id="@+id/medicineSave"/>
                     <TextView
@@ -410,7 +431,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#055eb0"
+                            android:background="@drawable/right_green"
                             android:tag="Perception"
                             android:id="@+id/perceptionSave"/>
                     <TextView
@@ -418,7 +439,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#8017b0"
+                            android:background="@drawable/right_green"
                             android:tag="Survival"
                             android:id="@+id/survivalSave"/>
 
@@ -444,6 +465,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/skillsCharText"/>
                     <TextView
                             android:text="Deception"
@@ -451,7 +473,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/deception"/>
                     <TextView
                             android:text="Intimidation"
@@ -459,7 +481,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/intimidation"/>
                     <TextView
                             android:text="Performance"
@@ -467,7 +489,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/performance"/>
                     <TextView
                             android:text="Persuasion"
@@ -475,7 +497,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/left_green"
                             android:id="@+id/persuasion"/>
 
 
@@ -492,13 +514,14 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
+                            android:background="@drawable/top_green"
                             android:id="@+id/chaSavetext"/>
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ec2121"
+                            android:background="@drawable/right_green"
                             android:tag="Deception"
                             android:id="@+id/deceptionSave"/>
                     <TextView
@@ -506,7 +529,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#1f9f2e"
+                            android:background="@drawable/right_green"
                             android:tag="Intimidation"
                             android:id="@+id/intimidationSave"/>
                     <TextView
@@ -514,7 +537,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#ff6928"
+                            android:background="@drawable/right_green"
                             android:tag="Performance"
                             android:id="@+id/performanceSave"/>
                     <TextView
@@ -522,7 +545,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            android:background="#055eb0"
+                            android:background="@drawable/right_green"
                             android:tag="Persuasion"
                             android:id="@+id/persuasionSave"/>
 
@@ -530,11 +553,12 @@
             </LinearLayout>
             <Button
                     android:text="Modify proficiencies"
-                    android:layout_width="match_parent"
+                    android:layout_width="388dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/button4" android:layout_marginTop="8dp"
                     app:layout_constraintTop_toBottomOf="@+id/resistancesLayout"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/top_green"
                     android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="8dp"/>
         </LinearLayout>
