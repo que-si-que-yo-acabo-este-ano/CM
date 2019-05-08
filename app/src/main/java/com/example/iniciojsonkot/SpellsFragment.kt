@@ -32,100 +32,100 @@ class SpellsFragment : Fragment() {
         viewOfLayout.cantrips.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(0)
-                viewOfLayout.cantrips.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.cantrips.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(0)
-                viewOfLayout.cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.cantrips.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl1.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(1)
-                viewOfLayout.spellsLvl1.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl1.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(1)
-                viewOfLayout.spellsLvl1.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl1.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl2.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(2)
-                viewOfLayout.spellsLvl2.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl2.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(2)
-                viewOfLayout.spellsLvl2.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl2.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl3.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(3)
-                viewOfLayout.spellsLvl3.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl3.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(3)
-                viewOfLayout.spellsLvl3.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl3.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl4.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(4)
-                viewOfLayout.spellsLvl4.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl4.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(4)
-                viewOfLayout.spellsLvl4.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl4.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl5.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(5)
-                viewOfLayout.spellsLvl5.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl5.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(5)
-                viewOfLayout.spellsLvl5.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl5.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl6.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(6)
-                viewOfLayout.spellsLvl6.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl6.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(6)
-                viewOfLayout.spellsLvl6.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl6.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl7.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(7)
-                viewOfLayout.spellsLvl7.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl7.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(7)
-                viewOfLayout.spellsLvl7.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl7.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl8.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(8)
-                viewOfLayout.spellsLvl8.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl8.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(8)
-                viewOfLayout.spellsLvl8.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl8.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
         viewOfLayout.spellsLvl9.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(9)
-                viewOfLayout.spellsLvl9.setBackgroundColor(Color.parseColor("#A2C523"))
+                viewOfLayout.spellsLvl9.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
             }else{
                 spellsToShow.remove(9)
-                viewOfLayout.spellsLvl9.setBackgroundColor(Color.parseColor("#86AC41"))
+                viewOfLayout.spellsLvl9.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
 
@@ -267,14 +267,6 @@ class SpellsFragment : Fragment() {
 
 
 
-    }
-    override fun onResume() {
-        super.onResume()
-        var spellsLevels = listOf("cantrips","spellsLvl1","spellsLvl2","spellsLvl3","spellsLvl4","spellsLvl5","spellsLvl6","spellsLvl7","spellsLvl8","spellsLvl9")
-
-        for(level in spellsLevels){
-            viewOfLayout.findViewWithTag<ToggleButton>(level).setBackgroundColor(Color.parseColor("#86AC41"))
-        }
     }
 
 }
