@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.example.iniciojsonkot.Global.Companion.characters
+import com.example.iniciojsonkot.Global.Companion.personaje
 import com.example.iniciojsonkot.Global.Companion.spells
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -167,10 +168,20 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        var stringClasses = ""
+        var size = Global.personaje.classes.size
+        for((characterClass,classLevel) in Global.personaje.classes){
+            size--
+            stringClasses += "$characterClass: $classLevel"
+            if(size!=0){
+                stringClasses+=", "
+            }
+        }
+
         val viewOfLayout =  findViewById<LinearLayout>(R.id.topSumary)
 
         viewOfLayout.nameTop.text = Global.personaje.name
-        viewOfLayout.classTop.text = Global.personaje.classes.toString()
+        viewOfLayout.classTop.text = stringClasses
 
 
 

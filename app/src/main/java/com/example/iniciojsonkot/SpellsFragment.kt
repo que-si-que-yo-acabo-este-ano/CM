@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.ToggleButton
 import com.example.iniciojsonkot.Searchers.Companion.searchCastingTimeFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
@@ -26,83 +27,105 @@ class SpellsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewOfLayout = inflater!!.inflate(R.layout.spells_fragment_layout, container, false)
 
+
+
         viewOfLayout.cantrips.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(0)
+                viewOfLayout.cantrips.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(0)
+                viewOfLayout.cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl1.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(1)
+                viewOfLayout.spellsLvl1.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(1)
+                viewOfLayout.spellsLvl1.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl2.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(2)
+                viewOfLayout.spellsLvl2.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(2)
+                viewOfLayout.spellsLvl2.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl3.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(3)
+                viewOfLayout.spellsLvl3.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(3)
+                viewOfLayout.spellsLvl3.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl4.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(4)
+                viewOfLayout.spellsLvl4.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(4)
+                viewOfLayout.spellsLvl4.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl5.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(5)
+                viewOfLayout.spellsLvl5.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(5)
+                viewOfLayout.spellsLvl5.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl6.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(6)
+                viewOfLayout.spellsLvl6.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(6)
+                viewOfLayout.spellsLvl6.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl7.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(7)
+                viewOfLayout.spellsLvl7.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(7)
+                viewOfLayout.spellsLvl7.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl8.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(8)
+                viewOfLayout.spellsLvl8.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(8)
+                viewOfLayout.spellsLvl8.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
         viewOfLayout.spellsLvl9.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsToShow.add(9)
+                viewOfLayout.spellsLvl9.setBackgroundColor(Color.parseColor("#A2C523"))
             }else{
                 spellsToShow.remove(9)
+                viewOfLayout.spellsLvl9.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
 
@@ -223,7 +246,7 @@ class SpellsFragment : Fragment() {
         descriptionTV.text = searchDescriptionFromSpell(spellCode).trim()
         descriptionTV.textSize = 16f
         descriptionTV.setPadding(30,10,10,10)
-        descriptionTV.setBackgroundColor(Color.parseColor("#c99174"))
+        descriptionTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         descLay.addView(horizLay)
@@ -241,6 +264,17 @@ class SpellsFragment : Fragment() {
         }
 
 
+
+
+
+    }
+    override fun onResume() {
+        super.onResume()
+        var spellsLevels = listOf("cantrips","spellsLvl1","spellsLvl2","spellsLvl3","spellsLvl4","spellsLvl5","spellsLvl6","spellsLvl7","spellsLvl8","spellsLvl9")
+
+        for(level in spellsLevels){
+            viewOfLayout.findViewWithTag<ToggleButton>(level).setBackgroundColor(Color.parseColor("#86AC41"))
+        }
     }
 
 }

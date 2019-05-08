@@ -104,7 +104,9 @@
                     android:id="@+id/classTop"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp" android:layout_below="@+id/nameTop"
-                    android:layout_toEndOf="@+id/imageView7"/>
+                    android:layout_toEndOf="@+id/imageView7"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"/>
             <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
