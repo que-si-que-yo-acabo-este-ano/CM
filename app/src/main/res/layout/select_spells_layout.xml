@@ -9,6 +9,7 @@
         android:background="@drawable/fondo"
         tools:context=".SelectSpellsActivity"
         android:descendantFocusability="beforeDescendants"
+        android:id="@+id/selecSpells"
         android:focusableInTouchMode="true">
 
 
