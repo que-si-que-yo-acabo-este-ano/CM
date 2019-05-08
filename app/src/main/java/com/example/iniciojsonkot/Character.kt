@@ -8,7 +8,7 @@ import java.io.InputStreamReader
 import java.lang.StringBuilder
 
 
-class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealth: Int, _currentHealth: Int, _armor: Int, _classes: MutableMap<String,Int>, _savesProficiencies: MutableSet<String>,
+class Character(_name: String, _race: String,_speed: Int, _maxHealth: Int, _currentHealth: Int, _armor: Int, _classes: MutableMap<String,Int>, _savesProficiencies: MutableSet<String>,
                 _skillsProficiencies: MutableSet<String>, _skillsExpertise: MutableSet<String>, _spellsKnown: MutableList<MutableSet<String>>,
                 _spellsPrepared: MutableList<MutableSet<String>>,_strength: Int, _dexterity: Int, _constitution: Int, _intelligence: Int,
                 _wisdom: Int, _charisma: Int) {
@@ -34,7 +34,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
     var spellsKnown: MutableList<MutableSet<String>> = _spellsKnown
     var spellsPrepared: MutableList<MutableSet<String>> = _spellsPrepared
     val proficiencyBonus: Int
-        get() = listOf(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,6).get(level) // Si fallara mirar si es por ser val en vez de var
+        get() = listOf(0,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,6)[level] // Si fallara mirar si es por ser val en vez de var
     var strength: Int = _strength
     var dexterity: Int = _dexterity
     var constitution: Int = _constitution
@@ -67,7 +67,6 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
         val json =
                 "{" +
                         "\"name\": \"$name\" ," +
-                        "\"level\": $level ," +
                         "\"race\": \"$race\" ," +
                         "\"speed\": $speed ," +
                         "\"maxHealth\": $maxHealth ," +
@@ -108,6 +107,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
             println("=====FICHEROS=====")
             println(context.fileList().size)
             for(fileName in context.fileList()){
+                context.deleteFile(fileName)
                 println(fileName)
                 val pattern = "([\\w]+).json".toRegex()
                 val name = pattern.replace(fileName,"$1")
@@ -186,7 +186,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
             if(!jsonString.equals("")){
                 val result = Klaxon()
                     .parse<CharacterTunnel>("""$jsonString""")
-                character = Character(result!!.name,result!!.level,result!!.race,result!!.speed,result!!.maxHealth,result!!.currentHealth,result!!.armor,result!!.classes,result!!.savesProficiencies,
+                character = Character(result!!.name,result!!.race,result!!.speed,result!!.maxHealth,result!!.currentHealth,result!!.armor,result!!.classes,result!!.savesProficiencies,
                     result!!.skillsProficiencies,result!!.skillsExpertise, listOfStringToListOfSet(result!!.spellsKnown),listOfStringToListOfSet(result!!.spellsPrepared),
                     result!!.strength,result!!.dexterity,result!!.constitution,result!!.intelligence,result!!.wisdom,result!!.charisma)
             }
@@ -196,7 +196,7 @@ class Character(_name: String, _level: Int, _race: String,_speed: Int, _maxHealt
 
 }
 
-class CharacterTunnel(val name: String, val level: Int, val race: String, val speed: Int, val maxHealth: Int, val currentHealth: Int, val armor:Int, val classes: MutableMap<String,Int>, val savesProficiencies: MutableSet<String>,
+class CharacterTunnel(val name: String, val race: String, val speed: Int, val maxHealth: Int, val currentHealth: Int, val armor:Int, val classes: MutableMap<String,Int>, val savesProficiencies: MutableSet<String>,
                       val skillsProficiencies: MutableSet<String>, val skillsExpertise: MutableSet<String>, val spellsKnown: MutableList<String>,
                       val spellsPrepared: MutableList<String>, val strength: Int, val dexterity: Int, val constitution: Int, val intelligence: Int,
                       val wisdom: Int, val charisma: Int)
