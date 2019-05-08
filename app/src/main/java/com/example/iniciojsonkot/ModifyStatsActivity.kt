@@ -21,12 +21,15 @@ class ModifyStatsActivity : AppCompatActivity() {
         println("${Global.personaje.name}.json")
         println(Global.personaje.classes)
         //Global.characters[0].deleteCharacter(this.applicationContext)
-        editStr.setText(CharacterTemp.strength.toString())
-        editDex.setText(CharacterTemp.dexterity.toString())
-        editCon.setText(CharacterTemp.constitution.toString())
-        editInt.setText(CharacterTemp.intelligence.toString())
-        editWis.setText(CharacterTemp.wisdom.toString())
-        editCha.setText(CharacterTemp.charisma.toString())
+
+
+
+        editStr.setText(Global.loadedCharacter.strength.toString())
+        editDex.setText(Global.loadedCharacter.dexterity.toString())
+        editCon.setText(Global.loadedCharacter.constitution.toString())
+        editInt.setText(Global.loadedCharacter.intelligence.toString())
+        editWis.setText(Global.loadedCharacter.wisdom.toString())
+        editCha.setText(Global.loadedCharacter.charisma.toString())
 
 
 
@@ -189,12 +192,12 @@ class ModifyStatsActivity : AppCompatActivity() {
 
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                CharacterTemp.strength = Integer.parseInt(editStr.text.toString())
-                CharacterTemp.dexterity = Integer.parseInt(editDex.text.toString())
-                CharacterTemp.constitution = Integer.parseInt(editCon.text.toString())
-                CharacterTemp.intelligence = Integer.parseInt(editInt.text.toString())
-                CharacterTemp.wisdom = Integer.parseInt(editWis.text.toString())
-                CharacterTemp.charisma = Integer.parseInt(editCha.text.toString())
+                Global.loadedCharacter.strength = Integer.parseInt(editStr.text.toString())
+                Global.loadedCharacter.dexterity = Integer.parseInt(editDex.text.toString())
+                Global.loadedCharacter.constitution = Integer.parseInt(editCon.text.toString())
+                Global.loadedCharacter.intelligence = Integer.parseInt(editInt.text.toString())
+                Global.loadedCharacter.wisdom = Integer.parseInt(editWis.text.toString())
+                Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
 
                 finish()
             }

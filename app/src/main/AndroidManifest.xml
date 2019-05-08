@@ -14,6 +14,11 @@
             android:theme="@style/AppTheme">
         <activity android:name=".SelectSpellsActivity">
         </activity>
+        <activity android:name=".ProficiencyActivity">
+        </activity>
+        <activity android:name=".CreateCharacter"
+                  android:windowSoftInputMode="adjustPan">
+        </activity>
         <activity
                 android:name=".ModifyStatsActivity"
                 android:windowSoftInputMode="adjustPan">

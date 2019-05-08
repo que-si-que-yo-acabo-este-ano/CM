@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:background="@drawable/fondo"
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="16dp"
+            tools:layout_editor_absoluteX="0dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4"
+                    android:id="@+id/skillsStrLayout"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="256dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Skills of Strength"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:background="@drawable/top_green"
+
+                            android:textSize="20sp"
+                            android:id="@+id/skillStrText"/>
+                    <TextView
+                            android:text="Athletics"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/strTextS"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Saving Throw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:background="@drawable/top_green"
+                            android:textSize="20sp"
+                            android:id="@+id/skilsStrSaveText"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Athletics"
+                            android:id="@+id/athleticsSave"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4"
+                    android:id="@+id/skillsDexLayout"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintTop_toBottomOf="@+id/skillsStrLayout">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="256dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Skills of Dexterity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/skillText"/>
+                    <TextView
+                            android:text="Acrobatics"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/acrobaticsSkill"/>
+                    <TextView
+                            android:text="Sleight of Hands"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/sleightSkill"/>
+                    <TextView
+                            android:text="Stealth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/stealthSkill"/>
+                    <TextView
+                            android:text="Thives' tool"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/thievesSkill"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Saving Throw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/skillSaveText"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Acrobatics"
+                            android:id="@+id/acrobatics"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Sleight"
+                            android:id="@+id/sleight"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Stealth"
+                            android:id="@+id/stealth"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Thieves"
+                            android:id="@+id/thieves"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4" android:id="@+id/skillIntLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/skillsDexLayout">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="256dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Skills of Intelligence"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/skillsIntText"/>
+                    <TextView
+                            android:text="Arcana"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/arcana"/>
+                    <TextView
+                            android:text="History"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/history"/>
+                    <TextView
+                            android:text="Investigation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/investigation"/>
+                    <TextView
+                            android:text="Nature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/nature"/>
+                    <TextView
+                            android:text="Religion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/religion"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Saving Throw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/intSavetext"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:tag="Arcana"
+                            android:background="@drawable/right_green"
+                            android:id="@+id/arcanaSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="History"
+                            android:id="@+id/historySave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Investigation"
+                            android:id="@+id/investigationSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Nature"
+                            android:id="@+id/natureSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Religion"
+                            android:id="@+id/religionSave"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" android:weightSum="4" android:id="@+id/skillsWisLayout"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/skillIntLayout">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="256dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Skills of Wisdom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/skillsWisText"/>
+                    <TextView
+                            android:text="Animal handling"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/animal"/>
+                    <TextView
+                            android:text="Insight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/insight"/>
+                    <TextView
+                            android:text="Medicine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/medicine"/>
+                    <TextView
+                            android:text="Perception"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/perception"/>
+                    <TextView
+                            android:text="Survival"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/survival"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Saving Throw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/wisSavetext"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Animal"
+                            android:id="@+id/animalSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Insight"
+                            android:id="@+id/insightSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Medicine"
+                            android:id="@+id/medicineSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Perception"
+                            android:id="@+id/perceptionSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Survival"
+                            android:id="@+id/survivalSave"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" android:weightSum="4" android:id="@+id/skillsCharLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/skillsWisLayout">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="256dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Skills of Charisma"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/skillsCharText"/>
+                    <TextView
+                            android:text="Deception"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/deception"/>
+                    <TextView
+                            android:text="Intimidation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/intimidation"/>
+                    <TextView
+                            android:text="Performance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/performance"/>
+                    <TextView
+                            android:text="Persuasion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/left_green"
+                            android:id="@+id/persuasion"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    <TextView
+                            android:text="Saving Throw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/top_green"
+                            android:id="@+id/chaSavetext"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Deception"
+                            android:id="@+id/deceptionSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Intimidation"
+                            android:id="@+id/intimidationSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Performance"
+                            android:id="@+id/performanceSave"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:background="@drawable/right_green"
+                            android:tag="Persuasion"
+                            android:id="@+id/persuasionSave"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                    android:text="Modify proficiencies"
+                    android:layout_width="388dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button4" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/resistancesLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/top_green"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

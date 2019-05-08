@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <TextView
+            android:text="Name:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameView" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="@id/guideline11"
+            android:textSize="20sp"/>
+    <EditText android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="14dp"
+              android:id="@+id/nameInput"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/nameView"
+              android:layout_marginStart="4dp"
+              app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"/>
+    <TextView
+            android:text="Race:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/raceView" android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="@id/nameView" app:layout_constraintStart_toStartOf="@id/guideline11"
+            android:textSize="20sp"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/raceSpinner" app:layout_constraintStart_toEndOf="@+id/raceView"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/raceView" android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"/>
+    <TextView
+            android:text="Class:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/classView" android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/guideline11"
+            app:layout_constraintTop_toTopOf="@+id/addClassButton"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/classSpinner" app:layout_constraintStart_toEndOf="@+id/classView"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/addClassButton"
+            app:layout_constraintTop_toTopOf="@+id/addClassButton" android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addClassButton" android:text="Add" app:layout_constraintEnd_toEndOf="@id/guideline12"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/raceView"/>
+    <ScrollView android:layout_width="wrap_content" android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/classSpinner" app:layout_constraintEnd_toEndOf="@+id/classSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/classSpinner" android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toTopOf="@id/strImg">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/classesList">
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:src="@drawable/cuadro"
+            android:id="@+id/strImg"
+            app:layout_constraintDimensionRatio="H,600:640"
+            app:layout_constraintStart_toStartOf="@id/guideline11"
+            app:layout_constraintBottom_toTopOf="@id/intImg"  android:layout_marginBottom="32dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline14"
+    />
+    <TextView
+            android:text="Strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/strength"
+            app:layout_constraintTop_toBottomOf="@+id/strImg" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/strImg" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/strImg"/>
+    <TextView
+            android:text="Str"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/str"
+            app:layout_constraintTop_toTopOf="@+id/strImg"
+            app:layout_constraintStart_toStartOf="@+id/strImg"
+            app:layout_constraintEnd_toEndOf="@+id/strImg"
+            app:layout_constraintBottom_toBottomOf="@+id/strImg" app:layout_constraintVertical_bias="0.07"/>
+    <TextView
+            android:text="+3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/strMod"
+            app:layout_constraintStart_toStartOf="@+id/strImg"
+            app:layout_constraintEnd_toEndOf="@+id/strImg"
+            app:layout_constraintTop_toTopOf="@+id/strImg"
+            app:layout_constraintBottom_toBottomOf="@+id/strImg"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.35"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editStr"
+            app:layout_constraintStart_toStartOf="@+id/strImg"
+            app:layout_constraintEnd_toEndOf="@+id/strImg"
+            app:layout_constraintBottom_toBottomOf="@+id/strImg"
+            app:layout_constraintTop_toTopOf="@+id/strImg" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
+
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:src="@drawable/cuadro"
+            android:id="@+id/dexImg"
+            app:layout_constraintDimensionRatio="H,600:640"
+            app:layout_constraintStart_toStartOf="@id/guideline14"
+            app:layout_constraintBottom_toTopOf="@id/intImg"  android:layout_marginBottom="32dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline15"/>
+    <TextView
+            android:text="Dexterity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dexterity"
+            app:layout_constraintTop_toBottomOf="@+id/dexImg" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/dexImg" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/dexImg"/>
+    <TextView
+            android:text="Dex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dex"
+            app:layout_constraintStart_toStartOf="@+id/dexImg"
+            app:layout_constraintEnd_toEndOf="@+id/dexImg"
+            app:layout_constraintBottom_toBottomOf="@+id/dexImg"
+            app:layout_constraintTop_toTopOf="@+id/dexImg" app:layout_constraintVertical_bias="0.07"/>
+    <TextView
+            android:text="+3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dexMod"
+            app:layout_constraintStart_toStartOf="@+id/dexImg"
+            app:layout_constraintEnd_toEndOf="@+id/dexImg"
+            app:layout_constraintTop_toTopOf="@+id/dexImg"
+            app:layout_constraintBottom_toBottomOf="@+id/dexImg"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.35"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editDex"
+            app:layout_constraintStart_toStartOf="@+id/dexImg"
+            app:layout_constraintEnd_toEndOf="@+id/dexImg"
+            app:layout_constraintBottom_toBottomOf="@+id/dexImg"
+            app:layout_constraintTop_toTopOf="@+id/dexImg" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
+
+
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:src="@drawable/cuadro"
+            android:id="@+id/conImg"
+            app:layout_constraintDimensionRatio="H,600:640"
+            app:layout_constraintStart_toStartOf="@id/guideline15"
+            app:layout_constraintBottom_toTopOf="@id/intImg"  android:layout_marginBottom="32dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline12"/>
+    <TextView
+            android:text="Constitution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/constitution"
+            app:layout_constraintTop_toBottomOf="@+id/conImg" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/conImg" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/conImg"/>
+    <TextView
+            android:text="Con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/con"
+            app:layout_constraintStart_toStartOf="@+id/conImg"
+            app:layout_constraintEnd_toEndOf="@+id/conImg"
+            app:layout_constraintBottom_toBottomOf="@+id/conImg"
+            app:layout_constraintTop_toTopOf="@+id/conImg" app:layout_constraintVertical_bias="0.07"/>
+    <TextView
+            android:text="+3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conMod"
+            app:layout_constraintStart_toStartOf="@+id/conImg"
+            app:layout_constraintEnd_toEndOf="@+id/conImg"
+            app:layout_constraintTop_toTopOf="@+id/conImg"
+            app:layout_constraintBottom_toBottomOf="@+id/conImg"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.35"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editCon"
+            app:layout_constraintStart_toStartOf="@+id/conImg"
+            app:layout_constraintEnd_toEndOf="@+id/conImg"
+            app:layout_constraintBottom_toBottomOf="@+id/conImg"
+            app:layout_constraintTop_toTopOf="@+id/conImg" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
+
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:src="@drawable/cuadro"
+            android:id="@+id/intImg"
+            app:layout_constraintDimensionRatio="H,600:640"
+            app:layout_constraintStart_toStartOf="@id/guideline11"
+            app:layout_constraintBottom_toTopOf="@id/guideline13" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline14"
+    />
+    <TextView
+            android:text="Intelligence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/intelligence"
+            app:layout_constraintTop_toBottomOf="@+id/intImg" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/intImg" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/intImg"/>
+    <TextView
+            android:text="Int"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/intel"
+            app:layout_constraintTop_toTopOf="@+id/intImg"
+            app:layout_constraintStart_toStartOf="@+id/intImg"
+            app:layout_constraintEnd_toEndOf="@+id/intImg"
+            app:layout_constraintBottom_toBottomOf="@+id/intImg" app:layout_constraintVertical_bias="0.07"/>
+    <TextView
+            android:text="+3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/intMod"
+            app:layout_constraintStart_toStartOf="@+id/intImg"
+            app:layout_constraintEnd_toEndOf="@+id/intImg"
+            app:layout_constraintTop_toTopOf="@+id/intImg"
+            app:layout_constraintBottom_toBottomOf="@+id/intImg"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.35"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editInt"
+            app:layout_constraintStart_toStartOf="@+id/intImg"
+            app:layout_constraintEnd_toEndOf="@+id/intImg"
+            app:layout_constraintBottom_toBottomOf="@+id/intImg"
+            app:layout_constraintTop_toTopOf="@+id/intImg" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
+
+
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:src="@drawable/cuadro"
+            android:id="@+id/wisImg"
+            app:layout_constraintDimensionRatio="H,600:640"
+            app:layout_constraintStart_toStartOf="@id/guideline14"
+            app:layout_constraintBottom_toTopOf="@id/guideline13" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline15"/>
+    <TextView
+            android:text="Wisdom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wisdom"
+            app:layout_constraintTop_toBottomOf="@+id/wisImg" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/wisImg" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/wisImg"/>
+    <TextView
+            android:text="Wis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wis"
+            app:layout_constraintStart_toStartOf="@+id/wisImg"
+            app:layout_constraintEnd_toEndOf="@+id/wisImg"
+            app:layout_constraintBottom_toBottomOf="@+id/wisImg"
+            app:layout_constraintTop_toTopOf="@+id/wisImg" app:layout_constraintVertical_bias="0.07"/>
+    <TextView
+            android:text="+3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wisMod"
+            app:layout_constraintStart_toStartOf="@+id/wisImg"
+            app:layout_constraintEnd_toEndOf="@+id/wisImg"
+            app:layout_constraintTop_toTopOf="@+id/wisImg"
+            app:layout_constraintBottom_toBottomOf="@+id/wisImg"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.35"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editWis"
+            app:layout_constraintStart_toStartOf="@+id/wisImg"
+            app:layout_constraintEnd_toEndOf="@+id/wisImg"
+            app:layout_constraintBottom_toBottomOf="@+id/wisImg"
+            app:layout_constraintTop_toTopOf="@+id/wisImg" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
+
+
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:src="@drawable/cuadro"
+            android:id="@+id/chaImg"
+            app:layout_constraintDimensionRatio="H,600:640"
+            app:layout_constraintStart_toStartOf="@id/guideline15"
+            app:layout_constraintBottom_toTopOf="@id/guideline13" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline12"/>
+    <TextView
+            android:text="Charisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/charisma"
+            app:layout_constraintTop_toBottomOf="@+id/chaImg" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="@id/chaImg" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/chaImg"/>
+    <TextView
+            android:text="Cha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cha"
+            app:layout_constraintStart_toStartOf="@+id/chaImg"
+            app:layout_constraintEnd_toEndOf="@+id/chaImg"
+            app:layout_constraintBottom_toBottomOf="@+id/chaImg"
+            app:layout_constraintTop_toTopOf="@+id/chaImg" app:layout_constraintVertical_bias="0.07"/>
+    <TextView
+            android:text="+3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chaMod"
+            app:layout_constraintStart_toStartOf="@+id/chaImg"
+            app:layout_constraintEnd_toEndOf="@+id/chaImg"
+            app:layout_constraintTop_toTopOf="@+id/chaImg"
+            app:layout_constraintBottom_toBottomOf="@+id/chaImg"
+            android:textSize="24sp"
+            app:layout_constraintVertical_bias="0.35"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editCha"
+            app:layout_constraintStart_toStartOf="@+id/chaImg"
+            app:layout_constraintEnd_toEndOf="@+id/chaImg"
+            app:layout_constraintBottom_toBottomOf="@+id/chaImg"
+            app:layout_constraintTop_toTopOf="@+id/chaImg" app:layout_constraintVertical_bias="0.99"
+            android:text="16" android:textAlignment="center"/>
+
+
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline11"
+            app:layout_constraintGuide_percent="0.08"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline12" app:layout_constraintGuide_percent="0.92"/>
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline13" app:layout_constraintGuide_percent="0.8"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline14" app:layout_constraintGuide_percent="0.36"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline15" app:layout_constraintGuide_percent="0.64"/>
+
+
+    <TextView
+            android:text="Speed:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/speedView" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toStartOf="@id/guideline11"
+            android:textSize="20sp"/>
+
+    <EditText android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16dp"
+              android:id="@+id/speedInput"
+              android:inputType="number"
+              android:ems="2"
+              android:text="30"
+              app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/speedView"
+              android:layout_marginStart="4dp"/>
+    <TextView
+            android:text="Max HP:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hpView" android:layout_marginTop="32dp" android:layout_marginStart="4dp"
+            app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toStartOf="@id/guideline14"
+            android:textSize="20sp"/>
+
+    <EditText android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16dp"
+              android:id="@+id/hpInput"
+              android:inputType="number"
+              android:ems="2"
+              android:text="0"
+              app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/hpView"
+              android:layout_marginStart="4dp"/>
+    <TextView
+            android:text="AC:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/acView" android:layout_marginTop="32dp" android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toStartOf="@id/guideline15"
+            android:textSize="20sp"/>
+
+    <EditText android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16dp"
+              android:id="@+id/acInput"
+              android:inputType="number"
+              android:ems="2"
+              android:text="10"
+              app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/acView"
+              android:layout_marginStart="4dp"/>
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelButton" android:text="Cancel"
+            app:layout_constraintStart_toStartOf="@id/guideline11"
+            app:layout_constraintEnd_toEndOf="@id/guideline14"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp" />
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nextButton" android:text="Next"
+            app:layout_constraintStart_toStartOf="@id/guideline15"
+            app:layout_constraintEnd_toEndOf="@id/guideline12"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp" />
+
+</android.support.constraint.ConstraintLayout>

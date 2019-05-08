@@ -9,12 +9,14 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
+import android.widget.LinearLayout
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.example.iniciojsonkot.Global.Companion.characters
 import com.example.iniciojsonkot.Global.Companion.spells
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.top_summary.view.*
 import java.lang.StringBuilder
 import java.net.URL
 
@@ -48,11 +50,14 @@ class MainActivity : AppCompatActivity() {
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
         // Inicializar CharacterTemp.spellsKnown
-        CharacterTemp.spellsKnown = mutableListOf()
+        Global.loadedCharacter.spellsKnown = mutableListOf()
         for(i in 0..9){
             var set:MutableSet<String> = mutableSetOf()
-            CharacterTemp.spellsKnown.add(i,set)
+            Global.loadedCharacter.spellsKnown.add(i,set)
         }
+
+        // TODO Mover esto a la selección de personaje cuando toque
+        Global.loadedCharacter = Global.personaje
 
 
     }
@@ -91,15 +96,14 @@ class MainActivity : AppCompatActivity() {
             when (position) {
                 0 -> frag = StatsSavesResistancesFragment()
                 1 -> frag = SpellsFragment()
-                2 -> frag = Frag3K()
-                3 -> frag = StatsSavesResistancesFragment()
+                2 -> frag = SkillsPointsFragment()
             }
             return frag!!
         }
 
         override fun getCount(): Int {
             // Show 3 total pages.
-            return 4
+            return 3
         }
 
     }
@@ -159,4 +163,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }*/
+
+    override fun onResume() {
+        super.onResume()
+
+        val viewOfLayout =  findViewById<LinearLayout>(R.id.topSumary)
+
+        viewOfLayout.nameTop.text = Global.personaje.name
+        viewOfLayout.classTop.text = Global.personaje.classes.toString()
+
+
+
+
+
+    }
+
 }
