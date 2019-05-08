@@ -69,6 +69,9 @@ class ProficiencyActivity : AppCompatActivity() {
                 val intent = Intent("finish_activity")
                 sendBroadcast(intent)
                 finish()
+                Global.loadedCharacter.createJson(applicationContext)
+                val mainIntent = Intent(this@ProficiencyActivity, MainActivity::class.java)
+                startActivity(mainIntent)
             }
         })
 

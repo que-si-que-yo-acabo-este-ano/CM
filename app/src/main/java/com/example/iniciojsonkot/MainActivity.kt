@@ -13,7 +13,6 @@ import android.widget.LinearLayout
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.example.iniciojsonkot.Global.Companion.characters
-import com.example.iniciojsonkot.Global.Companion.personaje
 import com.example.iniciojsonkot.Global.Companion.spells
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,8 +36,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        loadDataFromGit()
-        Character.loadCharacters(applicationContext)
         setSupportActionBar(toolbar)
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -56,10 +53,6 @@ class MainActivity : AppCompatActivity() {
             var set:MutableSet<String> = mutableSetOf()
             Global.loadedCharacter.spellsKnown.add(i,set)
         }
-
-        // TODO Mover esto a la selección de personaje cuando toque
-        Global.loadedCharacter = Global.personaje
-
 
     }
 
@@ -123,9 +116,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun loadDataFromGit(){
-        spells = DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
-    }
 
 
     /**
@@ -169,8 +159,8 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         var stringClasses = ""
-        var size = Global.personaje.classes.size
-        for((characterClass,classLevel) in Global.personaje.classes){
+        var size = Global.loadedCharacter.classes.size
+        for((characterClass,classLevel) in Global.loadedCharacter.classes){
             size--
             stringClasses += "$characterClass: $classLevel"
             if(size!=0){
@@ -180,7 +170,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewOfLayout =  findViewById<LinearLayout>(R.id.topSumary)
 
-        viewOfLayout.nameTop.text = Global.personaje.name
+        viewOfLayout.nameTop.text = Global.loadedCharacter.name
         viewOfLayout.classTop.text = stringClasses
 
 

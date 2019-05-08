@@ -15,14 +15,6 @@ class ModifyStatsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.modify_stats_layout)
-        Global.personaje.createJson(this.applicationContext)
-        Global.personaje = Character.createCharacterFromJson("Orpheus",this.applicationContext)
-        println("***************************** -- ${Global.characters.size}")
-        println("${Global.personaje.name}.json")
-        println(Global.personaje.classes)
-        //Global.characters[0].deleteCharacter(this.applicationContext)
-
-
 
         editStr.setText(Global.loadedCharacter.strength.toString())
         editDex.setText(Global.loadedCharacter.dexterity.toString())
@@ -199,6 +191,7 @@ class ModifyStatsActivity : AppCompatActivity() {
                 Global.loadedCharacter.wisdom = Integer.parseInt(editWis.text.toString())
                 Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
 
+                Global.loadedCharacter.createJson(applicationContext)
                 finish()
             }
         })

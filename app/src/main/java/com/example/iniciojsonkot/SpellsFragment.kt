@@ -148,7 +148,7 @@ class SpellsFragment : Fragment() {
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    val spellsOfMap = Global.loadedCharacter.spellsKnown[i]!!.toList().sorted()
+                    val spellsOfMap: List<String> = Global.loadedCharacter.spellsKnown[i]!!.toList().sorted()
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)

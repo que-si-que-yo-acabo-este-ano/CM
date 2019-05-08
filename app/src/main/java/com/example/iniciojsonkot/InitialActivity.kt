@@ -1,7 +1,9 @@
 package com.example.iniciojsonkot
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.initial_layout.*
@@ -10,6 +12,9 @@ class InitialActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.initial_layout)
+        loadDataFromGit()
+        println("===================LOAD==================")
+        Character.loadCharacters(applicationContext)
 
         for(i in 0..(Global.characters.size-1)){
             val character = Global.characters[i]
@@ -21,9 +26,28 @@ class InitialActivity : AppCompatActivity(){
             initialCharacters.addView(textView)
             textView.setOnClickListener {
                 Global.loadedCharacter = character
-                println(Global.loadedCharacter)
+                Global.showAllSpells = false
+                Global.tempSaves.addAll(Global.loadedCharacter.savesProficiencies)
+                Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
+                val selectedCharacterIntent = Intent(this@InitialActivity, MainActivity::class.java)
+                startActivity(selectedCharacterIntent)
             }
         }
+
+        initialCreateCharacter.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                val createCharIntent = Intent(this@InitialActivity, CreateCharacter::class.java)
+                startActivity(createCharIntent)
+            }
+        })
+
+        initialShowSpells.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                Global.showAllSpells = true
+                val allSpellsIntent = Intent(this@InitialActivity, AllSpellsActivity::class.java)
+                startActivity(allSpellsIntent)
+            }
+        })
 
         /*val textView = TextView(this)
         val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -36,5 +60,8 @@ class InitialActivity : AppCompatActivity(){
         textView.setPadding(30,10,0,10)
         textView.setBackgroundColor(Color.GREEN)
         initialScrollView.addView(textView)*/
+    }
+    fun loadDataFromGit(){
+        Global.spells = MainActivity.DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
     }
 }
