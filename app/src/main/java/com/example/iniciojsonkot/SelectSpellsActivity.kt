@@ -34,7 +34,7 @@ class SelectSpellsActivity : AppCompatActivity() {
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
 
-        cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
+
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 cantrips.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -47,7 +47,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         }
 
         val spellsLvl1 = findViewById<ToggleButton>(R.id.spellsLvl1)
-        spellsLvl1.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl1?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl1.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -58,7 +58,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl2 = findViewById<ToggleButton>(R.id.spellsLvl2)
-        spellsLvl2.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl2?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl2.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -69,7 +69,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl3 = findViewById<ToggleButton>(R.id.spellsLvl3)
-        spellsLvl3.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl3?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl3.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -80,7 +80,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl4 = findViewById<ToggleButton>(R.id.spellsLvl4)
-        spellsLvl4.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl4?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl4.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -91,7 +91,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl5 = findViewById<ToggleButton>(R.id.spellsLvl5)
-        spellsLvl5.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl5?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl5.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -102,7 +102,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl6 = findViewById<ToggleButton>(R.id.spellsLvl6)
-        spellsLvl6.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl6?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl6.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -113,7 +113,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl7 = findViewById<ToggleButton>(R.id.spellsLvl7)
-        spellsLvl7.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl7?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl7.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -125,7 +125,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl8 = findViewById<ToggleButton>(R.id.spellsLvl8)
-        spellsLvl8.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl8?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl8.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
@@ -136,7 +136,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl9 = findViewById<ToggleButton>(R.id.spellsLvl9)
-        spellsLvl9.setBackgroundColor(Color.parseColor("#86AC41"))
+
         spellsLvl9?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl9.setBackgroundResource(R.drawable.drawable_togglebutton_clicked)
