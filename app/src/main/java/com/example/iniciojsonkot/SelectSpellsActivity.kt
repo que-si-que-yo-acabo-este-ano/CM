@@ -255,7 +255,7 @@ class SelectSpellsActivity : AppCompatActivity() {
         descriptionTV.text = searchDescriptionFromSpell(spellCode).trim()
         descriptionTV.textSize = 16f
         descriptionTV.setPadding(30,10,10,10)
-        descriptionTV.setBackgroundColor(Color.parseColor("#c99174"))
+        descriptionTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
         descLay.addView(horizLay)
