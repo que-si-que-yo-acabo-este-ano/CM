@@ -19,7 +19,7 @@ import kotlin.streams.toList
 
 
 class SelectSpellsActivity : AppCompatActivity() {
-    var global = Global()
+    //var global = Global()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,6 +153,7 @@ class SelectSpellsActivity : AppCompatActivity() {
                     Global.loadedCharacter.spellsKnown[i].clear()
                     Global.loadedCharacter.spellsKnown[i].addAll(spellsSelected[i])
                 }
+                Global.loadedCharacter.createJson(applicationContext)
                 finish()
             }
         })
