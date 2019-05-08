@@ -274,7 +274,18 @@ class SpellsFragment : Fragment() {
 
         for(level in spellsLevels){
             viewOfLayout.findViewWithTag<ToggleButton>(level).setBackgroundColor(Color.parseColor("#86AC41"))
+
         }
+
+        var levels = listOf(0,1,2,3,4,5,6,7,8,9)
+        for(nlevel in levels){
+            if(spellsToShow.contains(nlevel))
+                viewOfLayout.findViewWithTag<ToggleButton>(spellsLevels.get(nlevel)).setBackgroundColor(Color.parseColor("#A2C523"))
+        }
+
+
+
+
     }
 
 }

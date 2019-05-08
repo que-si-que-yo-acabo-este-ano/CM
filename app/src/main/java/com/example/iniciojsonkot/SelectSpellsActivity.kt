@@ -31,7 +31,10 @@ class SelectSpellsActivity : AppCompatActivity() {
             spellsSelected.add(mutableSetOf())
             spellsSelected[i].addAll(Global.loadedCharacter.spellsKnown[i])
         }
+
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
+
+        cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 cantrips.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -41,7 +44,10 @@ class SelectSpellsActivity : AppCompatActivity() {
                 cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
             }
         }
+
+
         val spellsLvl1 = findViewById<ToggleButton>(R.id.spellsLvl1)
+        spellsLvl1.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl1?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl1.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -52,6 +58,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl2 = findViewById<ToggleButton>(R.id.spellsLvl2)
+        spellsLvl2.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl2?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl2.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -62,6 +69,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl3 = findViewById<ToggleButton>(R.id.spellsLvl3)
+        spellsLvl3.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl3?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl3.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -72,6 +80,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl4 = findViewById<ToggleButton>(R.id.spellsLvl4)
+        spellsLvl4.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl4?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl4.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -82,6 +91,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl5 = findViewById<ToggleButton>(R.id.spellsLvl5)
+        spellsLvl5.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl5?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl5.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -92,6 +102,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl6 = findViewById<ToggleButton>(R.id.spellsLvl6)
+        spellsLvl6.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl6?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl6.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -102,6 +113,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl7 = findViewById<ToggleButton>(R.id.spellsLvl7)
+        spellsLvl7.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl7?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl7.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -113,6 +125,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl8 = findViewById<ToggleButton>(R.id.spellsLvl8)
+        spellsLvl8.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl8?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl8.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -123,6 +136,7 @@ class SelectSpellsActivity : AppCompatActivity() {
             }
         }
         val spellsLvl9 = findViewById<ToggleButton>(R.id.spellsLvl9)
+        spellsLvl9.setBackgroundColor(Color.parseColor("#86AC41"))
         spellsLvl9?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
                 spellsLvl9.setBackgroundColor(Color.parseColor("#A2C523"))
@@ -192,6 +206,7 @@ class SelectSpellsActivity : AppCompatActivity() {
                         })
 
                         val spellSelectToggle = ToggleButton(this@SelectSpellsActivity)
+                        spellSelectToggle.setBackgroundColor(Color.parseColor("#86AC41"))
                         spellSelectToggle.text = spell
                         spellSelectToggle.textOff = "No"
                         spellSelectToggle.textOn = "Yes"
@@ -287,18 +302,6 @@ class SelectSpellsActivity : AppCompatActivity() {
         return descLay
     }
 
-    override fun onResume() {
-        super.onResume()
-        var spellsLevels = listOf("cantrips","spellsLvl1","spellsLvl2","spellsLvl3","spellsLvl4","spellsLvl5","spellsLvl6","spellsLvl7","spellsLvl8","spellsLvl9")
-
-
-        setContentView(R.layout.select_spells_layout)
-
-        for(level in spellsLevels){
-            findViewWithTag<ToggleButton>(level).setBackgroundColor(Color.parseColor("#86AC41"))
-            findViewById<ToggleButton>(R.id.)
-        }
-    }
 
 
 

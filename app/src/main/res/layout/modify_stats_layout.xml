@@ -7,7 +7,8 @@
         android:layout_height="match_parent"
         tools:context=".ModifyStatsActivity"
         android:descendantFocusability="beforeDescendants"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+android:background="@drawable/text_green">
 
 
     <android.support.constraint.Guideline
@@ -626,6 +627,7 @@
 
     <Button
             android:text="Save"
+            android:background="@drawable/top_green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
