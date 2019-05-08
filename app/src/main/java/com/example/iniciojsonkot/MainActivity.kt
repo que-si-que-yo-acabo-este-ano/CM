@@ -182,6 +182,9 @@ class MainActivity : AppCompatActivity() {
 
         viewOfLayout.nameTop.text = Global.personaje.name
         viewOfLayout.classTop.text = stringClasses
+        viewOfLayout.hpMaxTop.text = "${Global.loadedCharacter.maxHealth}"
+        viewOfLayout.acTop.text = "${Global.loadedCharacter.armor}"
+
 
 
 
