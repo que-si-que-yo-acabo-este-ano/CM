@@ -1,6 +1,8 @@
 package com.example.iniciojsonkot
 
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.AsyncTask
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +11,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
@@ -16,6 +19,8 @@ import com.example.iniciojsonkot.Global.Companion.characters
 import com.example.iniciojsonkot.Global.Companion.spells
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.initial_layout.*
+import kotlinx.android.synthetic.main.top_summary.*
 import kotlinx.android.synthetic.main.top_summary.view.*
 import java.lang.StringBuilder
 import java.net.URL
@@ -46,6 +51,29 @@ class MainActivity : AppCompatActivity() {
 
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
+
+        // Inicializar CharacterTemp.spellsKnown
+        Global.loadedCharacter.spellsKnown = mutableListOf()
+        for(i in 0..9){
+            var set:MutableSet<String> = mutableSetOf()
+            Global.loadedCharacter.spellsKnown.add(i,set)
+        }
+
+        logo.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                val goInitial = Intent(this@MainActivity, InitialActivity::class.java)
+                    startActivity(goInitial)
+            }
+        })
+
+        inspiration.setOnClickListener {
+            if(inspiration.currentTextColor === (Color.parseColor("#A2C523")))
+             inspiration.setTextColor(Color.GRAY)
+            else
+                inspiration.setTextColor(Color.parseColor("#A2C523"))
+
+        }
+
 
     }
 
