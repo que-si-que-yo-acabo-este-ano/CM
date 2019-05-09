@@ -35,6 +35,7 @@ class InitialActivity : AppCompatActivity(){
             textView.setOnClickListener {
                 Global.loadedCharacter = character
                 Global.showAllSpells = false
+                println(Global.loadedCharacter.spellsKnown)
                 Global.tempSaves.addAll(Global.loadedCharacter.savesProficiencies)
                 Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
                 val selectedCharacterIntent = Intent(this@InitialActivity, MainActivity::class.java)

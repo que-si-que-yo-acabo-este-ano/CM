@@ -11,12 +11,13 @@ import kotlinx.android.synthetic.main.proficiency_selector.*
 
 
 class ProficiencyActivity : AppCompatActivity() {
-    //private lateinit var viewOfLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.proficiency_selector)
         val viewOfLayout =  findViewById<LinearLayout>(R.id.proficiencies)
+        Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
+        Global.tempSaves.addAll(Global.loadedCharacter.savesProficiencies)
 
         var stats = listOf("Strength", "Dexterity", "Intelligence", "Constitution", "Wisdom", "Charisma")
 
@@ -64,9 +65,15 @@ class ProficiencyActivity : AppCompatActivity() {
 
         exitButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                println(Global.loadedCharacter.savesProficiencies)
-                Global.loadedCharacter.savesProficiencies.addAll(Global.tempSaves)
-                Global.loadedCharacter.skillsProficiencies.addAll(Global.tempProfs)
+                var tempSetSaves = mutableSetOf<String>()
+                tempSetSaves.addAll(Global.tempSaves)
+                var tempSetProfs = mutableSetOf<String>()
+                tempSetProfs.addAll(Global.tempProfs)
+
+                Global.loadedCharacter.savesProficiencies = tempSetSaves
+                Global.loadedCharacter.skillsProficiencies = tempSetProfs
+                //Global.loadedCharacter.savesProficiencies.addAll(Global.tempSaves)
+                //Global.loadedCharacter.skillsProficiencies.addAll(Global.tempProfs)
                 val intent = Intent("finish_activity")
                 sendBroadcast(intent)
                 finish()
