@@ -6,7 +6,7 @@ import com.beust.klaxon.JsonObject
 class Global : Application(){
     companion object{
         lateinit var spells: JsonObject
-
+        var isNotSpellsLoaded:Boolean = true
         /*var personaje = Character("Orpheus","Gnome",25,30,20,18,mutableMapOf("Wizard" to 5, "Rogue" to 2),mutableSetOf("Intelligence","Wisdom"),mutableSetOf("Arcana","Investigation","Perception"),mutableSetOf(),
             mutableListOf(mutableSetOf("Firebolt"),mutableSetOf("Alarm"),mutableSetOf(),mutableSetOf("Blink","Fireball"),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
             mutableListOf(mutableSetOf("Firebolt"),mutableSetOf("Alarm"),mutableSetOf(),mutableSetOf("Fireball"),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),

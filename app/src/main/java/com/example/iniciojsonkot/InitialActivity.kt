@@ -17,6 +17,7 @@ class InitialActivity : AppCompatActivity(){
         loadDataFromGit()
         println("===================LOAD==================")
         Character.loadCharacters(applicationContext)
+        initialCharacters.removeAllViewsInLayout()
 
         for(i in 0..(Global.characters.size-1)){
             val character = Global.characters[i]
@@ -26,10 +27,8 @@ class InitialActivity : AppCompatActivity(){
             textView.layoutParams = params
             textView.text = character.name
             textView.setBackgroundResource(R.drawable.top_green)
-            textView.setBackgroundResource(R.drawable.top_green)
             textView.tag = character.name
             initialCharacters.addView(textView)
-            //initialCharacters.findViewWithTag<TextView>(character.name)
 
 
             textView.setOnClickListener {
@@ -40,6 +39,7 @@ class InitialActivity : AppCompatActivity(){
                 Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
                 val selectedCharacterIntent = Intent(this@InitialActivity, MainActivity::class.java)
                 startActivity(selectedCharacterIntent)
+                finish()
             }
         }
 
@@ -71,6 +71,9 @@ class InitialActivity : AppCompatActivity(){
         initialScrollView.addView(textView)*/
     }
     fun loadDataFromGit(){
-        Global.spells = MainActivity.DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
+        if(Global.isNotSpellsLoaded){
+            Global.spells = MainActivity.DownloadGit().execute("https://raw.githubusercontent.com/TheGiddyLimit/TheGiddyLimit.github.io/master/data/spells/spells-phb.json").get()
+            Global.isNotSpellsLoaded = false
+        }
     }
 }

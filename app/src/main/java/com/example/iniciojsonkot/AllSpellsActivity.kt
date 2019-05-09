@@ -136,7 +136,6 @@ class AllSpellsActivity : AppCompatActivity() {
             }
         }
         val buttonSelect = findViewById<Button>(R.id.buttonSelect)
-
         buttonSelect.text = "Back"
         buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
