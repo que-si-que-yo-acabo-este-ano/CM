@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.view.Gravity
 import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.create_character_1.*
@@ -25,8 +26,8 @@ import kotlin.math.floor
 
 class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
-    val listOfClasses = arrayOf("","Bard","Cleric","Druid","Paladin","Ranger","Sorcerer","Warlock","Wizard")
-    val listOfRaces = arrayOf("","Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling")
+    val listOfClasses = arrayOf("Bard","Cleric","Druid","Paladin","Ranger","Sorcerer","Warlock","Wizard")
+    val listOfRaces = arrayOf("Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling")
 
     var spinnerClass: Spinner? = null
     var spinnerRace: Spinner? = null
@@ -60,19 +61,36 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
         arrayAdapterRaces.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRace!!.setAdapter(arrayAdapterRaces)
 
+        nameInput.validate("Name required"){s-> (s.length>=2)}
+        speedInput.validate("Speed required"){s-> (s!="")}
+        hpInput.validate("HP required"){s-> (s!="")}
+        acInput.validate("AC required"){s-> (s!="")}
+
 
         addClassButton.setOnClickListener (object : View.OnClickListener {
             override fun onClick(v: View) {
                 val classView = LinearLayout(v.context)
                 classView.orientation = LinearLayout.HORIZONTAL
 
+                val classEmptySpace1 = TextView(v.context)
+                classEmptySpace1.text=" "
+                classEmptySpace1.textSize=24.toFloat()
+                val classEmptySpace2 = TextView(v.context)
+                classEmptySpace2.text=" "
+                classEmptySpace2.textSize=24.toFloat()
+
                 val className = TextView(v.context)
                 className.setText(classSpinner.selectedItem.toString())
+                className.textSize=24.toFloat()
 
                 val classLevel = EditText(v.context)
 
-                classLevel.maxEms = 2
+                classLevel.minEms = 2
+                classLevel.gravity = Gravity.CENTER_HORIZONTAL
                 classLevel.inputType = InputType.TYPE_CLASS_NUMBER
+                classLevel.setText("1")
+                classLevel.textSize=24.toFloat()
+                //classLevel.width=25
                 classLevel.addTextChangedListener(
                     object : TextWatcher {
                         override fun afterTextChanged(s: Editable) {}
@@ -93,8 +111,14 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                         }
                     })
 
+
+                classLevel.validate("Level required"){s-> (s!="")}
+
+
                 classView.addView(className)
+                classView.addView(classEmptySpace1)
                 classView.addView(classLevel)
+                classView.addView(classEmptySpace2)
                 classView.setTag(className.text)
 
                 val alreadyExists = classesList.findViewWithTag<View>(className.text)
@@ -103,7 +127,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                     classesList.addView(classView)
                 }
 
-                val removeClass = Button(v.context)
+                val removeClass = TextView(v.context)
                 removeClass.setBackgroundColor(Color.parseColor("#86AC41"))
                 removeClass.text = "Remove"
                 removeClass.setOnClickListener(object : View.OnClickListener{
@@ -315,5 +339,24 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
     fun calcMod(x: Int): String{
         return floor((x.toDouble()-10)/2).toString()
+    }
+
+    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
+        this.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                afterTextChanged.invoke(s.toString())
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+        })
+    }
+
+    fun EditText.validate(message: String, validator: (String) -> Boolean) {
+        this.afterTextChanged {
+            this.error = if (validator(it)) null else message
+        }
+        this.error = if (validator(this.text.toString())) null else message
     }
 }

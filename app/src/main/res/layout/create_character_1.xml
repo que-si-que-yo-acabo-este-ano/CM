@@ -413,6 +413,7 @@
               android:id="@+id/speedInput"
               android:inputType="number"
               android:ems="2"
+              android:gravity="center_horizontal"
               android:text="30"
               app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/speedView"
               android:layout_marginStart="4dp"/>
@@ -431,7 +432,8 @@
               android:id="@+id/hpInput"
               android:inputType="number"
               android:ems="2"
-              android:text="0"
+              android:text="10"
+              android:gravity="center_horizontal"
               app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/hpView"
               android:layout_marginStart="8dp"/>
     <TextView
@@ -450,6 +452,7 @@
               android:inputType="number"
               android:ems="2"
               android:text="10"
+              android:gravity="center_horizontal"
               app:layout_constraintTop_toTopOf="@id/guideline13" app:layout_constraintStart_toEndOf="@+id/acView"
               android:layout_marginStart="8dp"/>
     <Button
