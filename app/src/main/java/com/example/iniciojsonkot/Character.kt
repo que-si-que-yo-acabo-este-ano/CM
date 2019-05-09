@@ -109,7 +109,7 @@ class Character(_name: String, _race: String,_speed: Int, _maxHealth: Int, _curr
             for(fileName in context.fileList()){
                 val pattern = "([\\w]+).json".toRegex()
                 val name = pattern.replace(fileName,"$1")
-                //Global.characters.add(createCharacterFromJson(name,context))
+                Global.characters.add(createCharacterFromJson(name,context))
             }
             println(context.fileList().size)
 

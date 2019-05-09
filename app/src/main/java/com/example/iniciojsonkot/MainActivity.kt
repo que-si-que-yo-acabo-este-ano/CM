@@ -47,13 +47,6 @@ class MainActivity : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
-        // Inicializar CharacterTemp.spellsKnown
-        Global.loadedCharacter.spellsKnown = mutableListOf()
-        for(i in 0..9){
-            var set:MutableSet<String> = mutableSetOf()
-            Global.loadedCharacter.spellsKnown.add(i,set)
-        }
-
     }
 
 /*

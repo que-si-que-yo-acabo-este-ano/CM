@@ -301,6 +301,12 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
         nextButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+                // Inicializar CharacterTemp.spellsKnown
+                //Global.loadedCharacter.spellsKnown = mutableListOf()
+                for(i in 0..9){
+                    var set:MutableSet<String> = mutableSetOf()
+                    Global.loadedCharacter.spellsKnown.add(i,set)
+                }
                 Global.loadedCharacter.name = nameInput.text.toString()
                 Global.loadedCharacter.race = raceSpinner.selectedItem.toString()
                 Global.loadedCharacter.classes = selectedClasses

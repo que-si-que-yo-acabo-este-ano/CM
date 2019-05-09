@@ -33,6 +33,8 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_character_1)
+        println("-----------------------------")
+        println(Global.loadedCharacter.classes)
 
         editStr.setText(Global.loadedCharacter.strength.toString())
         editDex.setText(Global.loadedCharacter.dexterity.toString())
@@ -40,6 +42,7 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
         editInt.setText(Global.loadedCharacter.intelligence.toString())
         editWis.setText(Global.loadedCharacter.wisdom.toString())
         editCha.setText(Global.loadedCharacter.charisma.toString())
+        raceViewForEdit.text = Global.loadedCharacter.race
 
         spinnerClass = this.classSpinner
         spinnerClass!!.setOnItemSelectedListener(this)
@@ -54,6 +57,8 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
         acInput.validate("AC required"){s-> (s!="")}
 
         for (clase in Global.loadedCharacter.classes.keys){
+            selectedClasses.put(clase,Global.loadedCharacter.classes[clase]!!.toInt())
+
             val classView = LinearLayout(this@EditCharacter)
             classView.orientation = LinearLayout.HORIZONTAL
 
@@ -65,15 +70,14 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
             classEmptySpace2.textSize=24.toFloat()
 
             val className = TextView(this@EditCharacter)
-            className.setText(classSpinner.selectedItem.toString())
+            className.setText(clase)
             className.textSize=24.toFloat()
 
             val classLevel = EditText(this@EditCharacter)
-
             classLevel.minEms = 2
             classLevel.gravity = Gravity.CENTER_HORIZONTAL
             classLevel.inputType = InputType.TYPE_CLASS_NUMBER
-            classLevel.setText("1")
+            classLevel.setText(Global.loadedCharacter.classes[clase]!!.toString())
             classLevel.textSize=24.toFloat()
             classLevel.addTextChangedListener(
                 object : TextWatcher {
@@ -90,7 +94,7 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                         var level: Int
                         if (s.any()){
                             level = Integer . parseInt (s.toString())
-                            selectedClasses.put(classSpinner.selectedItem.toString(),level)
+                            selectedClasses.put(clase,level)
                         }
                     }
                 })
@@ -142,6 +146,7 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 classLevel.inputType = InputType.TYPE_CLASS_NUMBER
                 classLevel.setText("1")
                 classLevel.textSize=24.toFloat()
+                selectedClasses.put(classSpinner.selectedItem.toString(),1)
                 classLevel.addTextChangedListener(
                     object : TextWatcher {
                         override fun afterTextChanged(s: Editable) {}
@@ -347,11 +352,9 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                     }
                 }
             })
-
+        nextButton.setText("Finish")
         nextButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                Global.loadedCharacter.name = nameInput.text.toString()
-                Global.loadedCharacter.race = raceSpinner.selectedItem.toString()
                 Global.loadedCharacter.classes = selectedClasses
                 Global.loadedCharacter.speed = Integer.parseInt(speedInput.text.toString())
                 Global.loadedCharacter.strength = Integer.parseInt(editStr.text.toString())
@@ -363,6 +366,7 @@ class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 Global.loadedCharacter.maxHealth = Integer.parseInt(hpInput.text.toString())
                 Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
 
+                Global.loadedCharacter.createJson(applicationContext)
                 finish()
             }
         })
