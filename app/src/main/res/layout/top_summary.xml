@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="106dp"
             android:orientation="vertical"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="0dp">
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
         <RelativeLayout
                 android:layout_width="match_parent"
@@ -110,14 +110,17 @@
             <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:srcCompat="@mipmap/ic_launcher"
+                    app:srcCompat="@drawable/logo1"
                     android:id="@+id/imageView7"
                     android:layout_marginTop="28dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="12dp"
-                    android:layout_alignParentBottom="true" android:layout_marginBottom="28dp"/>
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="28dp"
+            />
 
         </RelativeLayout>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
