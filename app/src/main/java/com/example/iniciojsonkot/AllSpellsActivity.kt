@@ -1,39 +1,28 @@
 package com.example.iniciojsonkot
 
+import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
+import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.ToggleButton
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.modify_stats_layout.*
 import kotlinx.android.synthetic.main.select_spells_layout.*
-import android.widget.*
-import com.example.iniciojsonkot.Searchers.Companion.searchCastingTimeFromSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchDurationFromSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchRangeFromSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchSpell
-import com.example.iniciojsonkot.Searchers.Companion.searchSpellsByLevelsAndClasses
 import kotlinx.android.synthetic.main.spells_fragment_layout.view.*
-import kotlin.streams.toList
 
-
-class SelectSpellsActivity : AppCompatActivity() {
-    //var global = Global()
-
+class AllSpellsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.select_spells_layout)
-        val spellsToShow : MutableSet<Int> = mutableSetOf()
-        var spellsSelected : MutableList<MutableSet<String>> = mutableListOf()
+        setContentView(R.layout.spells_fragment_layout)
+        val spellsToShow: MutableSet<Int> = mutableSetOf()
         //CharacterTemp.spellsKnown
-        for (i in 0..9){
-            spellsSelected.add(mutableSetOf())
-            spellsSelected[i].addAll(Global.loadedCharacter.spellsKnown[i])
-        }
 
         val cantrips = findViewById<ToggleButton>(R.id.cantrips)
-
 
         cantrips?.setOnCheckedChangeListener {_, isChecked ->
             if(isChecked){
@@ -146,31 +135,27 @@ class SelectSpellsActivity : AppCompatActivity() {
                 spellsLvl9.setBackgroundResource(R.drawable.drawable_togglebutton)
             }
         }
+        val buttonSelect = findViewById<Button>(R.id.buttonSelect)
 
+        buttonSelect.text = "Back"
         buttonSelect.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                for (i in 0..9){
-                    Global.loadedCharacter.spellsKnown[i].clear()
-                    Global.loadedCharacter.spellsKnown[i].addAll(spellsSelected[i])
-                }
-                Global.loadedCharacter.createJson(applicationContext)
                 finish()
             }
         })
 
-
         button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+
                 val spellsSorted = spellsToShow.toList().sorted()
-                val spellsRequested = searchSpellsByLevelsAndClasses(spellsSorted,Global.loadedCharacter.classes.keys)
                 linLay.removeAllViewsInLayout()
-                for (i in spellsRequested.keys) {
+                for (i in spellsSorted) {
                     val textView = TextView(v.context)
                     val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
-                    val spellsOfMap = spellsRequested[i]!!
+                    val spellsOfMap: List<String> = Searchers.searchSpellsByLevel(i).sorted()
                     textView.text = "Spells of level " + i
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
@@ -178,12 +163,8 @@ class SelectSpellsActivity : AppCompatActivity() {
                     linLay.addView(textView)
 
                     for (spell in spellsOfMap){
-                        val horizLay = LinearLayout(this@SelectSpellsActivity)
-                        horizLay.orientation = LinearLayout.HORIZONTAL
-                        horizLay.setBackgroundColor(Color.parseColor("#c99174"))
-
                         val spellView = TextView(v.context)
-                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                         spellParams.setMargins(50,20,50,0)
                         spellView.layoutParams = spellParams
                         spellView.text = spell
@@ -193,93 +174,80 @@ class SelectSpellsActivity : AppCompatActivity() {
 
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
-                                val descLayout = prueba(spellView)
-
-                                descLayout.setTag("prueba" + spellView.text.toString())
-                                val prueba = linLay.findViewWithTag<View>("prueba" + spellView.text.toString())
-
-                                if(prueba == null){
-                                    linLay.addView(descLayout, linLay.indexOfChild(horizLay)+1)
-                                }else{
-                                    linLay.removeViewAt(linLay.indexOfChild(prueba))
-                                }
+                                prueba(spellView)
                             }
                         })
 
-                        val spellSelectToggle = ToggleButton(this@SelectSpellsActivity)
-                        spellSelectToggle.setBackgroundColor(Color.parseColor("#86AC41"))
-                        spellSelectToggle.text = spell
-                        spellSelectToggle.textOff = "No"
-                        spellSelectToggle.textOn = "Yes"
-                        spellSelectToggle?.setOnCheckedChangeListener {_, isChecked ->
-                            if(isChecked){
-                                spellsSelected[i]?.add(spell.toString())
-                            }else{
-                                spellsSelected[i]?.remove(spell.toString())
-                            }
-                        }
-
-                        horizLay.addView(spellView)
-                        horizLay.addView(spellSelectToggle)
-
-                        linLay.addView(horizLay)
+                        linLay.addView(spellView)
                     }
 
                 }
             }
         })
 
+    }
+    override fun onResume() {
+        super.onResume()
+        cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl1.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl2.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl3.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl4.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl5.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl6.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl7.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl8.setBackgroundColor(Color.parseColor("#86AC41"))
+        spellsLvl9.setBackgroundColor(Color.parseColor("#86AC41"))
 
     }
-
-    fun prueba(tx:TextView):LinearLayout{
-        val descLay = LinearLayout(this)
-        descLay.setBackgroundColor(Color.parseColor("#A2C540"))
+    fun prueba(tx: TextView){
+        val descLay = LinearLayout(this@AllSpellsActivity)
+        descLay.setBackgroundColor(Color.parseColor("#A2C540")) //right_green
         descLay.orientation = LinearLayout.VERTICAL
 
-        val spellCode = searchSpell(tx.text.toString())
+        val spellCode = Searchers.searchSpell(tx.text.toString())
 
         val paramsPrueba : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsPrueba.setMargins(50,20,20,0)
 
-        val castingTimeTV = TextView(this)
+        val castingTimeTV = TextView(this@AllSpellsActivity)
         castingTimeTV.layoutParams = paramsPrueba
-        castingTimeTV.text = "Casting time: " + searchCastingTimeFromSpell(spellCode)
+        castingTimeTV.text = "Casting time: " + Searchers.searchCastingTimeFromSpell(spellCode)
         castingTimeTV.textSize = 16f
         castingTimeTV.setPadding(30,10,30,10)
         castingTimeTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
-        val rangeTextView = TextView(this)
+        val rangeTextView = TextView(this@AllSpellsActivity)
         rangeTextView.layoutParams = paramsPrueba
-        rangeTextView.text = "Range: " + searchRangeFromSpell(spellCode)
+        rangeTextView.text = "Range: " + Searchers.searchRangeFromSpell(spellCode)
         rangeTextView.textSize = 16f
         rangeTextView.setPadding(30,10,30,10)
         rangeTextView.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
-        val componentsTV = TextView(this)
+        val componentsTV = TextView(this@AllSpellsActivity)
         componentsTV.layoutParams = paramsPrueba
-        componentsTV.text = "Components: " + searchComponentsFromSpell(spellCode)
+        componentsTV.text = "Components: " + Searchers.searchComponentsFromSpell(spellCode)
         componentsTV.textSize = 16f
         componentsTV.setPadding(30,10,30,10)
         componentsTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
-        val durationTV = TextView(this)
+        val durationTV = TextView(this@AllSpellsActivity)
         durationTV.layoutParams = paramsPrueba
-        durationTV.text = "Duration: " + searchDurationFromSpell(spellCode)
+        durationTV.text = "Duration: " + Searchers.searchDurationFromSpell(spellCode)
         durationTV.textSize = 16f
         durationTV.setPadding(30,10,30,10)
         durationTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
 
-        val horizLay = LinearLayout(this)
+        val horizLay = LinearLayout(this@AllSpellsActivity)
         horizLay.orientation = LinearLayout.HORIZONTAL
         horizLay.addView(castingTimeTV)
         horizLay.addView(componentsTV)
 
-        val horizLay2 = LinearLayout(this)
+        val horizLay2 = LinearLayout(this@AllSpellsActivity)
         horizLay2.orientation = LinearLayout.HORIZONTAL
         horizLay2.addView(rangeTextView)
         horizLay2.addView(durationTV)
@@ -288,9 +256,9 @@ class SelectSpellsActivity : AppCompatActivity() {
         val paramsDesc : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsDesc.setMargins(50,20,50,30)
 
-        val descriptionTV = TextView(this)
+        val descriptionTV = TextView(this@AllSpellsActivity)
         descriptionTV.layoutParams = paramsDesc
-        descriptionTV.text = searchDescriptionFromSpell(spellCode).trim()
+        descriptionTV.text = Searchers.searchDescriptionFromSpell(spellCode).trim()
         descriptionTV.textSize = 16f
         descriptionTV.setPadding(30,10,10,10)
         descriptionTV.setBackgroundColor(Color.parseColor("#c9e26c"))
@@ -300,10 +268,14 @@ class SelectSpellsActivity : AppCompatActivity() {
         descLay.addView(horizLay2)
         descLay.addView(descriptionTV)
 
-        return descLay
+
+        descLay.setTag("prueba" + tx.text.toString())
+        val prueba = linLay.findViewWithTag<View>("prueba" + tx.text.toString())
+
+        if(prueba == null){
+            linLay.addView(descLay, linLay.indexOfChild(tx)+1)
+        }else{
+            linLay.removeViewAt(linLay.indexOfChild(prueba))
+        }
     }
-
-
-
-
 }

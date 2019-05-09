@@ -64,11 +64,15 @@ class ProficiencyActivity : AppCompatActivity() {
 
         exitButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
+                println(Global.loadedCharacter.savesProficiencies)
                 Global.loadedCharacter.savesProficiencies.addAll(Global.tempSaves)
                 Global.loadedCharacter.skillsProficiencies.addAll(Global.tempProfs)
                 val intent = Intent("finish_activity")
                 sendBroadcast(intent)
                 finish()
+                Global.loadedCharacter.createJson(applicationContext)
+                val mainIntent = Intent(this@ProficiencyActivity, MainActivity::class.java)
+                startActivity(mainIntent)
             }
         })
 

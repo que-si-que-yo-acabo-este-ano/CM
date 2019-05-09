@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
@@ -69,6 +70,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 className.setText(classSpinner.selectedItem.toString())
 
                 val classLevel = EditText(v.context)
+
                 classLevel.maxEms = 2
                 classLevel.inputType = InputType.TYPE_CLASS_NUMBER
                 classLevel.addTextChangedListener(
@@ -102,6 +104,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 }
 
                 val removeClass = Button(v.context)
+                removeClass.setBackgroundColor(Color.parseColor("#86AC41"))
                 removeClass.text = "Remove"
                 removeClass.setOnClickListener(object : View.OnClickListener{
                     override fun onClick(w: View) {

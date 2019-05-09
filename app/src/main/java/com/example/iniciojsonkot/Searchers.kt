@@ -49,11 +49,11 @@ class Searchers {
             return res[0]!!.toString()
         }
 
-        fun searchSpellsByLevel(level: Int): List<String?>{
+        fun searchSpellsByLevel(level: Int): List<String>{
             val spellsList = Global.spells.array<JsonObject>("spell")!!.filter {
                 it.int("level") == level
             }.map {
-                it.string("name")
+                it.string("name").toString()
             }
             return spellsList
         }
