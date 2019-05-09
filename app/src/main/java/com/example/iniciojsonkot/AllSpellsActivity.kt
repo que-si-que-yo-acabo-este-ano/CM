@@ -185,20 +185,7 @@ class AllSpellsActivity : AppCompatActivity() {
         })
 
     }
-    override fun onResume() {
-        super.onResume()
-        cantrips.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl1.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl2.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl3.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl4.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl5.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl6.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl7.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl8.setBackgroundColor(Color.parseColor("#86AC41"))
-        spellsLvl9.setBackgroundColor(Color.parseColor("#86AC41"))
 
-    }
     fun prueba(tx: TextView){
         val descLay = LinearLayout(this@AllSpellsActivity)
         descLay.setBackgroundColor(Color.parseColor("#A2C540")) //right_green
