@@ -46,7 +46,10 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_character_1)
-
+        Global.loadedCharacter = Character("","",0,0,0,0,mutableMapOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),
+            mutableListOf(mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
+            mutableListOf(mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf(),mutableSetOf()),
+            10,10,10,10,10,10)
         registerReceiver(broadcast_reciever, IntentFilter("finish_activity"))
 
         spinnerClass = this.classSpinner
@@ -321,7 +324,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
 
 
-                val profsIntent = Intent(this@CreateCharacter, ProficiencyActivity::class.java)
+                val profsIntent = Intent(this@CreateCharacter, ProficiencyActivityAfterCreateCharacter::class.java)
                 startActivity(profsIntent)
 
                 //finish()

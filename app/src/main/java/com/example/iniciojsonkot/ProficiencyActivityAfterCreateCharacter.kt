@@ -1,0 +1,114 @@
+package com.example.iniciojsonkot
+
+import android.content.Intent
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.Switch
+import kotlinx.android.synthetic.main.proficiency_selector.*
+
+class ProficiencyActivityAfterCreateCharacter : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.proficiency_selector)
+        val viewOfLayout =  findViewById<LinearLayout>(R.id.proficiencies)
+        Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
+        Global.tempSaves.addAll(Global.loadedCharacter.savesProficiencies)
+
+        var stats = listOf("Strength", "Dexterity", "Intelligence", "Constitution", "Wisdom", "Charisma")
+
+
+        for (stat in stats) {
+            viewOfLayout.findViewWithTag<Switch>(stat).setOnClickListener {
+                var switchChecked = viewOfLayout.findViewWithTag<Switch>(stat).isChecked
+                run {
+                    if (switchChecked) {
+                        switchChecked = true
+                        Global.tempSaves.add(stat)
+                    } else {
+                        switchChecked = false
+                        Global.tempSaves.remove(stat)
+                    }
+                }
+            }
+        }
+
+        var skills = listOf("Athletics", "Acrobatics", "Sleight", "Stealth", "Arcana",
+            "History", "Investigation", "Religion", "Animal", "Insight", "Medicine", "Perception", "Survival",
+            "Deception", "Intimidation", "Performance", "Persuasion")
+
+        for (s in skills) {
+            viewOfLayout.findViewWithTag<Switch>(s).setOnClickListener {
+                var switchChecked = viewOfLayout.findViewWithTag<Switch>(s).isChecked
+                run {
+                    if (switchChecked) {
+                        switchChecked = true
+                        Global.tempProfs.add(s)
+                    } else {
+                        switchChecked = false
+                        Global.tempProfs.remove(s)
+                    }
+
+                }
+            }
+        }
+
+        backbutton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                finish()
+            }
+        })
+
+        exitButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                var tempSetSaves = mutableSetOf<String>()
+                tempSetSaves.addAll(Global.tempSaves)
+                var tempSetProfs = mutableSetOf<String>()
+                tempSetProfs.addAll(Global.tempProfs)
+
+                Global.loadedCharacter.savesProficiencies = tempSetSaves
+                Global.loadedCharacter.skillsProficiencies = tempSetProfs
+                val intent = Intent("finish_activity")
+                sendBroadcast(intent)
+                finish()
+                Global.loadedCharacter.createJson(applicationContext)
+                Global.characters.add(Global.loadedCharacter)
+                val mainIntent = Intent(this@ProficiencyActivityAfterCreateCharacter, MainActivity::class.java)
+                startActivity(mainIntent)
+            }
+        })
+
+
+
+    }
+    override fun onResume() {
+        super.onResume()
+
+        val viewOfLayout =  findViewById<LinearLayout>(R.id.proficiencies)
+
+        var stats = listOf("Strength", "Dexterity", "Intelligence", "Constitution", "Wisdom", "Charisma")
+
+        var skills = listOf(
+            "Athletics", "Acrobatics", "Sleight", "Stealth", "Arcana",
+            "History", "Investigation", "Religion", "Animal", "Insight", "Medicine", "Perception", "Survival",
+            "Deception", "Intimidation", "Performance", "Persuasion"
+        )
+
+        for(skill in skills){
+
+            if(Global.tempProfs.contains(skill))
+                viewOfLayout.findViewWithTag<Switch>(skill).isChecked = true
+
+
+        }
+        for(skill in stats){
+
+            if(Global.tempSaves.contains(skill))
+                viewOfLayout.findViewWithTag<Switch>(skill).isChecked = true
+        }
+
+    }
+
+}
