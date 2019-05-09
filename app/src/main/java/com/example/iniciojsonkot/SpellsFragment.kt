@@ -154,6 +154,7 @@ class SpellsFragment : Fragment() {
                     textView.setPadding(30,10,0,10)
                     textView.setBackgroundColor(Color.parseColor("#86AC41"))
                     linLay.addView(textView)
+                    println(Global.loadedCharacter.spellsKnown)
 
                     for (spell in spellsOfMap){
                         val spellView = TextView(v.context)

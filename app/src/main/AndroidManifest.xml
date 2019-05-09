@@ -16,6 +16,8 @@
         </activity>
         <activity android:name=".AllSpellsActivity">
         </activity>
+        <activity android:name=".EditCharacter">
+        </activity>
         <activity android:name=".ProficiencyActivity">
         </activity>
         <activity android:name=".CreateCharacter"

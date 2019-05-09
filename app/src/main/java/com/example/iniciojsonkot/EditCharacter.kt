@@ -1,7 +1,5 @@
 package com.example.iniciojsonkot
 
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
@@ -24,30 +22,27 @@ import kotlinx.android.synthetic.main.create_character_1.view.*
 import kotlinx.android.synthetic.main.modify_stats_layout.*
 import kotlin.math.floor
 
-class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
+class EditCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
     val listOfClasses = arrayOf("Bard","Cleric","Druid","Paladin","Ranger","Sorcerer","Warlock","Wizard")
-    val listOfRaces = arrayOf("Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling")
 
     var spinnerClass: Spinner? = null
-    var spinnerRace: Spinner? = null
     var selectedClasses : MutableMap<String,Int> = mutableMapOf()
 
-    val broadcast_reciever = object : BroadcastReceiver() {
-
-        override fun onReceive(arg0: Context, intent: Intent) {
-            val action = intent.action
-            if (action == "finish_activity") {
-                finish()
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_character_1)
+        println("-----------------------------")
+        println(Global.loadedCharacter.classes)
 
-        registerReceiver(broadcast_reciever, IntentFilter("finish_activity"))
+        editStr.setText(Global.loadedCharacter.strength.toString())
+        editDex.setText(Global.loadedCharacter.dexterity.toString())
+        editCon.setText(Global.loadedCharacter.constitution.toString())
+        editInt.setText(Global.loadedCharacter.intelligence.toString())
+        editWis.setText(Global.loadedCharacter.wisdom.toString())
+        editCha.setText(Global.loadedCharacter.charisma.toString())
+        raceViewForEdit.text = Global.loadedCharacter.race
 
         spinnerClass = this.classSpinner
         spinnerClass!!.setOnItemSelectedListener(this)
@@ -55,16 +50,77 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
         arrayAdapterClasses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerClass!!.setAdapter(arrayAdapterClasses)
 
-        spinnerRace = this.raceSpinner
-        spinnerRace!!.setOnItemSelectedListener(this)
-        val arrayAdapterRaces = ArrayAdapter(this,android.R.layout.simple_spinner_item,listOfRaces)
-        arrayAdapterRaces.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerRace!!.setAdapter(arrayAdapterRaces)
-
-        nameInput.validate("Name required"){s-> (s.length>=2)}
+        nameInput.setText(Global.loadedCharacter.name)
+        nameInput.keyListener = null
         speedInput.validate("Speed required"){s-> (s!="")}
         hpInput.validate("HP required"){s-> (s!="")}
         acInput.validate("AC required"){s-> (s!="")}
+
+        for (clase in Global.loadedCharacter.classes.keys){
+            selectedClasses.put(clase,Global.loadedCharacter.classes[clase]!!.toInt())
+
+            val classView = LinearLayout(this@EditCharacter)
+            classView.orientation = LinearLayout.HORIZONTAL
+
+            val classEmptySpace1 = TextView(this@EditCharacter)
+            classEmptySpace1.text=" "
+            classEmptySpace1.textSize=24.toFloat()
+            val classEmptySpace2 = TextView(this@EditCharacter)
+            classEmptySpace2.text=" "
+            classEmptySpace2.textSize=24.toFloat()
+
+            val className = TextView(this@EditCharacter)
+            className.setText(clase)
+            className.textSize=24.toFloat()
+
+            val classLevel = EditText(this@EditCharacter)
+            classLevel.minEms = 2
+            classLevel.gravity = Gravity.CENTER_HORIZONTAL
+            classLevel.inputType = InputType.TYPE_CLASS_NUMBER
+            classLevel.setText(Global.loadedCharacter.classes[clase]!!.toString())
+            classLevel.textSize=24.toFloat()
+            classLevel.addTextChangedListener(
+                object : TextWatcher {
+                    override fun afterTextChanged(s: Editable) {}
+                    override fun beforeTextChanged(
+                        s: CharSequence, start: Int,
+                        count: Int, after: Int
+                    ) {
+                    }
+                    override fun onTextChanged(
+                        s: CharSequence, start: Int,
+                        before: Int, count: Int
+                    ) {
+                        var level: Int
+                        if (s.any()){
+                            level = Integer . parseInt (s.toString())
+                            selectedClasses.put(clase,level)
+                        }
+                    }
+                })
+
+
+            classLevel.validate("Level required"){s-> (s!="")}
+
+
+            val removeClass = TextView(this@EditCharacter)
+            removeClass.setBackgroundColor(Color.parseColor("#86AC41"))
+            removeClass.text = "Remove"
+            removeClass.setOnClickListener(object : View.OnClickListener{
+                override fun onClick(w: View) {
+                    selectedClasses.remove(className.text)
+                    classesList.removeView(classesList.findViewWithTag<View>(className.text))
+                }
+            })
+
+            classView.addView(className)
+            classView.addView(classEmptySpace1)
+            classView.addView(classLevel)
+            classView.addView(classEmptySpace2)
+            classView.addView(removeClass)
+            classView.setTag(className.text)
+            classesList.addView(classView)
+        }
 
 
         addClassButton.setOnClickListener (object : View.OnClickListener {
@@ -90,7 +146,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 classLevel.inputType = InputType.TYPE_CLASS_NUMBER
                 classLevel.setText("1")
                 classLevel.textSize=24.toFloat()
-                //classLevel.width=25
+                selectedClasses.put(classSpinner.selectedItem.toString(),1)
                 classLevel.addTextChangedListener(
                     object : TextWatcher {
                         override fun afterTextChanged(s: Editable) {}
@@ -113,7 +169,6 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
 
                 classLevel.validate("Level required"){s-> (s!="")}
-
 
                 classView.addView(className)
                 classView.addView(classEmptySpace1)
@@ -138,7 +193,6 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 })
 
                 classView.addView(removeClass)
-
 
             }
         })
@@ -298,17 +352,9 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                     }
                 }
             })
-
+        nextButton.setText("Finish")
         nextButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                // Inicializar CharacterTemp.spellsKnown
-                //Global.loadedCharacter.spellsKnown = mutableListOf()
-                for(i in 0..9){
-                    var set:MutableSet<String> = mutableSetOf()
-                    Global.loadedCharacter.spellsKnown.add(i,set)
-                }
-                Global.loadedCharacter.name = nameInput.text.toString()
-                Global.loadedCharacter.race = raceSpinner.selectedItem.toString()
                 Global.loadedCharacter.classes = selectedClasses
                 Global.loadedCharacter.speed = Integer.parseInt(speedInput.text.toString())
                 Global.loadedCharacter.strength = Integer.parseInt(editStr.text.toString())
@@ -320,11 +366,8 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 Global.loadedCharacter.maxHealth = Integer.parseInt(hpInput.text.toString())
                 Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
 
-
-                val profsIntent = Intent(this@CreateCharacter, ProficiencyActivity::class.java)
-                startActivity(profsIntent)
-
-                //finish()
+                Global.loadedCharacter.createJson(applicationContext)
+                finish()
             }
         })
 

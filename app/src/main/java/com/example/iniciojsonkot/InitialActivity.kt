@@ -1,12 +1,14 @@
 package com.example.iniciojsonkot
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.initial_layout.*
+import kotlinx.android.synthetic.main.modify_stats_layout.view.*
 
 class InitialActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,13 +22,20 @@ class InitialActivity : AppCompatActivity(){
             val character = Global.characters[i]
             val textView = TextView(this)
             val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,100)
+            params.setMargins(50,20,50,0)
             textView.layoutParams = params
             textView.text = character.name
-            textView.setBackgroundResource(R.drawable.back)
+            textView.setBackgroundResource(R.drawable.top_green)
+            textView.setBackgroundResource(R.drawable.top_green)
+            textView.tag = character.name
             initialCharacters.addView(textView)
+            //initialCharacters.findViewWithTag<TextView>(character.name)
+
+
             textView.setOnClickListener {
                 Global.loadedCharacter = character
                 Global.showAllSpells = false
+                println(Global.loadedCharacter.spellsKnown)
                 Global.tempSaves.addAll(Global.loadedCharacter.savesProficiencies)
                 Global.tempProfs.addAll(Global.loadedCharacter.skillsProficiencies)
                 val selectedCharacterIntent = Intent(this@InitialActivity, MainActivity::class.java)

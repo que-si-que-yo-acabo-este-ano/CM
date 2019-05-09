@@ -153,6 +153,8 @@ class SelectSpellsActivity : AppCompatActivity() {
                     Global.loadedCharacter.spellsKnown[i].clear()
                     Global.loadedCharacter.spellsKnown[i].addAll(spellsSelected[i])
                 }
+                println("----------------------")
+                println(Global.loadedCharacter.spellsKnown)
                 Global.loadedCharacter.createJson(applicationContext)
                 finish()
             }

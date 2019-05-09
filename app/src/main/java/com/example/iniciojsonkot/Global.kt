@@ -22,8 +22,8 @@ class Global : Application(){
             8,14,16,18,15,11)*/
         var characters: MutableList<Character> = mutableListOf()
 
-        var tempSaves = mutableSetOf<String>()
-        var tempProfs = mutableSetOf<String>()
+        var tempSaves : MutableSet<String> = mutableSetOf<String>()
+        var tempProfs : MutableSet<String> = mutableSetOf<String>()
         var showAllSpells = false
     }
 }

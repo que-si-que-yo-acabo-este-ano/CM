@@ -107,8 +107,6 @@ class Character(_name: String, _race: String,_speed: Int, _maxHealth: Int, _curr
             println("=====FICHEROS=====")
             println(context.fileList().size)
             for(fileName in context.fileList()){
-                //println(fileName)
-                //context.deleteFile(fileName)
                 val pattern = "([\\w]+).json".toRegex()
                 val name = pattern.replace(fileName,"$1")
                 Global.characters.add(createCharacterFromJson(name,context))
