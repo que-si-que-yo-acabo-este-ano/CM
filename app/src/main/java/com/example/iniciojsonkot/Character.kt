@@ -98,8 +98,6 @@ class Character(_name: String, _race: String,_speed: Int, _maxHealth: Int, _curr
     fun deleteCharacter(context:Context){
         Global.characters.remove(this)
         context.deleteFile("$name.json")
-        println(context.fileList().size)
-        println(Global.characters.size)
     }
 
     companion object {
