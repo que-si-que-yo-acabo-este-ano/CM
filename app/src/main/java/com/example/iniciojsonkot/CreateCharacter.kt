@@ -305,7 +305,7 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
         nextButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 // Inicializar CharacterTemp.spellsKnown
-                //Global.loadedCharacter.spellsKnown = mutableListOf()
+                Global.loadedCharacter.spellsKnown = mutableListOf()
                 for(i in 0..9){
                     var set:MutableSet<String> = mutableSetOf()
                     Global.loadedCharacter.spellsKnown.add(i,set)
@@ -322,6 +322,8 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
                 Global.loadedCharacter.maxHealth = Integer.parseInt(hpInput.text.toString())
                 Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
+
+                //TODO Impedir que este botón funcione si no se meten los datos requeridos
 
 
                 val profsIntent = Intent(this@CreateCharacter, ProficiencyActivityAfterCreateCharacter::class.java)
