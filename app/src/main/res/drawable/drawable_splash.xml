@@ -6,7 +6,7 @@
 
     <item>
         <bitmap
-            android:src="@drawable/vectorpaint4"
+            android:src="@drawable/initialDice"
 
             />
     </item>
