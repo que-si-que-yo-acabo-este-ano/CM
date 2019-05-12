@@ -193,6 +193,8 @@ class SelectSpellsActivity : AppCompatActivity() {
                         spellView.setPadding(30,10,0,10)
                         spellView.setBackgroundColor(Color.parseColor("#A2C523"))
 
+                        spellView.width = (330 * applicationContext.resources.displayMetrics.density).toInt()
+
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
                                 val descLayout = prueba(spellView)
@@ -208,19 +210,21 @@ class SelectSpellsActivity : AppCompatActivity() {
                             }
                         })
 
-                        val spellSelectToggle = ToggleButton(this@SelectSpellsActivity)
+                        val spellSelectToggle = Switch(this@SelectSpellsActivity)
                         spellSelectToggle.setBackgroundColor(Color.parseColor("#86AC41"))
-                        spellSelectToggle.text = spell
-                        spellSelectToggle.textOff = "No"
-                        spellSelectToggle.textOn = "Yes"
-                        spellSelectToggle?.setOnCheckedChangeListener {_, isChecked ->
-                            if(isChecked){
-                                spellsSelected[i]?.add(spell.toString())
-                            }else{
-                                spellsSelected[i]?.remove(spell.toString())
-                            }
+
+                        if(spellsSelected[i].contains(spell.toString())) {
+                            spellSelectToggle.isChecked = true
                         }
 
+                        spellSelectToggle?.setOnClickListener {
+                            var swichtChecked = spellSelectToggle.isChecked
+                            if (swichtChecked) {
+                                spellsSelected[i].add(spell.toString())
+                            } else {
+                                spellsSelected[i].remove(spell.toString())
+                            }
+                        }
                         horizLay.addView(spellView)
                         horizLay.addView(spellSelectToggle)
 

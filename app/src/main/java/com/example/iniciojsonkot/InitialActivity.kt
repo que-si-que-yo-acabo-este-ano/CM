@@ -83,7 +83,7 @@ class InitialActivity : AppCompatActivity(){
         })
 
         /*val textView = TextView(this)
-        val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        val params : LinearLayout.LayoutParams = LinearLayou    t.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         params.setMargins(50,20,50,0)
         textView.layoutParams = params
         textView.height = 40
