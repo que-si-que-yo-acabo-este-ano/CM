@@ -168,7 +168,7 @@ class SelectSpellsActivity : AppCompatActivity() {
                 linLay.removeAllViewsInLayout()
                 for (i in spellsRequested.keys) {
                     val textView = TextView(v.context)
-                    val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                    val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
                     params.setMargins(50,20,50,0)
                     textView.layoutParams = params
 
@@ -181,19 +181,22 @@ class SelectSpellsActivity : AppCompatActivity() {
 
                     for (spell in spellsOfMap){
                         val horizLay = LinearLayout(this@SelectSpellsActivity)
+                        val horizLayParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+                        horizLayParams.setMargins(50,10,50,0)
+                        horizLay.layoutParams = horizLayParams
                         horizLay.orientation = LinearLayout.HORIZONTAL
                         horizLay.setBackgroundColor(Color.parseColor("#c99174"))
+                        horizLay.weightSum = 10f
 
                         val spellView = TextView(v.context)
-                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                        spellParams.setMargins(50,20,50,0)
+                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2f)
                         spellView.layoutParams = spellParams
                         spellView.text = spell
                         spellView.textSize = 25f
                         spellView.setPadding(30,10,0,10)
                         spellView.setBackgroundColor(Color.parseColor("#A2C523"))
 
-                        spellView.width = (330 * applicationContext.resources.displayMetrics.density).toInt()
+                        //spellView.width = (330 * applicationContext.resources.displayMetrics.density).toInt()
 
                         spellView.setOnClickListener(object : View.OnClickListener{
                             override fun onClick(v: View) {
@@ -212,6 +215,8 @@ class SelectSpellsActivity : AppCompatActivity() {
 
                         val spellSelectToggle = Switch(this@SelectSpellsActivity)
                         spellSelectToggle.setBackgroundColor(Color.parseColor("#86AC41"))
+                        val spellSelectToggleParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 8f)
+                        spellSelectToggle.layoutParams = spellSelectToggleParams
 
                         if(spellsSelected[i].contains(spell.toString())) {
                             spellSelectToggle.isChecked = true

@@ -147,12 +147,11 @@
             app:layout_constraintTop_toBottomOf="@+id/spellsLvl4" android:textOff="9" android:textOn="9"
     />
     <ScrollView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:id="@+id/scrollView2"
             app:layout_constraintTop_toBottomOf="@+id/guideline10"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent">
         <LinearLayout
                 android:id="@+id/linLay"
                 android:orientation="vertical"
