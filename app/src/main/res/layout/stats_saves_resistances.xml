@@ -370,7 +370,7 @@
 
 
     <Button
-            android:text="Modify stats"
+            android:text="Edit character"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/top_green"

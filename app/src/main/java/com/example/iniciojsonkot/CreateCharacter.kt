@@ -1,9 +1,7 @@
 package com.example.iniciojsonkot
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
+import android.app.AlertDialog
+import android.content.*
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -94,6 +92,8 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                 classLevel.setText("1")
                 classLevel.textSize=24.toFloat()
                 //classLevel.width=25
+
+                selectedClasses.put(classSpinner.selectedItem.toString(),1)
                 classLevel.addTextChangedListener(
                     object : TextWatcher {
                         override fun afterTextChanged(s: Editable) {}
@@ -310,24 +310,90 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
                     var set:MutableSet<String> = mutableSetOf()
                     Global.loadedCharacter.spellsKnown.add(i,set)
                 }
-                Global.loadedCharacter.name = nameInput.text.toString()
-                Global.loadedCharacter.race = raceSpinner.selectedItem.toString()
-                Global.loadedCharacter.classes = selectedClasses
-                Global.loadedCharacter.speed = Integer.parseInt(speedInput.text.toString())
-                Global.loadedCharacter.strength = Integer.parseInt(editStr.text.toString())
-                Global.loadedCharacter.dexterity = Integer.parseInt(editDex.text.toString())
-                Global.loadedCharacter.constitution = Integer.parseInt(editCon.text.toString())
-                Global.loadedCharacter.intelligence = Integer.parseInt(editInt.text.toString())
-                Global.loadedCharacter.wisdom = Integer.parseInt(editWis.text.toString())
-                Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
-                Global.loadedCharacter.maxHealth = Integer.parseInt(hpInput.text.toString())
-                Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
 
-                //TODO Impedir que este botón funcione si no se meten los datos requeridos
+                var emptyData : String = ""
+
+                if (nameInput.text.toString().length >= 1){
+                    println(nameInput.text.toString().length)
+                    Global.loadedCharacter.name = nameInput.text.toString()
+                }else{
+                    emptyData = emptyData.plus("Name\n")
+                }
+
+                if (raceSpinner.selectedItem.toString().length >= 1){
+                    Global.loadedCharacter.race = raceSpinner.selectedItem.toString()
+                }else{
+                    emptyData = emptyData.plus("Race\n")
+                }
+
+                if (selectedClasses.size >= 1){
+                    Global.loadedCharacter.classes = selectedClasses
+                }else{
+                    emptyData = emptyData.plus("Classes\n")
+                }
+
+                if (speedInput.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.speed = Integer.parseInt(speedInput.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Speed\n")
+                }
+
+                if (hpInput.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.maxHealth = Integer.parseInt(hpInput.text.toString())
+                }else{
+                    emptyData = emptyData.plus("MaxHP\n")
+                }
+
+                if (acInput.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.armor = Integer.parseInt(acInput.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Armor\n")
+                }
+
+                if (editStr.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.strength = Integer.parseInt(editStr.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Strength\n")
+                }
+
+                if (editDex.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.dexterity = Integer.parseInt(editDex.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Dexterity\n")
+                }
+
+                if (editCon.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.constitution = Integer.parseInt(editCon.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Constitution\n")
+                }
+
+                if (editInt.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.intelligence = Integer.parseInt(editInt.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Intelligence\n")
+                }
+
+                if (editWis.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.wisdom = Integer.parseInt(editWis.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Wisdom\n")
+                }
+
+                if (editCha.text.toString().isNotEmpty()){
+                    Global.loadedCharacter.charisma = Integer.parseInt(editCha.text.toString())
+                }else{
+                    emptyData = emptyData.plus("Charisma\n")
+                }
 
 
-                val profsIntent = Intent(this@CreateCharacter, ProficiencyActivityAfterCreateCharacter::class.java)
-                startActivity(profsIntent)
+
+                if (emptyData.length < 1){
+                    val profsIntent = Intent(this@CreateCharacter, ProficiencyActivityAfterCreateCharacter::class.java)
+                    startActivity(profsIntent)
+                }else{
+                    showDialog(emptyData)
+                }
 
                 //finish()
             }
@@ -369,5 +435,35 @@ class CreateCharacter : AppCompatActivity(), AdapterView.OnItemSelectedListener{
             this.error = if (validator(it)) null else message
         }
         this.error = if (validator(this.text.toString())) null else message
+    }
+
+
+    private fun showDialog(emptyData: String){
+        // Late initialize an alert dialog object
+        lateinit var dialog: AlertDialog
+
+        // Initialize a new instance of alert dialog builder object
+        val builder = AlertDialog.Builder(this)
+
+        // Set a title for alert dialog
+        //builder.setTitle("Delete")
+
+        // Set a message for alert dialog
+        builder.setMessage("These inputs can't be empty: \n" + emptyData)
+
+        // On click listener for dialog buttons
+        val dialogClickListener = DialogInterface.OnClickListener{ _, which ->
+            when(which){
+                DialogInterface.BUTTON_NEUTRAL -> dialog.dismiss()
+            }
+        }
+        // Set the alert dialog OK button
+        builder.setNeutralButton("OK",dialogClickListener)
+
+        // Initialize the AlertDialog using builder object
+        dialog = builder.create()
+
+        // Finally, display the alert dialog
+        dialog.show()
     }
 }

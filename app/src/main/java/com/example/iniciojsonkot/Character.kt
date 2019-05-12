@@ -106,12 +106,12 @@ class Character(_name: String, _race: String,_speed: Int, _maxHealth: Int, _curr
             println(context.fileList().size)
             if(Global.characters.isEmpty()){
                 for(fileName in context.fileList()){
+                    //context.deleteFile(fileName) // delete all characters if app can't load
                     val pattern = "([\\w]+).json".toRegex()
                     val name = pattern.replace(fileName,"$1")
-                    Global.characters.add(createCharacterFromJson(name,context))
+                   Global.characters.add(createCharacterFromJson(name,context)) // comment this line if want to delete all characters
                 }
             }
-
         }
 
         fun mapToString(jsonMap:MutableMap<String,Int>):String{
