@@ -138,7 +138,7 @@ class Character(_name: String, _race: String,_speed: Int, _maxHealth: Int, _curr
                 string+= "\""
                 listOfString.add(string)
             }
-            println("-----------------")
+            println("------listOfString-----------")
             println(listOfString)
             return listOfString
         }

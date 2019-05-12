@@ -53,11 +53,11 @@ class MainActivity : AppCompatActivity() {
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
         // Inicializar CharacterTemp.spellsKnown
-        Global.loadedCharacter.spellsKnown = mutableListOf()
+        /*Global.loadedCharacter.spellsKnown = mutableListOf()
         for(i in 0..9){
             var set:MutableSet<String> = mutableSetOf()
             Global.loadedCharacter.spellsKnown.add(i,set)
-        }
+        }*/
 
         logo.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {

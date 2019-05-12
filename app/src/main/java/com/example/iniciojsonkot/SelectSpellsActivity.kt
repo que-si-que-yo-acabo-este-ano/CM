@@ -153,8 +153,8 @@ class SelectSpellsActivity : AppCompatActivity() {
                     Global.loadedCharacter.spellsKnown[i].clear()
                     Global.loadedCharacter.spellsKnown[i].addAll(spellsSelected[i])
                 }
-                println("----------------------")
-                println(Global.loadedCharacter.spellsKnown)
+                /*println("---------SelectSpellsActivity-------------")
+                println(Global.loadedCharacter.spellsKnown)*/
                 Global.loadedCharacter.createJson(applicationContext)
                 finish()
             }
@@ -173,7 +173,11 @@ class SelectSpellsActivity : AppCompatActivity() {
                     textView.layoutParams = params
 
                     val spellsOfMap = spellsRequested[i]!!
-                    textView.text = "Spells of level " + i
+                    if(i==0){
+                        textView.text = "Cantrips"
+                    }else{
+                        textView.text = "Spells of level " + i
+                    }
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
                     textView.setBackgroundColor(Color.parseColor("#86AC41"))

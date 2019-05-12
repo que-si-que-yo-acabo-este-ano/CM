@@ -15,6 +15,9 @@ import com.example.iniciojsonkot.Searchers.Companion.searchComponentsFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchDescriptionFromSpell
 import com.example.iniciojsonkot.Searchers.Companion.searchSpell
 import kotlinx.android.synthetic.main.select_spells_layout.*
+import kotlinx.android.synthetic.main.select_spells_layout.cantrips
+import kotlinx.android.synthetic.main.select_spells_layout.linLay
+import kotlinx.android.synthetic.main.spells_fragment_layout.*
 import kotlinx.android.synthetic.main.spells_fragment_layout.view.*
 
 //import kotlinx.android.synthetic.main.fragment_your_fragment_name.view.*
@@ -26,7 +29,6 @@ class SpellsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewOfLayout = inflater!!.inflate(R.layout.spells_fragment_layout, container, false)
-
 
 
         viewOfLayout.cantrips.setOnCheckedChangeListener {_, isChecked ->
@@ -149,7 +151,11 @@ class SpellsFragment : Fragment() {
                     textView.layoutParams = params
 
                     val spellsOfMap: List<String> = Global.loadedCharacter.spellsKnown[i]!!.toList().sorted()
-                    textView.text = "Spells of level " + i
+                    if(i==0){
+                        textView.text = "Cantrips"
+                    }else{
+                        textView.text = "Spells of level " + i
+                    }
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
                     textView.setBackgroundColor(Color.parseColor("#86AC41"))
@@ -157,22 +163,25 @@ class SpellsFragment : Fragment() {
                     println(Global.loadedCharacter.spellsKnown)
 
                     for (spell in spellsOfMap){
-                        val spellView = TextView(v.context)
-                        val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                        spellParams.setMargins(50,20,50,0)
-                        spellView.layoutParams = spellParams
-                        spellView.text = spell
-                        spellView.textSize = 25f
-                        spellView.setPadding(30,10,0,10)
-                        spellView.setBackgroundColor(Color.parseColor("#A2C523"))
+                        if(spell.isNotBlank()){
+                            val spellView = TextView(v.context)
+                            val spellParams : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                            spellParams.setMargins(50,20,50,0)
+                            spellView.layoutParams = spellParams
+                            spellView.text = spell
+                            spellView.textSize = 25f
+                            spellView.setPadding(30,10,0,10)
+                            spellView.setBackgroundColor(Color.parseColor("#A2C523"))
 
-                        spellView.setOnClickListener(object : View.OnClickListener{
-                            override fun onClick(v: View) {
-                                prueba(spellView)
-                            }
-                        })
+                            spellView.setOnClickListener(object : View.OnClickListener{
+                                override fun onClick(v: View) {
+                                    prueba(spellView)
+                                }
+                            })
 
-                        linLay.addView(spellView)
+                            linLay.addView(spellView)
+
+                        }
                     }
 
                 }
