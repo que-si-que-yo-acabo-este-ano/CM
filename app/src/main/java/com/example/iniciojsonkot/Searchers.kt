@@ -1,5 +1,6 @@
 package com.example.iniciojsonkot
 
+import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 
 class Searchers {
@@ -99,14 +100,26 @@ class Searchers {
                 it.array<Any>("entries")
             }
 
-            for(i in 0..(description[0]!!.size-1)){
+            for(i in 0..(description[0]!!.size-1)) {
                 val positionText = description[0]!![i]
-                if(positionText !is String){
+                if (positionText !is String) {
                     val descriptionObject = positionText as JsonObject
-                    if(descriptionObject.string("type").equals("list")){
+                    val typeFromDescriptionObject = descriptionObject.string("type")
+                    if (typeFromDescriptionObject.equals("list")) {
                         val items = descriptionObject.array<String>("items")
-                        for(i in 0..(items!!.size-1)){
+                        for (i in 0..(items!!.size - 1)) {
                             text += "\n * " + items[i]
+                        }
+                    }else if(typeFromDescriptionObject.equals("table")){
+                        text+="\n ${descriptionObject.string("caption")}\n"
+                        val colLabels = descriptionObject.array<String>("colLabels")
+                        for(i in 0..(colLabels!!.size-1)){
+                            text+="${colLabels[i]} "
+                        }
+                        val rows = descriptionObject.array<Any>("rows")
+                        for(i in 0..(rows!!.size-1)){
+                            val row = rows[i] as JsonArray<String>
+                            text+= "\n${row[0]}     ${row[1]}"
                         }
                     }else{
                         text += "\n * "
@@ -126,7 +139,7 @@ class Searchers {
                 }
 
             }
-            val pattern = "[{]@(dice|condition) ([\\w]+)[}]".toRegex()
+            val pattern = "[{]@(dice|condition|hit|damage|creature|spell|scaledice|filter|item) ([\\w]+)[}]".toRegex()
 
             return pattern.replace(text,"$2")
         }
