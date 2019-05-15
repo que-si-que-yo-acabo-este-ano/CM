@@ -155,7 +155,11 @@ class AllSpellsActivity : AppCompatActivity() {
                     textView.layoutParams = params
 
                     val spellsOfMap: List<String> = Searchers.searchSpellsByLevel(i).sorted()
-                    textView.text = "Spells of level " + i
+                    if(i==0){
+                        textView.text = "Cantrips"
+                    }else{
+                        textView.text = "Spells of level " + i
+                    }
                     textView.textSize = 25f
                     textView.setPadding(30,10,0,10)
                     textView.setBackgroundColor(Color.parseColor("#86AC41"))
@@ -176,10 +180,8 @@ class AllSpellsActivity : AppCompatActivity() {
                                 prueba(spellView)
                             }
                         })
-
                         linLay.addView(spellView)
                     }
-
                 }
             }
         })
@@ -203,14 +205,12 @@ class AllSpellsActivity : AppCompatActivity() {
         castingTimeTV.setPadding(30,10,30,10)
         castingTimeTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
-
         val rangeTextView = TextView(this@AllSpellsActivity)
         rangeTextView.layoutParams = paramsPrueba
         rangeTextView.text = "Range: " + Searchers.searchRangeFromSpell(spellCode)
         rangeTextView.textSize = 16f
         rangeTextView.setPadding(30,10,30,10)
         rangeTextView.setBackgroundColor(Color.parseColor("#c9e26c"))
-
 
         val componentsTV = TextView(this@AllSpellsActivity)
         componentsTV.layoutParams = paramsPrueba
@@ -219,14 +219,12 @@ class AllSpellsActivity : AppCompatActivity() {
         componentsTV.setPadding(30,10,30,10)
         componentsTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
-
         val durationTV = TextView(this@AllSpellsActivity)
         durationTV.layoutParams = paramsPrueba
         durationTV.text = "Duration: " + Searchers.searchDurationFromSpell(spellCode)
         durationTV.textSize = 16f
         durationTV.setPadding(30,10,30,10)
         durationTV.setBackgroundColor(Color.parseColor("#c9e26c"))
-
 
         val horizLay = LinearLayout(this@AllSpellsActivity)
         horizLay.orientation = LinearLayout.HORIZONTAL
@@ -238,7 +236,6 @@ class AllSpellsActivity : AppCompatActivity() {
         horizLay2.addView(rangeTextView)
         horizLay2.addView(durationTV)
 
-
         val paramsDesc : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         paramsDesc.setMargins(50,20,50,30)
 
@@ -249,11 +246,9 @@ class AllSpellsActivity : AppCompatActivity() {
         descriptionTV.setPadding(30,10,10,10)
         descriptionTV.setBackgroundColor(Color.parseColor("#c9e26c"))
 
-
         descLay.addView(horizLay)
         descLay.addView(horizLay2)
         descLay.addView(descriptionTV)
-
 
         descLay.setTag("prueba" + tx.text.toString())
         val prueba = linLay.findViewWithTag<View>("prueba" + tx.text.toString())
